@@ -1,0 +1,68 @@
+.loan-table-container {
+  width: 100%;
+  height: 50vh;
+  overflow-y: auto;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 25px 30px rgba(0, 0, 0, 0.21);
+  border-radius: 16px;
+  padding: 0;
+}
+
+.loan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Public Sans', sans-serif;
+}
+
+.loan-table th {
+  position: sticky;
+  top: 0;
+  background: #FFFFFF;
+  padding: 16px 8px 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #919EAB;
+  border-bottom: 1px solid rgba(145, 158, 171, 0.2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.loan-table td {
+  padding: 16px 8px 16px 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 25px;
+  color: #000000;
+  border-bottom: 1px solid rgba(145, 158, 171, 0.2);
+}
+
+.loan-table tbody tr:hover {
+  background-color: rgba(145, 158, 171, 0.08);
+}
+
+.sort-indicator {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+/* Scrollbar styling */
+.loan-table-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.loan-table-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.loan-table-container::-webkit-scrollbar-thumb {
+  background: rgba(145, 158, 171, 0.2);
+  border-radius: 4px;
+}
+
+.loan-table-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(145, 158, 171, 0.3);
+} 

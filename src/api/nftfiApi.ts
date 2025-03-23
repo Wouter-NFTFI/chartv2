@@ -21,6 +21,9 @@
 // Treat all data as immutable and verifiable
 
 import { API_URL } from '../config/api'
+import { filterCollectionsWithAvailablePriceData } from './priceFloorApi'
+
+const NFTFI_API_URL = 'https://theta-sdk-api.nftfi.com';
 
 // Interfaces for API responses
 export interface NFTfiLoanMeta {
@@ -71,30 +74,45 @@ export interface NFTfiCollectionsResponse {
 /**
  * Fetches loans due within a specific number of days
  * @param daysFromNow Number of days from now to fetch loans for
+ * @param collectionName Optional collection name to filter loans
  * @param lenderAddress Optional lender address to filter loans
  * @returns Promise containing loan data
  */
 export async function fetchLoans(
   daysFromNow: number,
+  collectionName?: string,
   lenderAddress?: string
 ): Promise<NFTfiLoansResponse> {
   try {
-    const url = new URL(`${API_URL}/data/v0/pipes/loans_v2.json`)
+    const url = new URL(`${NFTFI_API_URL}/data/v0/pipes/loans_v2.json`)
     url.searchParams.append('howDaysFromNow', daysFromNow.toString())
+    url.searchParams.append('page_size', '1000')
     
     if (lenderAddress) {
       url.searchParams.append('lenderAddress', lenderAddress)
     }
+
+    if (collectionName) {
+      url.searchParams.append('nftProjectName', encodeURIComponent(collectionName))
+    }
     
-    url.searchParams.append('page_size', '1000')
+    console.log('Fetching loans from:', url.toString()); // Debug log
     
-    const response = await fetch(url.toString())
+    const response = await fetch(url.toString(), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Origin': window.location.origin
+      },
+      mode: 'cors' // Explicitly request CORS
+    })
     
     if (!response.ok) {
       throw new Error(`Failed to fetch loans: ${response.status} ${response.statusText}`)
     }
     
     const data = await response.json()
+    console.log('Raw loan data:', data); // Debug log
     return data as NFTfiLoansResponse
   } catch (error) {
     console.error('Error fetching loans:', error)
@@ -107,12 +125,14 @@ export async function fetchLoans(
  * @param daysFromNow Number of days from now to fetch collections for
  * @param pageSize Number of collections to fetch
  * @param limit Optional limit to return only top N collections
+ * @param filterByPriceData Whether to filter collections by available price floor data (default: true)
  * @returns Promise containing processed collection data
  */
 export async function fetchTopCollections(
   daysFromNow: number,
   pageSize: number = 100,
-  limit: number = 20
+  limit: number = 20,
+  filterByPriceData: boolean = true
 ): Promise<NFTfiCollection[]> {
   try {
     const url = new URL(`${API_URL}/data/v0/pipes/loans_due_by_collection_endpoint.json`)
@@ -127,8 +147,15 @@ export async function fetchTopCollections(
     
     const data = await response.json() as NFTfiCollectionsResponse
     
+    // Filter collections if needed
+    let filteredCollections = [...data.data];
+    if (filterByPriceData) {
+      // Filter collections by those that have price floor data available
+      filteredCollections = filterCollectionsWithAvailablePriceData(filteredCollections);
+    }
+    
     // Sort collections by total USD value (descending)
-    const sortedCollections = [...data.data].sort((a, b) => 
+    const sortedCollections = filteredCollections.sort((a, b) => 
       b.total_usd_value - a.total_usd_value
     );
     

@@ -1,0 +1,61 @@
+.depth-chart-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 25px 30px rgba(0, 0, 0, 0.21);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.depth-chart-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toggle-container {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-container button {
+  padding: 8px 16px;
+  border: 1px solid rgba(145, 158, 171, 0.08);
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #637381;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-container button.active {
+  background: linear-gradient(135deg, #CB2B83 0%, #A61D6E 100%);
+  color: #FFFFFF;
+  border: none;
+}
+
+.depth-chart {
+  flex: 1;
+  width: 100%;
+}
+
+.depth-chart-tooltip {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 25px 30px rgba(0, 0, 0, 0.21);
+  border-radius: 16px;
+  padding: 16px;
+  font-family: 'Public Sans', sans-serif;
+}
+
+.depth-chart-tooltip p {
+  margin: 0;
+  line-height: 1.5;
+  color: #212B36;
+  font-size: 14px;
+} 
