@@ -6,11 +6,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import NFTFloorPrice from './components/NFTFloorPrice'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [contractAddress, setContractAddress] = useState('0x123456789abcdef')
 
   return (
     <>
@@ -31,17 +29,6 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-      </div>
-      
-      <div className="nft-section">
-        <h2>NFT Floor Price Demo</h2>
-        <input 
-          type="text" 
-          value={contractAddress} 
-          onChange={(e) => setContractAddress(e.target.value)}
-          placeholder="Enter contract address"
-        />
-        <NFTFloorPrice contractAddress={contractAddress} />
       </div>
       
       <p className="read-the-docs">
