@@ -6,32 +6,53 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './components/App.css'
-import { fetchLoans } from './api/nftfiApi'
+import './App.css'
+import { fetchTopCollections, NFTfiCollection } from './api/nftfiApi'
+import CollectionDropdown from './components/CollectionDropdown'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [collections, setCollections] = useState<NFTfiCollection[]>([])
+  const [selectedCollection, setSelectedCollection] = useState<NFTfiCollection | null>(null)
 
   useEffect(() => {
-    async function fetchLoanData() {
+    async function fetchData() {
       try {
         setLoading(true)
-        // Fetch loans due in the next 365 days, no specific lender
-        const response = await fetchLoans(365)
-        console.log('Fetched loan data:', response)
-        console.log(`Total loans: ${response.rows}`)
-        console.log(`First loan protocol: ${response.data[0]?.protocolName}`)
-        console.log(`First loan amount: ${response.data[0]?.principalAmount} ${response.data[0]?.currencyName}`)
+        
+        // Fetch top collections with loan data
+        const collectionsData = await fetchTopCollections(1000000, 1000);
+        setCollections(collectionsData);
+        
+        console.log(`Fetched ${collectionsData.length} collections`);
+        console.log(`Top collection: ${collectionsData[0]?.nftProjectName}`);
+        console.log(`Total volume: $${Math.round(collectionsData[0]?.total_usd_value).toLocaleString()}`);
+        
       } catch (error) {
-        console.error('Failed to fetch loan data:', error)
+        console.error('Failed to fetch data:', error)
       } finally {
         setLoading(false)
       }
     }
 
-    fetchLoanData()
+    fetchData()
   }, [])
+
+  // Handle collection selection
+  const handleSelectCollection = (collection: NFTfiCollection) => {
+    setSelectedCollection(collection);
+    
+    // Log collection loans to console
+    console.log('Selected collection:', collection.nftProjectName);
+    console.log('Loan count:', collection.loan_count);
+    console.log('Total USD value:', collection.total_usd_value.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }));
+    console.log('Average APR:', collection.avg_apr.toFixed(2) + '%');
+    console.log('Volume percentage:', collection.volumePercentage?.toFixed(2) + '%');
+  };
 
   return (
     <>
@@ -43,19 +64,33 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>ChartV2 on Cloudflare Pages</h1>
+      <h1>NFTfi Collections by Volume</h1>
       
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          {loading ? 'Loading loan data...' : 'Loan data fetched! Check console for results.'}
+        <CollectionDropdown 
+          collections={collections}
+          onSelectCollection={handleSelectCollection}
+          isLoading={loading}
+        />
+        
+        {selectedCollection && (
+          <div className="collection-details">
+            <h3>{selectedCollection.nftProjectName}</h3>
+            <p>Loan Count: {selectedCollection.loan_count}</p>
+            <p>Total Value: ${Math.round(selectedCollection.total_usd_value).toLocaleString()}</p>
+            <p>Average APR: {selectedCollection.avg_apr.toFixed(2)}%</p>
+          </div>
+        )}
+        
+        <p className="description">
+          {loading 
+            ? 'Loading NFTfi collections data...' 
+            : 'Select a collection to see details. Collection data sorted by loan volume.'}
         </p>
       </div>
       
       <p className="read-the-docs">
-        API test deployed to Cloudflare Pages
+        Data from NFTfi API - Showing Top 20 Collections by Volume
       </p>
     </>
   )

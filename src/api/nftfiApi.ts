@@ -20,78 +20,134 @@
 // Use exact field names from contract ABIs only
 // Treat all data as immutable and verifiable
 
-export interface NFTfiLoanMetadata {
-  name: string;
-  type: string;
+import { API_URL } from '../config/api'
+
+// Interfaces for API responses
+export interface NFTfiLoanMeta {
+  elapsed: number
+  rows: number
+  bytes_read: number
+  // Additional meta fields from the API
 }
 
 export interface NFTfiLoan {
-  protocolName: string;
-  loanId: string;
-  loanContractAddress: string;
-  nftProjectName: string | null;
-  nftProjectImageUri: string;
-  nftAddress: string;
-  nftId: string;
-  nftName: string;
-  nftImageSmallUri: string;
-  nftImageLargeUri: string;
-  status: string;
-  currencyName: string | null;
-  principalAmount: number;
-  principalAmountETH: number | null;
-  repaymentAmount: number;
-  loanStartTime: number;
-  loanDuration: number;
-  loanMaturityDate: number;
+  id: string
+  protocolName: string
+  principalAmount: number
+  repaymentAmount: number
+  currencyName: string
+  dueDate: string
+  lenderAddress: string
+  borrowerAddress: string
+  // Additional loan data fields from the API
+}
+
+export interface NFTfiCollection {
+  nftProjectName: string
+  nftProjectImageUri: string
+  total_usd_value: number
+  avg_usd_value: number
+  avg_apr: number
+  loan_count: number
+  volumePercentage?: number // Added for UI display
 }
 
 export interface NFTfiLoansResponse {
-  meta: NFTfiLoanMetadata[];
-  data: NFTfiLoan[];
-  rows: number;
+  meta: NFTfiLoanMeta
+  data: NFTfiLoan[]
+  rows: number
+}
+
+export interface NFTfiCollectionsResponse {
+  meta: {
+    elapsed: number
+    rows_read: number
+    bytes_read: number
+  }
+  data: NFTfiCollection[]
+  rows: number
 }
 
 /**
- * Fetches loans that are due within the specified number of days
- * @param daysFromNow Number of days from now for which to fetch due loans
- * @param lenderAddress Optional Ethereum address of the lender
- * @param pageSize Number of records to return per page
- * @param page Page number (starting from 0)
- * @returns A promise that resolves to the loans response
+ * Fetches loans due within a specific number of days
+ * @param daysFromNow Number of days from now to fetch loans for
+ * @param lenderAddress Optional lender address to filter loans
+ * @returns Promise containing loan data
  */
-export const fetchLoans = async (
-  daysFromNow: number = 365,
-  lenderAddress?: string,
-  pageSize: number = 10000,
-  page: number = 0
-): Promise<NFTfiLoansResponse> => {
-  const url = new URL('https://theta-sdk-api.nftfi.com/data/v0/pipes/loans_due_endpoint.json');
-  
-  // Add query parameters
-  url.searchParams.append('daysFromNow', daysFromNow.toString());
-  url.searchParams.append('page_size', pageSize.toString());
-  url.searchParams.append('page', page.toString());
-  
-  if (lenderAddress) {
-    url.searchParams.append('lenderAddress', lenderAddress);
-  }
-  
+export async function fetchLoans(
+  daysFromNow: number,
+  lenderAddress?: string
+): Promise<NFTfiLoansResponse> {
   try {
-    const response = await fetch(url.toString(), {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
-    });
+    const url = new URL(`${API_URL}/data/v0/pipes/loans_v2.json`)
+    url.searchParams.append('howDaysFromNow', daysFromNow.toString())
     
-    if (!response.ok) {
-      throw new Error(`API request failed with status ${response.status}`);
+    if (lenderAddress) {
+      url.searchParams.append('lenderAddress', lenderAddress)
     }
     
-    return await response.json() as NFTfiLoansResponse;
+    url.searchParams.append('page_size', '1000')
+    
+    const response = await fetch(url.toString())
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch loans: ${response.status} ${response.statusText}`)
+    }
+    
+    const data = await response.json()
+    return data as NFTfiLoansResponse
   } catch (error) {
-    console.error('Error fetching NFTfi loans:', error);
-    throw error;
+    console.error('Error fetching loans:', error)
+    throw error
   }
-}; 
+}
+
+/**
+ * Fetches top collections with loan data from NFTfi
+ * @param daysFromNow Number of days from now to fetch collections for
+ * @param pageSize Number of collections to fetch
+ * @param limit Optional limit to return only top N collections
+ * @returns Promise containing processed collection data
+ */
+export async function fetchTopCollections(
+  daysFromNow: number,
+  pageSize: number = 100,
+  limit: number = 20
+): Promise<NFTfiCollection[]> {
+  try {
+    const url = new URL(`${API_URL}/data/v0/pipes/loans_due_by_collection_endpoint.json`)
+    url.searchParams.append('howDaysFromNow', daysFromNow.toString())
+    url.searchParams.append('page_size', pageSize.toString())
+    
+    const response = await fetch(url.toString())
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch collections: ${response.status} ${response.statusText}`)
+    }
+    
+    const data = await response.json() as NFTfiCollectionsResponse
+    
+    // Sort collections by total USD value (descending)
+    const sortedCollections = [...data.data].sort((a, b) => 
+      b.total_usd_value - a.total_usd_value
+    );
+    
+    // Calculate total volume for percentage calculation
+    const totalVolume = sortedCollections.reduce(
+      (sum, collection) => sum + collection.total_usd_value, 
+      0
+    );
+    
+    // Add volume percentage to each collection
+    const collectionsWithPercentage = sortedCollections.map(collection => ({
+      ...collection,
+      volumePercentage: (collection.total_usd_value / totalVolume) * 100
+    }));
+    
+    // Return only the top N collections
+    return collectionsWithPercentage.slice(0, limit);
+  } catch (error) {
+    console.error('Error fetching collections:', error)
+    throw error
+  }
+} 

@@ -10,4 +10,7 @@ export const API_CONFIG = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   }
-}; 
+};
+
+// API configuration
+export const API_URL = 'https://theta-sdk-api.nftfi.com' 
