@@ -28,23 +28,27 @@ export function InfoPanel({ collection }: Props) {
         </div>
         <div className="info-item">
           <label>24h Volume</label>
-          <span className="value">{collection.volume24h.toFixed(2)} ETH</span>
+          <span className="value">${collection.volume24h.toFixed(2)}</span>
         </div>
         <div className="info-item">
           <label>7d Volume</label>
-          <span className="value">{collection.volume7d.toFixed(2)} ETH</span>
+          <span className="value">${collection.volume7d.toFixed(2)}</span>
         </div>
         <div className="info-item">
           <label>365d Volume</label>
-          <span className="value">{collection.volume365d.toFixed(2)} ETH</span>
+          <span className="value">${collection.volume365d.toFixed(2)}</span>
         </div>
         <div className="info-item">
-          <label>Total Supply</label>
-          <span className="value">{collection.tokenCount}</span>
+          <label>Market Share</label>
+          <span className="value">{collection.marketShare.toFixed(2)}%</span>
         </div>
         <div className="info-item">
-          <label>Listed</label>
-          <span className="value">{collection.onSaleCount}</span>
+          <label>Average APR</label>
+          <span className="value">{collection.avgAPR.toFixed(2)}%</span>
+        </div>
+        <div className="info-item">
+          <label>Total Loans</label>
+          <span className="value">{collection.loanCount}</span>
         </div>
       </div>
     </div>

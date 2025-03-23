@@ -8,7 +8,13 @@ function App() {
   const { collections, isLoading, error } = useCollections();
   const [selectedCollectionId, setSelectedCollectionId] = useState<string | null>(null);
 
-  const selectedCollection = collections.find(c => c.id === selectedCollectionId) ?? null;
+  const selectedCollection = selectedCollectionId 
+    ? collections.find(c => c.id === selectedCollectionId) ?? null 
+    : null;
+
+  const handleSelectCollection = (collectionId: string) => {
+    setSelectedCollectionId(collectionId);
+  };
 
   if (isLoading) {
     return <div className="loading">Loading collections...</div>;
@@ -20,17 +26,16 @@ function App() {
 
   return (
     <div className="app">
-      <div className="container">
-        <h1>NFT Floor Prices</h1>
-        <div className="content">
-          <CollectionDropdown
-            collections={collections}
-            selectedCollectionId={selectedCollectionId}
-            onSelect={setSelectedCollectionId}
-          />
-          <InfoPanel collection={selectedCollection} />
-        </div>
-      </div>
+      <header className="app-header">
+        <CollectionDropdown
+          collections={collections}
+          selectedCollectionId={selectedCollectionId}
+          onSelect={handleSelectCollection}
+        />
+      </header>
+      <main className="app-main">
+        <InfoPanel collection={selectedCollection} />
+      </main>
     </div>
   );
 }

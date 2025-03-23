@@ -1,4 +1,4 @@
-import Select from 'react-select';
+import Select, { StylesConfig, GroupBase } from 'react-select';
 import type { CollectionFloorPrice } from '../types/reservoir';
 import './CollectionDropdown.css';
 
@@ -15,20 +15,45 @@ interface OptionType {
 }
 
 export function CollectionDropdown({ collections, selectedCollectionId, onSelect }: Props) {
-  const options: OptionType[] = collections.map((collection) => ({
-    value: collection.id,
-    label: collection.name,
-    collection
-  }));
+  const options: OptionType[] = collections
+    .sort((a, b) => b.marketShare - a.marketShare)
+    .map((collection) => ({
+      value: collection.id,
+      label: collection.name,
+      collection
+    }));
 
-  const selectedOption = options.find(option => option.value === selectedCollectionId);
+  const selectedOption = selectedCollectionId ? options.find(option => option.value === selectedCollectionId) || null : null;
 
   const formatOptionLabel = ({ collection }: OptionType) => (
     <div className="collection-option">
       <span className="collection-name">{collection.name}</span>
-      <span className="collection-volume">{collection.volume24h.toFixed(2)} ETH (24h)</span>
+      <span className="collection-volume">{collection.marketShare.toFixed(1)}% (365d)</span>
     </div>
   );
+
+  const handleChange = (option: OptionType | null) => {
+    if (option) {
+      onSelect(option.value);
+    }
+  };
+
+  const customStyles: StylesConfig<OptionType, false, GroupBase<OptionType>> = {
+    menu: (provided) => ({
+      ...provided,
+      height: '90vh',
+      maxHeight: '90vh',
+      position: 'absolute',
+      width: '100%',
+      zIndex: 1000,
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      maxHeight: 'none',
+      height: '100%',
+      padding: '0 0 20px 0',
+    })
+  };
 
   return (
     <div className="collection-select-container">
@@ -36,11 +61,13 @@ export function CollectionDropdown({ collections, selectedCollectionId, onSelect
         className="collection-select"
         classNamePrefix="select"
         value={selectedOption}
-        onChange={(option) => option && onSelect(option.value)}
+        onChange={handleChange}
         options={options}
         formatOptionLabel={formatOptionLabel}
         placeholder="Select a collection..."
+        isClearable={true}
         isSearchable
+        styles={customStyles}
       />
     </div>
   );

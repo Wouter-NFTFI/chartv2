@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getCollectionsFloorPrices } from '../services/reservoirService';
 import type { CollectionFloorPrice } from '../types/reservoir';
 
-const TOP_COLLECTIONS_LIMIT = 10;
+const TOP_COLLECTIONS_LIMIT = 20;
 
 export function useCollections() {
   const [collections, setCollections] = useState<CollectionFloorPrice[]>([]);
@@ -17,7 +17,7 @@ export function useCollections() {
         // Fetch collections sorted by volume
         const data = await getCollectionsFloorPrices();
         const sortedCollections = data
-          .sort((a, b) => b.volume365d - a.volume365d)
+          .sort((a, b) => b.marketShare - a.marketShare)
           .slice(0, TOP_COLLECTIONS_LIMIT);
         setCollections(sortedCollections);
       } catch (err) {

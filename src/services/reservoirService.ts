@@ -1,84 +1,71 @@
-import type { ReservoirResponse, CollectionFloorPrice } from '../types/reservoir';
+import { CollectionFloorPrice, NFTfiCollection } from '../types/reservoir';
 
-const BASE_URL = 'https://api.reservoir.tools/collections/v7';
-const API_KEY = import.meta.env.VITE_RESERVOIR_API_KEY;
+const NFTFI_API_URL = 'https://theta-sdk-api.nftfi.com/data/v0/pipes/loans_due_by_collection_endpoint.json';
 
-// Rate limiting configuration
-const MAX_REQUESTS_PER_SECOND = 5;
-const REQUEST_WINDOW_MS = 1000;
-
-// Request queue to track timestamps
-const requestQueue: number[] = [];
-
-function checkRateLimit(): boolean {
-  const now = Date.now();
-  // Remove requests older than the window
-  while (requestQueue.length > 0 && requestQueue[0] < now - REQUEST_WINDOW_MS) {
-    requestQueue.shift();
-  }
-  return requestQueue.length < MAX_REQUESTS_PER_SECOND;
+function getTotalVolume(collections: NFTfiCollection[]): number {
+  return collections.reduce((total, collection) => total + collection.total_usd_value, 0);
 }
 
-async function delay(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-export class ReservoirError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'ReservoirError';
-  }
+// Normalize collection name to handle duplicates
+function normalizeCollectionName(name: string): string {
+  // Handle null/undefined names
+  if (!name) return '';
+  // Remove spaces, special characters, and convert to lowercase for comparison
+  return name.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
 export async function getCollectionsFloorPrices(): Promise<CollectionFloorPrice[]> {
-  if (!API_KEY) {
-    throw new ReservoirError('Reservoir API key is not configured');
-  }
-
   try {
-    // Check rate limit
-    if (!checkRateLimit()) {
-      await delay(REQUEST_WINDOW_MS);
-    }
+    const response = await fetch(`${NFTFI_API_URL}?howDaysFromNow=1000000&page_size=100000`);
+    const data = await response.json();
+    const collections: NFTfiCollection[] = data.data;
+    const totalVolume = getTotalVolume(collections);
 
-    // Add current request to queue
-    requestQueue.push(Date.now());
+    // Filter out collections with empty names or missing required data
+    const validCollections = collections.filter(collection => 
+      collection.nftProjectName && 
+      collection.nftProjectName.trim() !== '' &&
+      collection.total_usd_value > 0
+    );
 
-    const queryParams = new URLSearchParams({
-      limit: '20',
-      sortBy: 'allTimeVolume',
-      sortDirection: 'desc'
-    });
-
-    const response = await fetch(`${BASE_URL}?${queryParams}`, {
-      headers: {
-        'x-api-key': API_KEY,
-        'accept': '*/*'
+    // Track seen collection names to prevent duplicates
+    const seenCollectionNames = new Set<string>();
+    const transformedCollections: CollectionFloorPrice[] = [];
+    
+    // Process collections and deduplicate
+    for (const collection of validCollections) {
+      const normalized = normalizeCollectionName(collection.nftProjectName);
+      
+      // Skip if empty or already seen
+      if (!normalized || seenCollectionNames.has(normalized)) {
+        continue;
       }
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new ReservoirError(`API request failed with status ${response.status}: ${JSON.stringify(errorData)}`);
+      
+      // Mark as seen
+      seenCollectionNames.add(normalized);
+      
+      // Add to results
+      transformedCollections.push({
+        id: collection.nftProjectName,
+        name: collection.nftProjectName,
+        image: collection.nftProjectImageUri,
+        volume24h: collection.total_usd_value / 365,
+        volume7d: (collection.total_usd_value / 365) * 7,
+        volume365d: collection.total_usd_value,
+        marketShare: (collection.total_usd_value / totalVolume) * 100,
+        tokenCount: 0,
+        onSaleCount: 0,
+        floorPrice: collection.avg_usd_value / 1800,
+        floorPriceUSD: collection.avg_usd_value,
+        avgAPR: collection.avg_apr,
+        loanCount: collection.loan_count
+      });
     }
-
-    const data: ReservoirResponse = await response.json();
-
-    return data.collections.map((collection) => ({
-      id: collection.id,
-      name: collection.name,
-      floorPrice: collection.floorAsk?.price.amount.native || 0,
-      floorPriceUSD: collection.floorAsk?.price.amount.usd || 0,
-      image: collection.image,
-      volume24h: collection.volume['1day'],
-      volume7d: collection.volume['7day'],
-      volume365d: collection.volume['30day'] * 12, // Approximate 365-day volume
-      tokenCount: parseInt(collection.tokenCount),
-      onSaleCount: parseInt(collection.onSaleCount)
-    }));
+    
+    return transformedCollections;
   } catch (error) {
-    console.error('Error fetching collections:', error);
-    throw error instanceof ReservoirError ? error : new ReservoirError('Failed to fetch collections');
+    console.error('Error fetching collection data:', error);
+    return [];
   }
 }
 
