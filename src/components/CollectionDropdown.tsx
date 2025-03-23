@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NFTfiCollection } from '../api/nftfiApi';
 import './CollectionDropdown.css';
 
@@ -34,7 +34,8 @@ function CollectionDropdown({
   
   // Filter collections based on search term
   const filteredCollections = collections.filter(collection => 
-    collection.nftProjectName.toLowerCase().includes(searchTerm.toLowerCase())
+    collection.nftProjectName && 
+    (searchTerm === '' || collection.nftProjectName.includes(searchTerm))
   );
   
   // Handle collection selection
