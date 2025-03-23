@@ -12,6 +12,7 @@
     "pages:deploy": "npm run build && wrangler pages deploy dist"
   },
   "dependencies": {
+    "@reservoir0x/reservoir-sdk": "^2.5.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-select": "^5.10.1"

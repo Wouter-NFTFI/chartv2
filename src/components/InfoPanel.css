@@ -1,0 +1,54 @@
+.info-panel {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+.info-panel h2 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-item label {
+  font-size: 14px;
+  color: #666;
+}
+
+.info-item span {
+  font-size: 16px;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.eth-price {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #0052ff !important;
+}
+
+.usd-price {
+  font-size: 14px !important;
+  color: #666 !important;
+  font-weight: normal !important;
+} 

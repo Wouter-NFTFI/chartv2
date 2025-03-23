@@ -1,112 +1,47 @@
-import React, { useState } from 'react';
-import Select, { StylesConfig, OptionProps } from 'react-select';
-import { NFTfiCollection } from '../api/nftfiApi';
+import Select from 'react-select';
+import type { CollectionFloorPrice } from '../types/reservoir';
 import './CollectionDropdown.css';
 
-interface CollectionDropdownProps {
-  collections: NFTfiCollection[];
-  onSelectCollection: (collection: NFTfiCollection) => void;
-  isLoading?: boolean;
+interface Props {
+  collections: CollectionFloorPrice[];
+  selectedCollectionId: string | null;
+  onSelect: (collectionId: string) => void;
 }
 
 interface OptionType {
   value: string;
-  label: string | React.ReactNode;
-  collection: NFTfiCollection;
+  label: string;
+  collection: CollectionFloorPrice;
 }
 
-function CollectionDropdown({ 
-  collections, 
-  onSelectCollection, 
-  isLoading = false 
-}: CollectionDropdownProps) {
-  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
-  
-  // Map collections to options format expected by React Select
-  const options = collections.map(collection => ({
-    value: collection.nftProjectName || 'unnamed',
-    label: (
-      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-        <span>{collection.nftProjectName || 'Unnamed Collection'}</span>
-        <span style={{ color: '#007bff', fontWeight: 600 }}>{collection.volumePercentage?.toFixed(2)}%</span>
-      </div>
-    ),
+export function CollectionDropdown({ collections, selectedCollectionId, onSelect }: Props) {
+  const options: OptionType[] = collections.map((collection) => ({
+    value: collection.id,
+    label: collection.name,
     collection
   }));
-  
-  // Handle selection change
-  const handleChange = (option: OptionType | null) => {
-    setSelectedOption(option);
-    if (option) {
-      onSelectCollection(option.collection);
-    }
-  };
-  
-  // Custom styles for React Select
-  const customStyles: StylesConfig<OptionType, false> = {
-    control: (baseStyles) => ({
-      ...baseStyles,
-      backgroundColor: '#fff',
-      borderColor: '#e0e0e0',
-      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
-      '&:hover': {
-        borderColor: '#007bff',
-        boxShadow: '0 2px 8px rgba(0, 123, 255, 0.15)'
-      }
-    }),
-    option: (baseStyles, state: OptionProps<OptionType, false>) => ({
-      ...baseStyles,
-      backgroundColor: state.isSelected 
-        ? '#007bff' 
-        : state.isFocused 
-          ? '#f5f8ff' 
-          : '#fff',
-      color: state.isSelected ? 'white' : '#333',
-      padding: '12px 16px',
-      '&:hover': {
-        backgroundColor: state.isSelected ? '#007bff' : '#f5f8ff'
-      },
-      '& > div > span:last-child': {
-        color: state.isSelected ? 'white' : '#007bff'
-      }
-    }),
-    input: (baseStyles) => ({
-      ...baseStyles,
-      color: '#333'
-    }),
-    placeholder: (baseStyles) => ({
-      ...baseStyles,
-      color: '#aaa'
-    }),
-    singleValue: (baseStyles) => ({
-      ...baseStyles,
-      color: '#333',
-      width: '100%'
-    }),
-    menu: (baseStyles) => ({
-      ...baseStyles,
-      backgroundColor: '#fff',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-      zIndex: 1000
-    })
-  };
-  
+
+  const selectedOption = options.find(option => option.value === selectedCollectionId);
+
+  const formatOptionLabel = ({ collection }: OptionType) => (
+    <div className="collection-option">
+      <span className="collection-name">{collection.name}</span>
+      <span className="collection-volume">{collection.volume24h.toFixed(2)} ETH (24h)</span>
+    </div>
+  );
+
   return (
     <div className="collection-select-container">
       <Select
         className="collection-select"
-        options={options}
+        classNamePrefix="select"
         value={selectedOption}
-        onChange={handleChange}
-        isLoading={isLoading}
-        isDisabled={isLoading}
-        placeholder={isLoading ? "Loading collections..." : "Select a collection"}
-        isClearable={false}
-        isSearchable={true}
-        styles={customStyles}
+        onChange={(option) => option && onSelect(option.value)}
+        options={options}
+        formatOptionLabel={formatOptionLabel}
+        placeholder="Select a collection..."
+        isSearchable
       />
     </div>
   );
-}
-
-export default CollectionDropdown; 
+} 
