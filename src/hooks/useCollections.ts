@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getCollections } from '../services/reservoirService';
 import type { NFTfiCollection } from '../types/reservoir';
-
-const TOP_COLLECTIONS_LIMIT = 20;
+import { TOP_COLLECTIONS_LIMIT } from '../config/collections';
 
 export function useCollections() {
   const [collections, setCollections] = useState<NFTfiCollection[]>([]);
