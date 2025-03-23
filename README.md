@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# ChartV2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based dashboard for visualizing NFTfi loan data, built with modern web technologies.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Real-time NFT collection data visualization
+- Advanced filtering with React Select dropdown
+- Responsive design for all screen sizes
+- Direct integration with NFTfi API
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- React Select
+- Cloudflare Pages for deployment
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Development Setup
+
+1. Install dependencies:
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Start development server:
+```bash
+npm run dev
 ```
+The server will start on http://localhost:5173 (or next available port)
+
+3. For Cloudflare Pages development:
+```bash
+npm run pages:dev
+```
+
+## Deployment
+
+The project is deployed to Cloudflare Pages. To deploy:
+
+```bash
+npm run pages:deploy
+```
+
+Production URL: https://chartv2.pages.dev
+
+## Recent Updates
+
+- Replaced custom dropdown with React Select for improved search functionality
+- Added proper TypeScript support
+- Implemented responsive styling
+- Fixed Wrangler configuration for Cloudflare Pages deployment
+
+## Development Guidelines
+
+- Use TypeScript for all new components
+- Follow React best practices and hooks guidelines
+- Maintain responsive design principles
+- Test across different browsers and screen sizes
+
+## API Integration
+
+The application integrates with the NFTfi API endpoint:
+`https://theta-sdk-api.nftfi.com/data/v0/pipes/loans_due_by_collection_endpoint.json`
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Submit a pull request
+
+## License
+
+MIT
