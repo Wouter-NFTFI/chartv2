@@ -71,6 +71,12 @@ export interface NFTfiCollectionsResponse {
   rows: number
 }
 
+export interface LoanDistribution {
+  ltv: number;
+  loanCount: number;
+  totalValue: number;
+}
+
 /**
  * Fetches loans due within a specific number of days
  * @param daysFromNow Number of days from now to fetch loans for
@@ -86,7 +92,7 @@ export async function fetchLoans(
   try {
     const url = new URL(`${NFTFI_API_URL}/data/v0/pipes/loans_v2.json`)
     url.searchParams.append('howDaysFromNow', daysFromNow.toString())
-    url.searchParams.append('page_size', '1000')
+    url.searchParams.append('page_size', '10000')
     
     if (lenderAddress) {
       url.searchParams.append('lenderAddress', lenderAddress)
@@ -176,5 +182,56 @@ export async function fetchTopCollections(
   } catch (error) {
     console.error('Error fetching collections:', error)
     throw error
+  }
+}
+
+/**
+ * Fetches loan distribution data for a collection
+ * @param collectionName Collection name to fetch distribution for
+ * @returns Promise containing loan distribution data
+ */
+export async function fetchLoanDistribution(collectionName: string): Promise<LoanDistribution[]> {
+  try {
+    const url = `https://theta-sdk-api.nftfi.com/data/v0/pipes/loans_due_endpoint.json?daysFromNow=365&page_size=1000000&page=0&nftProjectName=${encodeURIComponent(collectionName)}`;
+    
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log('Raw loan data:', data);
+
+    // Create buckets for LTV values (0-100% in 5% increments)
+    const buckets: { [key: number]: LoanDistribution } = {};
+    for (let i = 0; i <= 100; i += 5) {
+      buckets[i] = {
+        ltv: i,
+        loanCount: 0,
+        totalValue: 0
+      };
+    }
+
+    // Process each loan and add to appropriate bucket
+    data.data.forEach((loan: any) => {
+      if (loan.principalAmountUSD && loan.maximumRepaymentAmountUSD) {
+        // Calculate LTV as principal/maxRepayment * 100
+        const ltv = (loan.principalAmountUSD / loan.maximumRepaymentAmountUSD) * 100;
+        const bucketLtv = Math.min(100, Math.max(0, Math.floor(ltv / 5) * 5));
+        buckets[bucketLtv].loanCount++;
+        buckets[bucketLtv].totalValue += loan.principalAmountUSD;
+      }
+    });
+
+    // Convert buckets to array and sort by LTV
+    const distribution = Object.values(buckets)
+      .filter(bucket => bucket.loanCount > 0)
+      .sort((a, b) => a.ltv - b.ltv);
+    
+    console.log('Processed loan distribution:', distribution);
+    return distribution;
+  } catch (error) {
+    console.error('Error fetching loan distribution:', error);
+    return [];
   }
 } 
