@@ -1,8 +1,8 @@
-import type { CollectionFloorPrice } from '../types/reservoir';
+import type { NFTfiCollection } from '../types/reservoir';
 import './InfoPanel.css';
 
 interface Props {
-  collection: CollectionFloorPrice | null;
+  collection: NFTfiCollection | null;
 }
 
 export function InfoPanel({ collection }: Props) {
@@ -14,41 +14,36 @@ export function InfoPanel({ collection }: Props) {
     );
   }
 
+  // Calculate floor price in ETH - this calculation happens in the UI layer, not data layer
+  const floorPriceETH = collection.avg_usd_value / 1800;
+
   return (
     <div className="info-panel">
-      <h2>{collection.name}</h2>
+      <h2>{collection.nftProjectName}</h2>
       <div className="info-grid">
         <div className="info-item">
-          <label>Floor Price</label>
-          <span className="value">{collection.floorPrice.toFixed(4)} ETH</span>
+          <label>Floor Price (estimated)</label>
+          <span className="value">{floorPriceETH.toFixed(4)} ETH</span>
         </div>
         <div className="info-item">
           <label>Floor Price (USD)</label>
-          <span className="value">${collection.floorPriceUSD.toFixed(2)}</span>
+          <span className="value">${collection.avg_usd_value.toFixed(2)}</span>
         </div>
         <div className="info-item">
-          <label>24h Volume</label>
-          <span className="value">${collection.volume24h.toFixed(2)}</span>
-        </div>
-        <div className="info-item">
-          <label>7d Volume</label>
-          <span className="value">${collection.volume7d.toFixed(2)}</span>
-        </div>
-        <div className="info-item">
-          <label>365d Volume</label>
-          <span className="value">${collection.volume365d.toFixed(2)}</span>
+          <label>Total Volume (365d)</label>
+          <span className="value">${collection.total_usd_value.toFixed(2)}</span>
         </div>
         <div className="info-item">
           <label>Market Share</label>
-          <span className="value">{collection.marketShare.toFixed(2)}%</span>
+          <span className="value">{collection.volumePercentage?.toFixed(2)}%</span>
         </div>
         <div className="info-item">
           <label>Average APR</label>
-          <span className="value">{collection.avgAPR.toFixed(2)}%</span>
+          <span className="value">{collection.avg_apr.toFixed(2)}%</span>
         </div>
         <div className="info-item">
           <label>Total Loans</label>
-          <span className="value">{collection.loanCount}</span>
+          <span className="value">{collection.loan_count}</span>
         </div>
       </div>
     </div>

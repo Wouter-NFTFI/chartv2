@@ -1,9 +1,9 @@
 import Select, { StylesConfig, GroupBase } from 'react-select';
-import type { CollectionFloorPrice } from '../types/reservoir';
+import type { NFTfiCollection } from '../types/reservoir';
 import './CollectionDropdown.css';
 
 interface Props {
-  collections: CollectionFloorPrice[];
+  collections: NFTfiCollection[];
   selectedCollectionId: string | null;
   onSelect: (collectionId: string) => void;
 }
@@ -11,15 +11,15 @@ interface Props {
 interface OptionType {
   value: string;
   label: string;
-  collection: CollectionFloorPrice;
+  collection: NFTfiCollection;
 }
 
 export function CollectionDropdown({ collections, selectedCollectionId, onSelect }: Props) {
   const options: OptionType[] = collections
-    .sort((a, b) => b.marketShare - a.marketShare)
+    .sort((a, b) => (b.volumePercentage || 0) - (a.volumePercentage || 0))
     .map((collection) => ({
-      value: collection.id,
-      label: collection.name,
+      value: collection.nftProjectName,
+      label: collection.nftProjectName,
       collection
     }));
 
@@ -27,8 +27,8 @@ export function CollectionDropdown({ collections, selectedCollectionId, onSelect
 
   const formatOptionLabel = ({ collection }: OptionType) => (
     <div className="collection-option">
-      <span className="collection-name">{collection.name}</span>
-      <span className="collection-volume">{collection.marketShare.toFixed(1)}% (365d)</span>
+      <span className="collection-name">{collection.nftProjectName}</span>
+      <span className="collection-volume">{collection.volumePercentage?.toFixed(1)}% (365d)</span>
     </div>
   );
 

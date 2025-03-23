@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { getCollectionsFloorPrices } from '../services/reservoirService';
-import type { CollectionFloorPrice } from '../types/reservoir';
+import { getCollections } from '../services/reservoirService';
+import type { NFTfiCollection } from '../types/reservoir';
 
 const TOP_COLLECTIONS_LIMIT = 20;
 
 export function useCollections() {
-  const [collections, setCollections] = useState<CollectionFloorPrice[]>([]);
+  const [collections, setCollections] = useState<NFTfiCollection[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -15,9 +15,9 @@ export function useCollections() {
         setIsLoading(true);
         setError(null);
         // Fetch collections sorted by volume
-        const data = await getCollectionsFloorPrices();
+        const data = await getCollections();
         const sortedCollections = data
-          .sort((a, b) => b.marketShare - a.marketShare)
+          .sort((a, b) => b.volumePercentage || 0 - (a.volumePercentage || 0))
           .slice(0, TOP_COLLECTIONS_LIMIT);
         setCollections(sortedCollections);
       } catch (err) {

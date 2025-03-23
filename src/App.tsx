@@ -1,39 +1,36 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useCollections } from './hooks/useCollections';
 import { CollectionDropdown } from './components/CollectionDropdown';
 import { InfoPanel } from './components/InfoPanel';
-import { useCollections } from './hooks/useCollections';
+import { NFTfiCollection } from './types/reservoir';
 import './App.css';
 
 function App() {
   const { collections, isLoading, error } = useCollections();
-  const [selectedCollectionId, setSelectedCollectionId] = useState<string | null>(null);
+  const [selectedCollection, setSelectedCollection] = useState<NFTfiCollection | null>(null);
 
-  const selectedCollection = selectedCollectionId 
-    ? collections.find(c => c.id === selectedCollectionId) ?? null 
-    : null;
-
-  const handleSelectCollection = (collectionId: string) => {
-    setSelectedCollectionId(collectionId);
+  const handleCollectionSelect = (collectionId: string) => {
+    const selected = collections.find(c => c.nftProjectName === collectionId) || null;
+    setSelectedCollection(selected);
   };
-
-  if (isLoading) {
-    return <div className="loading">Loading collections...</div>;
-  }
-
-  if (error) {
-    return <div className="error">Error: {error}</div>;
-  }
 
   return (
     <div className="app">
       <header className="app-header">
-        <CollectionDropdown
-          collections={collections}
-          selectedCollectionId={selectedCollectionId}
-          onSelect={handleSelectCollection}
-        />
+        <h1>NFT Collection Stats</h1>
+        {isLoading ? (
+          <p>Loading collections...</p>
+        ) : error ? (
+          <p className="error">Error: {error}</p>
+        ) : (
+          <CollectionDropdown
+            collections={collections}
+            selectedCollectionId={selectedCollection?.nftProjectName || null}
+            onSelect={handleCollectionSelect}
+          />
+        )}
       </header>
-      <main className="app-main">
+      <main>
         <InfoPanel collection={selectedCollection} />
       </main>
     </div>

@@ -57,4 +57,5 @@ export interface NFTfiCollection {
   avg_usd_value: number;
   avg_apr: number;
   loan_count: number;
+  volumePercentage?: number;
 } 
