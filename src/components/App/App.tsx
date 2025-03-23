@@ -4,11 +4,11 @@
 // Treat all data as immutable and verifiable
 
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '../../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { fetchTopCollections, NFTfiCollection } from './api/nftfiApi'
-import CollectionDropdown from './components/CollectionDropdown'
+import { fetchTopCollections, NFTfiCollection } from '../../api/nftfiApi'
+import CollectionDropdown from '../CollectionDropdown'
 
 function App() {
   const [loading, setLoading] = useState(true)
