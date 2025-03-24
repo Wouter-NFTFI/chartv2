@@ -77,6 +77,8 @@ export interface LoanDistribution {
 }
 
 export interface LoanDistributionResponseItem {
+  principalAmount: number;
+  maximumRepaymentAmount: number;
   principalAmountUSD: number;
   maximumRepaymentAmountUSD: number;
   // Add other fields as needed
@@ -200,9 +202,9 @@ export async function fetchTopCollections(
 /**
  * Fetches loan distribution data for a collection
  * @param collectionName Collection name to fetch distribution for
- * @returns Promise containing loan distribution data
+ * @returns Promise containing raw loan data
  */
-export async function fetchLoanDistribution(collectionName: string): Promise<LoanDistribution[]> {
+export async function fetchLoanDistribution(collectionName: string): Promise<LoanDistributionResponseItem[]> {
   try {
     console.log(`Fetching loan distribution for "${collectionName}"`);
     const url = `https://theta-sdk-api.nftfi.com/data/v0/pipes/loans_due_endpoint.json?daysFromNow=365&page_size=1000000&page=0&nftProjectName=${encodeURIComponent(collectionName)}`;
@@ -218,43 +220,10 @@ export async function fetchLoanDistribution(collectionName: string): Promise<Loa
     console.log('Raw loan data structure:', {
       hasData: !!data.data,
       dataLength: data.data?.length || 0,
-      sampleItem: data.data?.length > 0 ? data.data[0] : 'No data items',
-      currentFloorPrice: data.currentFloorPrice
+      sampleItem: data.data?.length > 0 ? data.data[0] : 'No data items'
     });
 
-    // Create buckets for LTV values (0-100% in 5% increments)
-    const buckets: { [key: number]: LoanDistribution } = {};
-    for (let i = 0; i <= 100; i += 5) {
-      buckets[i] = {
-        ltv: i,
-        loanCount: 0,
-        totalValue: 0
-      };
-    }
-
-    // Process each loan and add to appropriate bucket
-    let processedLoans = 0;
-    data.data.forEach((loan: LoanDistributionResponseItem) => {
-      if (loan.principalAmountUSD && loan.maximumRepaymentAmountUSD) {
-        // Calculate LTV as principal/maxRepayment * 100
-        const ltv = (loan.principalAmountUSD / loan.maximumRepaymentAmountUSD) * 100;
-        const bucketLtv = Math.min(100, Math.max(0, Math.floor(ltv / 5) * 5));
-        buckets[bucketLtv].loanCount++;
-        buckets[bucketLtv].totalValue += loan.principalAmountUSD;
-        processedLoans++;
-      }
-    });
-    
-    console.log(`Processed ${processedLoans} loans out of ${data.data.length} total`);
-
-    // Convert buckets to array and sort by LTV
-    const distribution = Object.values(buckets)
-      .filter(bucket => bucket.loanCount > 0)
-      .sort((a, b) => a.ltv - b.ltv);
-    
-    console.log(`Final distribution has ${distribution.length} buckets with data`);
-    console.log('Processed loan distribution:', distribution);
-    return distribution;
+    return data.data;
   } catch (error) {
     console.error('Error fetching loan distribution:', error);
     return [];
