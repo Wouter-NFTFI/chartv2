@@ -61,15 +61,21 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
           loanCount: bucket.loanCount
         }));
 
-        // Calculate cumulative values
+        // Sort points by LTV in descending order (high to low)
+        const sortedPoints = [...points].sort((a, b) => b.ltv - a.ltv);
+        
+        // Calculate cumulative values from high LTV to low LTV
         let cumulative = 0;
-        points.forEach(point => {
+        sortedPoints.forEach(point => {
           cumulative += point.value;
           point.cumulativeValue = cumulative;
         });
 
-        console.log('DepthChart: Final processed chart data:', points);
-        setBucketData(points);
+        // Re-sort back to ascending order for display
+        sortedPoints.sort((a, b) => a.ltv - b.ltv);
+
+        console.log('DepthChart: Final processed chart data:', sortedPoints);
+        setBucketData(sortedPoints);
       } catch (err) {
         console.error('Error fetching loan distribution:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch data');
@@ -127,7 +133,7 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
             domain={[0, 100]}
             tickFormatter={(value) => `${value}%`}
           />
-          <YAxis
+          <YAxis 
             tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
           />
           <Tooltip content={<CustomTooltip />} />

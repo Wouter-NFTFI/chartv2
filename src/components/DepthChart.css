@@ -44,6 +44,22 @@
   width: 100%;
 }
 
+.custom-tooltip {
+  background-color: rgba(33, 43, 54, 0.9);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.custom-tooltip p {
+  margin: 4px 0;
+  white-space: nowrap;
+  color: white;
+}
+
 .depth-chart-tooltip {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(0, 0, 0, 0.04);
