@@ -1,9 +1,9 @@
 const RESERVOIR_API_URL = 'https://api.reservoir.tools';
 const RESERVOIR_API_KEY = import.meta.env.VITE_RESERVOIR_API_KEY || 'demo-api-key';
 
-export async function getCurrentFloorPrice(slug: string): Promise<number> {
+export async function getCurrentFloorPrice(contractAddress: string): Promise<number> {
   try {
-    const response = await fetch(`${RESERVOIR_API_URL}/collections/v6?id=${slug}`, {
+    const response = await fetch(`${RESERVOIR_API_URL}/collections/v6?id=${contractAddress}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -13,10 +13,10 @@ export async function getCurrentFloorPrice(slug: string): Promise<number> {
     });
     
     if (!response.ok) {
-      throw new Error(`Failed to fetch floor price for ${slug}`);
+      throw new Error(`Failed to fetch floor price for contract: ${contractAddress}`);
     }
     const data = await response.json();
-    return data.collection?.floorPrice?.value || 0;
+    return data.collections?.[0]?.floorAsk?.price?.amount?.usd || 0;
   } catch (error) {
     console.error('Error fetching floor price:', error);
     throw error;

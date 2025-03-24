@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart } from 'recharts';
 import { NFTfiCollection } from '../types/reservoir';
 import { fetchLoanDistribution, LoanDistributionResponseItem } from '../api/nftfiApi';
+import { getCurrentFloorPrice } from '../api/reservoirApi';
 import './DepthChart.css';
 
 interface DepthChartProps {
-  collection: NFTfiCollection | null;
-  onDataPointClick: (ltv: number) => void;
+  collection: NFTfiCollection;
+  onDataPointClick?: (ltv: number) => void;
 }
 
 interface DataPoint {
@@ -30,9 +31,10 @@ interface LoanBucket {
 }
 
 export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [bucketData, setBucketData] = useState<DataPoint[]>([]);
+  const [maxLtv, setMaxLtv] = useState<number>(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -47,9 +49,13 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
         const loanData: LoanDistributionResponseItem[] = await fetchLoanDistribution(collection.nftProjectName);
         console.log('DepthChart: Received raw loan data:', loanData.length, 'items');
         
-        // Get current floor price in ETH
-        const floorPriceETH = 39; // TODO: Get this from API
-        console.log('Using floor price:', floorPriceETH, 'ETH');
+        // Get floor price using the contract address from the first loan
+        if (!loanData?.[0]?.nftAddress) {
+          throw new Error('No NFT contract address found in loan data');
+        }
+        const contractAddress = loanData[0].nftAddress;
+        const floorPriceUSD = await getCurrentFloorPrice(contractAddress);
+        console.log('Using floor price:', floorPriceUSD, 'USD for contract:', contractAddress);
         
         if (!loanData || loanData.length === 0) {
           console.warn('No loan data available');
@@ -68,26 +74,19 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
         const ltvValues: number[] = [];
         console.log('Raw loan data sample:', loanData.slice(0, 5));
         
-        loanData.forEach((loan, index) => {
-          if (loan.principalAmount) {
-            // LTV is principal amount in ETH divided by floor price in ETH
-            const ltv = (loan.principalAmount / floorPriceETH) * 100;
-            if (index < 5) {
-              console.log(`Sample loan ${index + 1}:`, {
-                principalETH: loan.principalAmount,
-                floorPriceETH: floorPriceETH,
-                calculatedLTV: ltv,
-                raw: loan
-              });
-            }
+        loanData.forEach(loan => {
+          if (loan.principalAmountUSD && floorPriceUSD > 0) {
+            // LTV is principal amount in USD divided by floor price in USD
+            const ltv = (loan.principalAmountUSD / floorPriceUSD) * 100;
             ltvValues.push(ltv);
           }
         });
         
         // Find min and max LTV
         const minLtv = Math.min(...ltvValues);
-        const maxLtv = Math.max(...ltvValues);
-        console.log(`DepthChart: Full LTV range: ${minLtv.toFixed(2)}% to ${maxLtv.toFixed(2)}%`);
+        const calculatedMaxLtv = Math.max(...ltvValues);
+        setMaxLtv(calculatedMaxLtv);
+        console.log(`DepthChart: Full LTV range: ${minLtv.toFixed(2)}% to ${calculatedMaxLtv.toFixed(2)}%`);
         console.log('LTV values distribution:', {
           total: ltvValues.length,
           sample: ltvValues.slice(0, 10),
@@ -100,8 +99,8 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
         
         // Create buckets with 5% increments
         const bucketSize = 5;
-        const minBucket = Math.floor(minLtv / bucketSize) * bucketSize;
-        const maxBucket = Math.ceil(maxLtv / bucketSize) * bucketSize;
+        const minBucket = 0; // Start from 0%
+        const maxBucket = Math.ceil(calculatedMaxLtv / bucketSize) * bucketSize;
         
         // Create buckets
         const buckets: { [key: number]: LoanBucket } = {};
@@ -116,8 +115,8 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
         // Fill buckets with loan data
         let processedLoans = 0;
         loanData.forEach(loan => {
-          if (loan.principalAmount) {
-            const ltv = (loan.principalAmount / floorPriceETH) * 100;
+          if (loan.principalAmountUSD && floorPriceUSD > 0) {
+            const ltv = (loan.principalAmountUSD / floorPriceUSD) * 100;
             const bucketLtv = Math.floor(ltv / bucketSize) * bucketSize;
             
             // Ensure bucket exists (in case of rounding issues)
@@ -130,7 +129,7 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
             }
             
             buckets[bucketLtv].loanCount++;
-            buckets[bucketLtv].totalValue += loan.principalAmountUSD; // Keep USD for value display
+            buckets[bucketLtv].totalValue += loan.principalAmountUSD;
             processedLoans++;
           }
         });
@@ -208,10 +207,10 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart
           data={bucketData}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+          margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
           onClick={(e) => {
             if (e && e.activeLabel) {
-              onDataPointClick(parseInt(e.activeLabel));
+              onDataPointClick?.(parseInt(e.activeLabel));
             }
           }}
         >
@@ -219,11 +218,14 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
           <XAxis
             dataKey="ltv"
             type="number"
-            domain={['dataMin', 'dataMax']}
+            domain={[0, maxLtv]}
             tickFormatter={(value) => `${value}%`}
+            label={{ value: 'Loan-to-Value Ratio (%)', position: 'bottom', offset: 0 }}
+            padding={{ left: 0, right: 0 }}
           />
           <YAxis 
             tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+            label={{ value: 'Cumulative Loan Value (USD)', angle: -90, position: 'left', offset: 10 }}
           />
           <Tooltip content={<CustomTooltip />} />
           <Area
