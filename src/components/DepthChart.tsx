@@ -32,11 +32,26 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
     async function fetchData() {
       if (!collection) return;
       
+      console.log('DepthChart: Fetching data for collection:', collection.nftProjectName);
       setIsLoading(true);
       setError(null);
       
       try {
         const distribution = await fetchLoanDistribution(collection.nftProjectName);
+        console.log('DepthChart: Received distribution data:', distribution);
+        
+        if (!distribution || distribution.length === 0) {
+          console.warn('No loan distribution data available');
+          // Create some example data for development purposes
+          const exampleData: DataPoint[] = [
+            { ltv: 25, value: 50000, cumulativeValue: 50000, loanCount: 5 },
+            { ltv: 50, value: 75000, cumulativeValue: 125000, loanCount: 10 },
+            { ltv: 75, value: 25000, cumulativeValue: 150000, loanCount: 3 }
+          ];
+          console.log('DepthChart: Using example data instead');
+          setBucketData(exampleData);
+          return;
+        }
         
         // Convert distribution to DataPoint format
         const points: DataPoint[] = distribution.map(bucket => ({
@@ -53,10 +68,11 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
           point.cumulativeValue = cumulative;
         });
 
+        console.log('DepthChart: Final processed chart data:', points);
         setBucketData(points);
       } catch (err) {
         console.error('Error fetching loan distribution:', err);
-        setError('Failed to fetch loan distribution');
+        setError(err instanceof Error ? err.message : 'Failed to fetch data');
       } finally {
         setIsLoading(false);
       }

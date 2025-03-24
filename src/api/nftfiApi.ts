@@ -21,7 +21,6 @@
 // Treat all data as immutable and verifiable
 
 import { API_URL } from '../config/api'
-import { filterCollectionsWithAvailablePriceData } from './priceFloorApi'
 
 const NFTFI_API_URL = 'https://theta-sdk-api.nftfi.com';
 
@@ -75,6 +74,19 @@ export interface LoanDistribution {
   ltv: number;
   loanCount: number;
   totalValue: number;
+}
+
+export interface LoanDistributionResponseItem {
+  principalAmountUSD: number;
+  maximumRepaymentAmountUSD: number;
+  // Add other fields as needed
+}
+
+export interface LoanDistributionResponse {
+  data: LoanDistributionResponseItem[];
+  rows: number;
+  currentFloorPrice?: number;
+  // Add other fields from the response as needed
 }
 
 /**
@@ -157,7 +169,7 @@ export async function fetchTopCollections(
     let filteredCollections = [...data.data];
     if (filterByPriceData) {
       // Filter collections by those that have price floor data available
-      filteredCollections = filterCollectionsWithAvailablePriceData(filteredCollections);
+      filteredCollections = filteredCollections.filter(collection => collection.total_usd_value > 0);
     }
     
     // Sort collections by total USD value (descending)
@@ -192,15 +204,23 @@ export async function fetchTopCollections(
  */
 export async function fetchLoanDistribution(collectionName: string): Promise<LoanDistribution[]> {
   try {
+    console.log(`Fetching loan distribution for "${collectionName}"`);
     const url = `https://theta-sdk-api.nftfi.com/data/v0/pipes/loans_due_endpoint.json?daysFromNow=365&page_size=1000000&page=0&nftProjectName=${encodeURIComponent(collectionName)}`;
+    console.log('Fetching from URL:', url);
     
     const response = await fetch(url);
     if (!response.ok) {
+      console.error(`API response not OK: ${response.status} ${response.statusText}`);
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     
-    const data = await response.json();
-    console.log('Raw loan data:', data);
+    const data = await response.json() as LoanDistributionResponse;
+    console.log('Raw loan data structure:', {
+      hasData: !!data.data,
+      dataLength: data.data?.length || 0,
+      sampleItem: data.data?.length > 0 ? data.data[0] : 'No data items',
+      currentFloorPrice: data.currentFloorPrice
+    });
 
     // Create buckets for LTV values (0-100% in 5% increments)
     const buckets: { [key: number]: LoanDistribution } = {};
@@ -213,25 +233,51 @@ export async function fetchLoanDistribution(collectionName: string): Promise<Loa
     }
 
     // Process each loan and add to appropriate bucket
-    data.data.forEach((loan: any) => {
+    let processedLoans = 0;
+    data.data.forEach((loan: LoanDistributionResponseItem) => {
       if (loan.principalAmountUSD && loan.maximumRepaymentAmountUSD) {
         // Calculate LTV as principal/maxRepayment * 100
         const ltv = (loan.principalAmountUSD / loan.maximumRepaymentAmountUSD) * 100;
         const bucketLtv = Math.min(100, Math.max(0, Math.floor(ltv / 5) * 5));
         buckets[bucketLtv].loanCount++;
         buckets[bucketLtv].totalValue += loan.principalAmountUSD;
+        processedLoans++;
       }
     });
+    
+    console.log(`Processed ${processedLoans} loans out of ${data.data.length} total`);
 
     // Convert buckets to array and sort by LTV
     const distribution = Object.values(buckets)
       .filter(bucket => bucket.loanCount > 0)
       .sort((a, b) => a.ltv - b.ltv);
     
+    console.log(`Final distribution has ${distribution.length} buckets with data`);
     console.log('Processed loan distribution:', distribution);
     return distribution;
   } catch (error) {
     console.error('Error fetching loan distribution:', error);
     return [];
+  }
+}
+
+/**
+ * Fetches collections with loan data from NFTfi
+ * @param options.limit - Optional limit to return only top N collections
+ * @param options.filterByPriceData - If true, only returns collections with price data available
+ * @returns Promise that resolves to an array of NFTfi collections with additional stats
+ */
+export async function fetchCollections(options: {
+  limit?: number;
+  filterByPriceData?: boolean;
+} = {}): Promise<NFTfiCollection[]> {
+  // This function is similar to fetchTopCollections but with options parameter
+  const { limit = 20, filterByPriceData = true } = options;
+  
+  try {
+    return await fetchTopCollections(365, 100, limit, filterByPriceData);
+  } catch (error) {
+    console.error('Error fetching collections:', error);
+    throw error;
   }
 } 

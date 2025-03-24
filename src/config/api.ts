@@ -13,4 +13,4 @@ export const API_CONFIG = {
 };
 
 // API configuration
-export const API_URL = 'https://theta-sdk-api.nftfi.com' 
+export const API_URL = 'https://theta-sdk-api.nftfi.com';
