@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useCollections } from './hooks/useCollections';
 import { CollectionDropdown } from './components/CollectionDropdown';
 import DepthChart from './components/DepthChart';
+import DepthChartDemo from './components/DepthChartDemo';
 import LoanTable from './components/LoanTable';
 import { NFTfiCollection } from './types/reservoir';
 import { fetchLoans } from './api/nftfiApi';
@@ -23,6 +24,7 @@ function App() {
   const [selectedLoans, setSelectedLoans] = useState<Loan[]>([]);
   const [isLoadingLoans, setIsLoadingLoans] = useState(false);
   const [loanError, setLoanError] = useState<string | null>(null);
+  const [showDemo, setShowDemo] = useState(false);
 
   const handleCollectionSelect = (collectionId: string) => {
     const selected = collections.find(c => c.nftProjectName === collectionId) || null;
@@ -72,31 +74,45 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        {isLoading ? (
-          <p>Loading collections...</p>
-        ) : error ? (
-          <p className="error">Error: {error}</p>
-        ) : (
-          <CollectionDropdown
-            collections={collections}
-            selectedCollectionId={selectedCollection?.nftProjectName || null}
-            onSelect={handleCollectionSelect}
-          />
-        )}
+        <div className="header-controls">
+          {isLoading ? (
+            <p>Loading collections...</p>
+          ) : error ? (
+            <p className="error">Error: {error}</p>
+          ) : (
+            <CollectionDropdown
+              collections={collections}
+              selectedCollectionId={selectedCollection?.nftProjectName || null}
+              onSelect={handleCollectionSelect}
+            />
+          )}
+          <button 
+            className={`view-toggle ${showDemo ? 'active' : ''}`}
+            onClick={() => setShowDemo(!showDemo)}
+          >
+            {showDemo ? 'Standard View' : 'Demo View'}
+          </button>
+        </div>
       </header>
       <main className="app-main">
         {selectedCollection && (
           <>
-            <DepthChart 
-              collection={selectedCollection}
-              onDataPointClick={handleDataPointClick}
-            />
-            {isLoadingLoans ? (
-              <p>Loading loans...</p>
-            ) : loanError ? (
-              <p className="error">Error: {loanError}</p>
+            {showDemo ? (
+              <DepthChartDemo collection={selectedCollection} />
             ) : (
-              <LoanTable loans={selectedLoans} />
+              <>
+                <DepthChart 
+                  collection={selectedCollection}
+                  onDataPointClick={handleDataPointClick}
+                />
+                {isLoadingLoans ? (
+                  <p>Loading loans...</p>
+                ) : loanError ? (
+                  <p className="error">Error: {loanError}</p>
+                ) : (
+                  <LoanTable loans={selectedLoans} />
+                )}
+              </>
             )}
           </>
         )}

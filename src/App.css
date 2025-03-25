@@ -8,6 +8,35 @@
 
 .app-header {
   margin-bottom: 20px;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.view-toggle {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-toggle:hover {
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+
+.view-toggle.active {
+  background: #8884d8;
+  color: white;
+  border-color: #7773c7;
 }
 
 .app-main {
@@ -15,12 +44,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 0; /* Important for proper scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 10px; /* Add some padding for the scrollbar */
 }
 
 .loading,
 .error {
-  height: 100vh;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;

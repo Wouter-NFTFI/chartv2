@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart } from 'recharts';
+import { Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart, Brush, BarChart, Bar } from 'recharts';
 import { NFTfiCollection } from '../types/reservoir';
 import { fetchLoanDistribution, LoanDistributionResponseItem } from '../api/nftfiApi';
 import { getCurrentFloorPrice } from '../api/reservoirApi';
 import './DepthChart.css';
+// Will be imported once we create the component
+// import { DepthChartComparison } from './DepthChartComparison';
 
 interface DepthChartProps {
   collection: NFTfiCollection;
   onDataPointClick?: (ltv: number) => void;
+  visualizationType?: 'standard' | 'logScale' | 'segmented' | 'brush' | 'barChart';
 }
 
 interface DataPoint {
@@ -15,6 +18,7 @@ interface DataPoint {
   value: number;
   cumulativeValue: number;
   loanCount: number;
+  cumulativeLoanCount: number;
 }
 
 interface TooltipProps {
@@ -30,11 +34,13 @@ interface LoanBucket {
   totalValue: number;
 }
 
-export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
+export function DepthChart({ collection, onDataPointClick, visualizationType = 'standard' }: DepthChartProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [bucketData, setBucketData] = useState<DataPoint[]>([]);
-  const [maxLtv, setMaxLtv] = useState<number>(0);
+  const [chartDomain, setChartDomain] = useState<[number, number]>([0, 0]);
+  const [isCumulative, setIsCumulative] = useState(true);
+  const [brushDomain, setBrushDomain] = useState<[number, number]>([0, 100]);
 
   useEffect(() => {
     async function fetchData() {
@@ -58,16 +64,7 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
         console.log('Using floor price:', floorPriceUSD, 'USD for contract:', contractAddress);
         
         if (!loanData || loanData.length === 0) {
-          console.warn('No loan data available');
-          // Create some example data for development purposes
-          const exampleData: DataPoint[] = [
-            { ltv: 25, value: 50000, cumulativeValue: 50000, loanCount: 5 },
-            { ltv: 50, value: 75000, cumulativeValue: 125000, loanCount: 10 },
-            { ltv: 75, value: 25000, cumulativeValue: 150000, loanCount: 3 }
-          ];
-          console.log('DepthChart: Using example data instead');
-          setBucketData(exampleData);
-          return;
+          throw new Error('No loan data available');
         }
         
         // Calculate LTV for each loan
@@ -85,22 +82,16 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
         // Find min and max LTV
         const minLtv = Math.min(...ltvValues);
         const calculatedMaxLtv = Math.max(...ltvValues);
-        setMaxLtv(calculatedMaxLtv);
+        
         console.log(`DepthChart: Full LTV range: ${minLtv.toFixed(2)}% to ${calculatedMaxLtv.toFixed(2)}%`);
-        console.log('LTV values distribution:', {
-          total: ltvValues.length,
-          sample: ltvValues.slice(0, 10),
-          histogram: ltvValues.reduce((acc, ltv) => {
-            const bucket = Math.floor(ltv / 50) * 50;
-            acc[bucket] = (acc[bucket] || 0) + 1;
-            return acc;
-          }, {} as Record<number, number>)
-        });
         
         // Create buckets with 5% increments
         const bucketSize = 5;
-        const minBucket = 0; // Start from 0%
+        const minBucket = Math.floor(minLtv / bucketSize) * bucketSize;
         const maxBucket = Math.ceil(calculatedMaxLtv / bucketSize) * bucketSize;
+        
+        setChartDomain([minBucket, maxBucket]);
+        setBrushDomain([minBucket, Math.min(maxBucket, 100)]);  // Default brush domain
         
         // Create buckets
         const buckets: { [key: number]: LoanBucket } = {};
@@ -113,57 +104,38 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
         }
         
         // Fill buckets with loan data
-        let processedLoans = 0;
         loanData.forEach(loan => {
           if (loan.principalAmountUSD && floorPriceUSD > 0) {
             const ltv = (loan.principalAmountUSD / floorPriceUSD) * 100;
             const bucketLtv = Math.floor(ltv / bucketSize) * bucketSize;
             
-            // Ensure bucket exists (in case of rounding issues)
-            if (!buckets[bucketLtv]) {
-              buckets[bucketLtv] = {
-                ltv: bucketLtv,
-                loanCount: 0,
-                totalValue: 0
-              };
-            }
-            
             buckets[bucketLtv].loanCount++;
             buckets[bucketLtv].totalValue += loan.principalAmountUSD;
-            processedLoans++;
           }
         });
         
-        console.log(`DepthChart: Processed ${processedLoans} loans into ${Object.keys(buckets).length} buckets`);
-        
-        // Convert to array and sort by LTV
-        const bucketArray = Object.values(buckets)
-          .filter(bucket => bucket.loanCount > 0)
-          .sort((a, b) => a.ltv - b.ltv);
-        
-        // Convert to DataPoint format
-        const points: DataPoint[] = bucketArray.map(bucket => ({
-          ltv: bucket.ltv,
-          value: bucket.totalValue,
-          cumulativeValue: 0, // Will be calculated below
-          loanCount: bucket.loanCount
-        }));
-        
-        // Sort points by LTV in descending order (high to low)
-        const sortedPoints = [...points].sort((a, b) => b.ltv - a.ltv);
+        // Convert buckets to array and sort by LTV
+        const sortedBuckets = Object.values(buckets).sort((a, b) => b.ltv - a.ltv);
         
         // Calculate cumulative values from high LTV to low LTV
-        let cumulative = 0;
-        sortedPoints.forEach(point => {
-          cumulative += point.value;
-          point.cumulativeValue = cumulative;
+        let cumulativeValue = 0;
+        let cumulativeLoanCount = 0;
+        const points: DataPoint[] = sortedBuckets.map(bucket => {
+          cumulativeValue += bucket.totalValue;
+          cumulativeLoanCount += bucket.loanCount;
+          return {
+            ltv: bucket.ltv,
+            value: bucket.totalValue,
+            cumulativeValue,
+            loanCount: bucket.loanCount,
+            cumulativeLoanCount
+          };
         });
+
+        // Sort back to ascending order for display
+        points.sort((a, b) => a.ltv - b.ltv);
         
-        // Re-sort back to ascending order for display
-        sortedPoints.sort((a, b) => a.ltv - b.ltv);
-        
-        console.log('DepthChart: Final processed chart data:', sortedPoints);
-        setBucketData(sortedPoints);
+        setBucketData(points);
       } catch (err) {
         console.error('Error fetching loan distribution:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch data');
@@ -187,23 +159,327 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
     return <div>No data available</div>;
   }
 
+  // We'll implement the comparison view when we create the DepthChartComparison component
+  // if (viewMode === 'comparison') {
+  //   return (
+  //     <DepthChartComparison 
+  //       data={bucketData} 
+  //       collection={collection} 
+  //       chartDomain={chartDomain}
+  //       onDataPointClick={onDataPointClick} 
+  //     />
+  //   );
+  // }
+
+  const handleBrushChange = (domain: any) => {
+    if (domain && domain.startIndex !== undefined && domain.endIndex !== undefined) {
+      const points = bucketData.slice(domain.startIndex, domain.endIndex + 1);
+      if (points.length > 0) {
+        setBrushDomain([points[0].ltv, points[points.length - 1].ltv]);
+      }
+    }
+  };
+
   const CustomTooltip = ({ active, payload }: TooltipProps) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
         <div className="custom-tooltip">
           <p><strong>LTV: {data.ltv}%</strong></p>
-          <p>Value at this LTV: ${data.value.toLocaleString()}</p>
-          <p>Loans at this LTV: {data.loanCount}</p>
-          <p>Cumulative value: ${data.cumulativeValue.toLocaleString()}</p>
+          <p>Number of loans: {isCumulative ? data.cumulativeLoanCount : data.loanCount}</p>
+          <p>Total value: ${(isCumulative ? data.cumulativeValue : data.value).toLocaleString()}</p>
         </div>
       );
     }
     return null;
   };
 
+  // Filter data for segmented view
+  const segment1Data = bucketData.filter(d => d.ltv <= 100);
+  const segment2Data = bucketData.filter(d => d.ltv > 100 && d.ltv <= 500);
+  const segment3Data = bucketData.filter(d => d.ltv > 500);
+
+  // Visualization types
+  if (visualizationType === 'logScale') {
+    return (
+      <div className="depth-chart">
+        <div className="chart-controls">
+          <label className="toggle-switch">
+            <input
+              type="checkbox"
+              checked={isCumulative}
+              onChange={(e) => setIsCumulative(e.target.checked)}
+            />
+            <span className="toggle-slider"></span>
+            <span className="toggle-label">Cumulative</span>
+          </label>
+        </div>
+        <ResponsiveContainer width="100%" height={400}>
+          <AreaChart
+            data={bucketData}
+            margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
+            onClick={(e) => {
+              if (e && e.activeLabel) {
+                onDataPointClick?.(parseInt(e.activeLabel));
+              }
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+              dataKey="ltv"
+              type="number"
+              scale="log"
+              domain={['auto', 'auto']}
+              tickFormatter={(value) => `${value}%`}
+              label={{ value: 'Loan-to-Value Ratio (%) - Log Scale', position: 'bottom', offset: 0 }}
+            />
+            <YAxis 
+              tickFormatter={(value) => `${value}`}
+              label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Area
+              key={isCumulative ? "cumulative-log" : "non-cumulative-log"}
+              type="step"
+              dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
+              stroke="#8884d8"
+              fill="#8884d8"
+              fillOpacity={0.3}
+              isAnimationActive={true}
+              animationDuration={500}
+              animationEasing="ease-in-out"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
+
+  if (visualizationType === 'segmented') {
+    return (
+      <div className="depth-chart">
+        <div className="chart-controls">
+          <label className="toggle-switch">
+            <input
+              type="checkbox"
+              checked={isCumulative}
+              onChange={(e) => setIsCumulative(e.target.checked)}
+            />
+            <span className="toggle-slider"></span>
+            <span className="toggle-label">Cumulative</span>
+          </label>
+        </div>
+        <div className="segmented-charts">
+          <div className="chart-segment">
+            <h4>0-100% LTV</h4>
+            <ResponsiveContainer width="100%" height={200}>
+              <AreaChart
+                data={segment1Data}
+                margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  dataKey="ltv"
+                  type="number"
+                  domain={[0, 100]}
+                  tickFormatter={(value) => `${value}%`}
+                />
+                <YAxis tickFormatter={(value) => `${value}`} />
+                <Tooltip content={(props) => <CustomTooltip {...props} />} />
+                <Area
+                  type="step"
+                  dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
+                  stroke="#8884d8"
+                  fill="#8884d8"
+                  fillOpacity={0.3}
+                  isAnimationActive={true}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+          
+          <div className="chart-segment">
+            <h4>100-500% LTV</h4>
+            <ResponsiveContainer width="100%" height={200}>
+              <AreaChart
+                data={segment2Data}
+                margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  dataKey="ltv"
+                  type="number"
+                  domain={[100, 500]}
+                  tickFormatter={(value) => `${value}%`}
+                />
+                <YAxis tickFormatter={(value) => `${value}`} />
+                <Tooltip content={(props) => <CustomTooltip {...props} />} />
+                <Area
+                  type="step"
+                  dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
+                  stroke="#82ca9d"
+                  fill="#82ca9d"
+                  fillOpacity={0.3}
+                  isAnimationActive={true}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+          
+          <div className="chart-segment">
+            <h4>500%+ LTV</h4>
+            <ResponsiveContainer width="100%" height={200}>
+              <AreaChart
+                data={segment3Data}
+                margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  dataKey="ltv"
+                  type="number"
+                  domain={[500, chartDomain[1]]}
+                  tickFormatter={(value) => `${value}%`}
+                />
+                <YAxis tickFormatter={(value) => `${value}`} />
+                <Tooltip content={(props) => <CustomTooltip {...props} />} />
+                <Area
+                  type="step"
+                  dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
+                  stroke="#ffc658"
+                  fill="#ffc658"
+                  fillOpacity={0.3}
+                  isAnimationActive={true}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (visualizationType === 'brush') {
+    return (
+      <div className="depth-chart">
+        <div className="chart-controls">
+          <label className="toggle-switch">
+            <input
+              type="checkbox"
+              checked={isCumulative}
+              onChange={(e) => setIsCumulative(e.target.checked)}
+            />
+            <span className="toggle-slider"></span>
+            <span className="toggle-label">Cumulative</span>
+          </label>
+        </div>
+        <ResponsiveContainer width="100%" height={400}>
+          <AreaChart
+            data={bucketData}
+            margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
+            onClick={(e) => {
+              if (e && e.activeLabel) {
+                onDataPointClick?.(parseInt(e.activeLabel));
+              }
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+              dataKey="ltv"
+              type="number"
+              domain={brushDomain}
+              tickFormatter={(value) => `${value}%`}
+              label={{ value: 'Loan-to-Value Ratio (%)', position: 'bottom', offset: 0 }}
+            />
+            <YAxis 
+              tickFormatter={(value) => `${value}`}
+              label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Area
+              key={isCumulative ? "cumulative" : "non-cumulative"}
+              type="step"
+              dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
+              stroke="#8884d8"
+              fill="#8884d8"
+              fillOpacity={0.3}
+              isAnimationActive={true}
+              animationDuration={500}
+              animationEasing="ease-in-out"
+            />
+            <Brush 
+              dataKey="ltv" 
+              height={30} 
+              stroke="#8884d8"
+              onChange={handleBrushChange}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
+
+  if (visualizationType === 'barChart') {
+    return (
+      <div className="depth-chart">
+        <div className="chart-controls">
+          <label className="toggle-switch">
+            <input
+              type="checkbox"
+              checked={isCumulative}
+              onChange={(e) => setIsCumulative(e.target.checked)}
+            />
+            <span className="toggle-slider"></span>
+            <span className="toggle-label">Cumulative</span>
+          </label>
+        </div>
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart
+            data={bucketData}
+            margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
+            onClick={(e) => {
+              if (e && e.activeLabel) {
+                onDataPointClick?.(parseInt(e.activeLabel));
+              }
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+              dataKey="ltv"
+              type="number"
+              domain={[0, 100]} // Focus on the 0-100% range
+              tickFormatter={(value) => `${value}%`}
+              label={{ value: 'Loan-to-Value Ratio (%) - Focus on 0-100%', position: 'bottom', offset: 0 }}
+            />
+            <YAxis 
+              tickFormatter={(value) => `${value}`}
+              label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <Bar
+              dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
+              fill="#8884d8"
+              animationDuration={500}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
+
+  // Default: standard visualization
   return (
     <div className="depth-chart">
+      <div className="chart-controls">
+        <label className="toggle-switch">
+          <input
+            type="checkbox"
+            checked={isCumulative}
+            onChange={(e) => setIsCumulative(e.target.checked)}
+          />
+          <span className="toggle-slider"></span>
+          <span className="toggle-label">Cumulative</span>
+        </label>
+      </div>
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart
           data={bucketData}
@@ -218,23 +494,26 @@ export function DepthChart({ collection, onDataPointClick }: DepthChartProps) {
           <XAxis
             dataKey="ltv"
             type="number"
-            domain={[0, maxLtv]}
+            domain={chartDomain}
             tickFormatter={(value) => `${value}%`}
             label={{ value: 'Loan-to-Value Ratio (%)', position: 'bottom', offset: 0 }}
             padding={{ left: 0, right: 0 }}
           />
           <YAxis 
-            tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
-            label={{ value: 'Cumulative Loan Value (USD)', angle: -90, position: 'left', offset: 10 }}
+            tickFormatter={(value) => `${value}`}
+            label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
           />
           <Tooltip content={<CustomTooltip />} />
           <Area
+            key={isCumulative ? "cumulative" : "non-cumulative"}
             type="step"
-            dataKey="cumulativeValue"
+            dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
             stroke="#8884d8"
             fill="#8884d8"
             fillOpacity={0.3}
-            isAnimationActive={false}
+            isAnimationActive={true}
+            animationDuration={500}
+            animationEasing="ease-in-out"
           />
         </AreaChart>
       </ResponsiveContainer>
