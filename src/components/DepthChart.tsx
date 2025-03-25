@@ -114,26 +114,27 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
           }
         });
         
-        // Convert buckets to array and sort by LTV
-        const sortedBuckets = Object.values(buckets).sort((a, b) => b.ltv - a.ltv);
+        // Convert buckets to array and sort by LTV (ascending for stable animations)
+        const sortedBuckets = Object.values(buckets).sort((a, b) => a.ltv - b.ltv);
         
-        // Calculate cumulative values from high LTV to low LTV
+        // First pass: calculate non-cumulative values and store in points array
+        const points: DataPoint[] = sortedBuckets.map(bucket => ({
+          ltv: bucket.ltv,
+          value: bucket.totalValue,
+          loanCount: bucket.loanCount,
+          cumulativeValue: 0, // Will be calculated in second pass
+          cumulativeLoanCount: 0 // Will be calculated in second pass
+        }));
+
+        // Second pass: calculate cumulative values from high LTV to low LTV
         let cumulativeValue = 0;
         let cumulativeLoanCount = 0;
-        const points: DataPoint[] = sortedBuckets.map(bucket => {
-          cumulativeValue += bucket.totalValue;
-          cumulativeLoanCount += bucket.loanCount;
-          return {
-            ltv: bucket.ltv,
-            value: bucket.totalValue,
-            cumulativeValue,
-            loanCount: bucket.loanCount,
-            cumulativeLoanCount
-          };
-        });
-
-        // Sort back to ascending order for display
-        points.sort((a, b) => a.ltv - b.ltv);
+        for (let i = points.length - 1; i >= 0; i--) {
+          cumulativeValue += points[i].value;
+          cumulativeLoanCount += points[i].loanCount;
+          points[i].cumulativeValue = cumulativeValue;
+          points[i].cumulativeLoanCount = cumulativeLoanCount;
+        }
         
         setBucketData(points);
       } catch (err) {
@@ -201,6 +202,15 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
 
   // Visualization types
   if (visualizationType === 'logScale') {
+    // Filter out zero values and ensure minimum values for log scale
+    const logScaleData = bucketData.filter(d => {
+      const value = isCumulative ? d.cumulativeLoanCount : d.loanCount;
+      return value > 0 && d.ltv > 0;
+    });
+
+    // Add console logs to debug data
+    console.log('Filtered data for log scale:', logScaleData);
+
     return (
       <div className="depth-chart">
         <div className="chart-controls">
@@ -216,7 +226,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         </div>
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
-            data={bucketData}
+            data={logScaleData}
             margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
             onClick={(e) => {
               if (e && e.activeLabel) {
@@ -229,17 +239,19 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               dataKey="ltv"
               type="number"
               scale="log"
-              domain={['auto', 'auto']}
+              domain={[1, 'auto']}
               tickFormatter={(value) => `${value}%`}
               label={{ value: 'Loan-to-Value Ratio (%) - Log Scale', position: 'bottom', offset: 0 }}
             />
             <YAxis 
+              type="number"
+              scale="log"
+              domain={[1, 'auto']}
               tickFormatter={(value) => `${value}`}
               label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Area
-              key={isCumulative ? "cumulative-log" : "non-cumulative-log"}
               type="step"
               dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
               stroke="#8884d8"
@@ -396,7 +408,6 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             />
             <Tooltip content={<CustomTooltip />} />
             <Area
-              key={isCumulative ? "cumulative" : "non-cumulative"}
               type="step"
               dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
               stroke="#8884d8"
@@ -505,7 +516,6 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
           />
           <Tooltip content={<CustomTooltip />} />
           <Area
-            key={isCumulative ? "cumulative" : "non-cumulative"}
             type="step"
             dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
             stroke="#8884d8"
