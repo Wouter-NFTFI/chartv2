@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart, Brush, BarChart, Bar } from 'recharts';
+import { Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart, Brush, BarChart, Bar, ReferenceLine } from 'recharts';
 import { NFTfiCollection } from '../types/reservoir';
 import { fetchLoanDistribution, LoanDistributionResponseItem } from '../api/nftfiApi';
 import { getCurrentFloorPrice } from '../api/reservoirApi';
@@ -34,6 +34,10 @@ interface LoanBucket {
   totalValue: number;
 }
 
+const HIGH_RISK_COLOR = '#ffd6d6'; // Brighter pink for high risk area
+const REFERENCE_LINE_COLOR = '#ff4444'; // Red for 100% LTV line
+const REFERENCE_LINE_LABEL = { value: '100% LTV', position: 'insideTopRight' as const };
+
 export function DepthChart({ collection, onDataPointClick, visualizationType = 'standard' }: DepthChartProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +59,6 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         const loanData: LoanDistributionResponseItem[] = await fetchLoanDistribution(collection.nftProjectName);
         console.log('DepthChart: Received raw loan data:', loanData.length, 'items');
         
-        // Get floor price using the contract address from the first loan
         if (!loanData?.[0]?.nftAddress) {
           throw new Error('No NFT contract address found in loan data');
         }
@@ -73,22 +76,21 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         
         loanData.forEach(loan => {
           if (loan.principalAmountUSD && floorPriceUSD > 0) {
-            // LTV is principal amount in USD divided by floor price in USD
             const ltv = (loan.principalAmountUSD / floorPriceUSD) * 100;
             ltvValues.push(ltv);
           }
         });
-        
+
         // Find min and max LTV
         const minLtv = Math.min(...ltvValues);
-        const calculatedMaxLtv = Math.max(...ltvValues);
+        const maxLtv = Math.max(...ltvValues);
         
-        console.log(`DepthChart: Full LTV range: ${minLtv.toFixed(2)}% to ${calculatedMaxLtv.toFixed(2)}%`);
+        console.log(`DepthChart: Full LTV range: ${minLtv.toFixed(2)}% to ${maxLtv.toFixed(2)}%`);
         
-        // Create buckets with 5% increments
-        const bucketSize = 5;
+        // Create buckets with 1% increments
+        const bucketSize = 1;
         const minBucket = Math.floor(minLtv / bucketSize) * bucketSize;
-        const maxBucket = Math.ceil(calculatedMaxLtv / bucketSize) * bucketSize;
+        const maxBucket = Math.ceil(maxLtv / bucketSize) * bucketSize;
         
         setChartDomain([minBucket, maxBucket]);
         setBrushDomain([minBucket, Math.min(maxBucket, 100)]);  // Default brush domain
@@ -109,11 +111,13 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             const ltv = (loan.principalAmountUSD / floorPriceUSD) * 100;
             const bucketLtv = Math.floor(ltv / bucketSize) * bucketSize;
             
-            buckets[bucketLtv].loanCount++;
-            buckets[bucketLtv].totalValue += loan.principalAmountUSD;
+            if (buckets[bucketLtv]) {
+              buckets[bucketLtv].loanCount++;
+              buckets[bucketLtv].totalValue += loan.principalAmountUSD;
+            }
           }
         });
-        
+
         // Convert buckets to array and sort by LTV (ascending for stable animations)
         const sortedBuckets = Object.values(buckets).sort((a, b) => a.ltv - b.ltv);
         
@@ -122,8 +126,8 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
           ltv: bucket.ltv,
           value: bucket.totalValue,
           loanCount: bucket.loanCount,
-          cumulativeValue: 0, // Will be calculated in second pass
-          cumulativeLoanCount: 0 // Will be calculated in second pass
+          cumulativeValue: 0,
+          cumulativeLoanCount: 0
         }));
 
         // Second pass: calculate cumulative values from high LTV to low LTV
@@ -137,6 +141,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         }
         
         setBucketData(points);
+        
       } catch (err) {
         console.error('Error fetching loan distribution:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch data');
@@ -182,8 +187,8 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
   };
 
   const CustomTooltip = ({ active, payload }: TooltipProps) => {
-    if (active && payload && payload.length) {
-      const data = payload[0].payload;
+    if (active && payload && payload.length > 0) {
+      const data = payload[0].payload as DataPoint;
       return (
         <div className="custom-tooltip">
           <p><strong>LTV: {data.ltv}%</strong></p>
@@ -202,14 +207,131 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
 
   // Visualization types
   if (visualizationType === 'logScale') {
-    // Filter out zero values and ensure minimum values for log scale
-    const logScaleData = bucketData.filter(d => {
-      const value = isCumulative ? d.cumulativeLoanCount : d.loanCount;
-      return value > 0 && d.ltv > 0;
+    console.log('Initial bucket data:', {
+      totalBuckets: bucketData.length,
+      nonZeroBuckets: bucketData.filter(d => d.loanCount > 0).length,
+      sampleBuckets: bucketData.slice(0, 5),
+      totalLoans: bucketData.reduce((sum, d) => sum + d.loanCount, 0)
     });
 
-    // Add console logs to debug data
-    console.log('Filtered data for log scale:', logScaleData);
+    // Create logarithmically spaced buckets
+    const createLogBuckets = (minLtv: number, maxLtv: number) => {
+      const logMin = Math.log10(Math.max(0.1, minLtv));
+      const logMax = Math.log10(maxLtv);
+      const numBuckets = 50;
+      const logStep = (logMax - logMin) / numBuckets;
+      
+      const buckets: { [key: number]: LoanBucket } = {};
+      
+      for (let i = 0; i <= numBuckets; i++) {
+        const logValue = logMin + (i * logStep);
+        const value = Math.round(Math.pow(10, logValue) * 100) / 100;
+        buckets[value] = {
+          ltv: value,
+          loanCount: 0,
+          totalValue: 0
+        };
+      }
+
+      console.log('Created log buckets:', {
+        logMin,
+        logMax,
+        logStep,
+        numBuckets,
+        sampleBuckets: Object.keys(buckets).slice(0, 5).map(k => ({
+          ltv: k,
+          bucket: buckets[Number(k)]
+        }))
+      });
+      
+      return buckets;
+    };
+
+    // Get min/max LTV values, excluding zero values
+    const nonZeroLtvValues = bucketData.filter(d => d.ltv > 0).map(d => d.ltv);
+    const minLtv = Math.min(...nonZeroLtvValues);
+    const maxLtv = Math.max(...nonZeroLtvValues);
+    
+    console.log('Log scale bounds:', {
+      minLtv,
+      maxLtv,
+      nonZeroLtvCount: nonZeroLtvValues.length,
+      ltvRange: maxLtv - minLtv
+    });
+    
+    // Create log-spaced buckets
+    const logBuckets = createLogBuckets(minLtv, maxLtv);
+    
+    // Redistribute data into log buckets
+    let redistributedCount = 0;
+    bucketData.forEach(point => {
+      if (point.ltv <= 0) {
+        console.log('Skipping zero/negative LTV point:', point);
+        return;
+      }
+      
+      // Find the closest log bucket
+      const bucketLtv = Object.keys(logBuckets)
+        .map(Number)
+        .reduce((prev, curr) => {
+          return (Math.abs(Math.log10(curr) - Math.log10(point.ltv)) < 
+                 Math.abs(Math.log10(prev) - Math.log10(point.ltv))) ? curr : prev;
+        });
+      
+      logBuckets[bucketLtv].loanCount += point.loanCount;
+      logBuckets[bucketLtv].totalValue += point.value;
+      redistributedCount += point.loanCount;
+    });
+
+    console.log('After redistribution:', {
+      originalTotalLoans: bucketData.reduce((sum, d) => sum + d.loanCount, 0),
+      redistributedLoans: redistributedCount,
+      nonEmptyLogBuckets: Object.values(logBuckets).filter(b => b.loanCount > 0).length,
+      sampleFilledBuckets: Object.values(logBuckets)
+        .filter(b => b.loanCount > 0)
+        .slice(0, 5)
+    });
+
+    // Convert to array and sort by ascending LTV
+    const points: DataPoint[] = Object.values(logBuckets)
+      .filter(bucket => bucket.loanCount > 0)
+      .sort((a, b) => a.ltv - b.ltv)
+      .map(bucket => ({
+        ltv: bucket.ltv,
+        value: bucket.totalValue,
+        loanCount: bucket.loanCount,
+        cumulativeValue: 0,
+        cumulativeLoanCount: 0
+      }));
+
+    console.log('Sorted points before cumulative:', {
+      totalPoints: points.length,
+      samplePoints: points.slice(0, 5),
+      totalLoans: points.reduce((sum, p) => sum + p.loanCount, 0)
+    });
+
+    // Calculate cumulative values from high LTV to low LTV
+    let cumulativeValue = 0;
+    let cumulativeLoanCount = 0;
+    for (let i = points.length - 1; i >= 0; i--) {
+      cumulativeValue += points[i].value;
+      cumulativeLoanCount += points[i].loanCount;
+      points[i].cumulativeValue = cumulativeValue;
+      points[i].cumulativeLoanCount = cumulativeLoanCount;
+    }
+
+    // Calculate domain boundaries
+    const minNonZeroLtv = Math.max(0.1, Math.min(...points.map(d => d.ltv)));
+    const maxDisplayLtv = Math.max(...points.map(d => d.ltv));
+
+    console.log('Final log scale data:', {
+      pointCount: points.length,
+      minLtv: minNonZeroLtv,
+      maxLtv: maxDisplayLtv,
+      totalLoans: points.reduce((sum, p) => sum + p.loanCount, 0),
+      cumulativeTotal: points[0]?.cumulativeLoanCount || 0,
+      samplePoints: points.slice(0, 5)
+    });
 
     return (
       <div className="depth-chart">
@@ -226,7 +348,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         </div>
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
-            data={logScaleData}
+            data={points}
             margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
             onClick={(e) => {
               if (e && e.activeLabel) {
@@ -234,29 +356,46 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               }
             }}
           >
+            <defs>
+              <linearGradient id="highRiskArea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={HIGH_RISK_COLOR} stopOpacity={1}/>
+                <stop offset="100%" stopColor={HIGH_RISK_COLOR} stopOpacity={1}/>
+              </linearGradient>
+            </defs>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="ltv"
               type="number"
               scale="log"
-              domain={[1, 'auto']}
-              tickFormatter={(value) => `${value}%`}
+              domain={[minNonZeroLtv, maxDisplayLtv]}
+              tickFormatter={(value) => `${Math.round(value)}%`}
               label={{ value: 'Loan-to-Value Ratio (%) - Log Scale', position: 'bottom', offset: 0 }}
             />
             <YAxis 
               type="number"
               scale="log"
-              domain={[1, 'auto']}
-              tickFormatter={(value) => `${value}`}
+              domain={['auto', 'auto']}
+              tickFormatter={(value) => `${Math.round(value)}`}
               label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
             />
             <Tooltip content={<CustomTooltip />} />
+            <ReferenceLine x={100} stroke={REFERENCE_LINE_COLOR} strokeWidth={2} label={REFERENCE_LINE_LABEL} />
             <Area
               type="step"
               dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
               stroke="#8884d8"
               fill="#8884d8"
               fillOpacity={0.3}
+              isAnimationActive={true}
+              animationDuration={500}
+              animationEasing="ease-in-out"
+            />
+            <Area
+              type="step"
+              dataKey={(dataPoint: DataPoint) => dataPoint.ltv > 100 ? (isCumulative ? dataPoint.cumulativeLoanCount : dataPoint.loanCount) : 0}
+              stroke="none"
+              fill="url(#highRiskArea)"
+              fillOpacity={0.5}
               isAnimationActive={true}
               animationDuration={500}
               animationEasing="ease-in-out"
@@ -297,7 +436,8 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   tickFormatter={(value) => `${value}%`}
                 />
                 <YAxis tickFormatter={(value) => `${value}`} />
-                <Tooltip content={(props) => <CustomTooltip {...props} />} />
+                <Tooltip content={<CustomTooltip />} />
+                <ReferenceLine x={100} stroke={REFERENCE_LINE_COLOR} strokeWidth={2} />
                 <Area
                   type="step"
                   dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
@@ -317,6 +457,13 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                 data={segment2Data}
                 margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
               >
+                <defs>
+                  <linearGradient id="highRiskArea2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={HIGH_RISK_COLOR} stopOpacity={0.8}/>
+                    <stop offset="100%" stopColor={HIGH_RISK_COLOR} stopOpacity={0.8}/>
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#highRiskArea2)" />
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
                   dataKey="ltv"
@@ -325,7 +472,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   tickFormatter={(value) => `${value}%`}
                 />
                 <YAxis tickFormatter={(value) => `${value}`} />
-                <Tooltip content={(props) => <CustomTooltip {...props} />} />
+                <Tooltip content={<CustomTooltip />} />
                 <Area
                   type="step"
                   dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
@@ -345,6 +492,13 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                 data={segment3Data}
                 margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
               >
+                <defs>
+                  <linearGradient id="highRiskArea3" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor={HIGH_RISK_COLOR} stopOpacity={0.8}/>
+                    <stop offset="100%" stopColor={HIGH_RISK_COLOR} stopOpacity={0.8}/>
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#highRiskArea3)" />
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
                   dataKey="ltv"
@@ -353,7 +507,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   tickFormatter={(value) => `${value}%`}
                 />
                 <YAxis tickFormatter={(value) => `${value}`} />
-                <Tooltip content={(props) => <CustomTooltip {...props} />} />
+                <Tooltip content={<CustomTooltip />} />
                 <Area
                   type="step"
                   dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
@@ -501,6 +655,12 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             }
           }}
         >
+          <defs>
+            <linearGradient id="highRiskArea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={HIGH_RISK_COLOR} stopOpacity={1}/>
+              <stop offset="100%" stopColor={HIGH_RISK_COLOR} stopOpacity={1}/>
+            </linearGradient>
+          </defs>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="ltv"
@@ -515,12 +675,23 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
           />
           <Tooltip content={<CustomTooltip />} />
+          <ReferenceLine x={100} stroke={REFERENCE_LINE_COLOR} strokeWidth={2} label={REFERENCE_LINE_LABEL} />
           <Area
             type="step"
             dataKey={isCumulative ? "cumulativeLoanCount" : "loanCount"}
             stroke="#8884d8"
             fill="#8884d8"
             fillOpacity={0.3}
+            isAnimationActive={true}
+            animationDuration={500}
+            animationEasing="ease-in-out"
+          />
+          <Area
+            type="step"
+            dataKey={(dataPoint: DataPoint) => dataPoint.ltv > 100 ? (isCumulative ? dataPoint.cumulativeLoanCount : dataPoint.loanCount) : 0}
+            stroke="none"
+            fill="url(#highRiskArea)"
+            fillOpacity={0.5}
             isAnimationActive={true}
             animationDuration={500}
             animationEasing="ease-in-out"
