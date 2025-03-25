@@ -50,6 +50,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
   const [chartDomain, setChartDomain] = useState<[number, number]>([0, 0]);
   const [isCumulative, setIsCumulative] = useState(true);
   const [brushDomain, setBrushDomain] = useState<[number, number]>([0, 100]);
+  const [minLtvValue, setMinLtvValue] = useState<number>(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -97,6 +98,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         const minBucket = Math.floor(minLtv / bucketSize) * bucketSize;
         const maxBucket = Math.ceil(maxLtv / bucketSize) * bucketSize;
         
+        setMinLtvValue(minBucket);
         setChartDomain([minBucket, maxBucket]);
         setBrushDomain([minBucket, Math.min(maxBucket, 100)]);  // Default brush domain
         
@@ -161,9 +163,9 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
   // Update chartDomain when bucketData changes
   useEffect(() => {
     if (bucketData.length > 0) {
-      setChartDomain([0, Math.min(Math.max(...bucketData.map(d => d.ltv)), 300)]);
+      setChartDomain([minLtvValue, Math.min(Math.max(...bucketData.map(d => d.ltv)), 300)]);
     }
-  }, [bucketData]);
+  }, [bucketData, minLtvValue]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -217,6 +219,14 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
   const segment2Data = bucketData.filter(d => d.ltv > 100 && d.ltv <= 500);
   const segment3Data = bucketData.filter(d => d.ltv > 500);
 
+  // Calculate segment-specific domains
+  const segment1Min = segment1Data.length > 0 ? Math.min(...segment1Data.map(d => d.ltv)) : minLtvValue;
+  const segment1Max = 100;
+  const segment2Min = 100;
+  const segment2Max = 500;
+  const segment3Min = 500;
+  const segment3Max = segment3Data.length > 0 ? Math.max(...segment3Data.map(d => d.ltv)) : chartDomain[1];
+
   // Visualization types
   if (visualizationType === 'segmented') {
     return (
@@ -244,7 +254,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                 <XAxis
                   dataKey="ltv"
                   type="number"
-                  domain={[0, 100]}
+                  domain={[segment1Min, segment1Max]}
                   tickFormatter={(value) => `${value}%`}
                 />
                 <YAxis tickFormatter={(value) => `${value}`} />
@@ -280,7 +290,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                 <XAxis
                   dataKey="ltv"
                   type="number"
-                  domain={[100, 500]}
+                  domain={[segment2Min, segment2Max]}
                   tickFormatter={(value) => `${value}%`}
                 />
                 <YAxis tickFormatter={(value) => `${value}`} />
@@ -315,7 +325,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                 <XAxis
                   dataKey="ltv"
                   type="number"
-                  domain={[500, chartDomain[1]]}
+                  domain={[segment3Min, segment3Max]}
                   tickFormatter={(value) => `${value}%`}
                 />
                 <YAxis tickFormatter={(value) => `${value}`} />
@@ -453,7 +463,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             <XAxis
               dataKey="ltv"
               type="number"
-              domain={[0, 100]} // Focus on the 0-100% range
+              domain={[minLtvValue, 100]} // Focus on the min-100% range
               tickFormatter={(value) => `${value}%`}
               label={{ value: 'Loan-to-Value Ratio (%) - Focus on 0-100%', position: 'bottom', offset: 0 }}
             />
