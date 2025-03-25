@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DepthChart } from './DepthChart';
 import { NFTfiCollection } from '../types/reservoir';
 import './DepthChart.css';
@@ -8,11 +8,8 @@ interface DepthChartDemoProps {
 }
 
 export function DepthChartDemo({ collection }: DepthChartDemoProps) {
-  const [selectedChart, setSelectedChart] = useState<number | null>(null);
-
   const handleDataPointClick = (ltv: number) => {
     console.log(`Selected LTV: ${ltv}%`);
-    setSelectedChart(ltv);
   };
 
   return (
@@ -33,19 +30,7 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
       </section>
 
       <section>
-        <h2>2. Logarithmic Scale</h2>
-        <p>Using a logarithmic scale for the x-axis to better distribute the data across the entire width.</p>
-        <div className="chart-demo-container">
-          <DepthChart 
-            collection={collection} 
-            visualizationType="logScale"
-            onDataPointClick={handleDataPointClick}
-          />
-        </div>
-      </section>
-
-      <section>
-        <h2>3. Segmented Views</h2>
+        <h2>2. Segmented Views</h2>
         <p>Breaking the chart into meaningful LTV segments (0-100%, 100-500%, 500%+) to see details at each level.</p>
         <div className="chart-demo-container">
           <DepthChart 
@@ -57,7 +42,7 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
       </section>
 
       <section>
-        <h2>4. Interactive Brush & Zoom</h2>
+        <h2>3. Interactive Brush & Zoom</h2>
         <p>Use the brush at the bottom to focus on specific LTV ranges.</p>
         <div className="chart-demo-container">
           <DepthChart 
@@ -69,7 +54,7 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
       </section>
 
       <section>
-        <h2>5. Bar Chart (0-100% Focus)</h2>
+        <h2>4. Bar Chart (0-100% Focus)</h2>
         <p>Bar chart focusing on the most common LTV range (0-100%).</p>
         <div className="chart-demo-container">
           <DepthChart 
@@ -84,9 +69,10 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
         <h2>Recommendations</h2>
         <p>Based on the data distribution:</p>
         <ul>
-          <li>For overview: The logarithmic scale provides the best balance between showing the full range while still being able to see details in lower LTV ranges.</li>
+          <li>For overview: The standard view provides a quick overall picture of the LTV distribution.</li>
           <li>For detailed analysis: The segmented approach gives the clearest view of each LTV range.</li>
           <li>For interactive exploration: The brush & zoom approach allows users to focus on specific areas of interest.</li>
+          <li>For comparison: The bar chart is best for comparing loan counts within the critical 0-100% range.</li>
         </ul>
       </div>
     </div>
