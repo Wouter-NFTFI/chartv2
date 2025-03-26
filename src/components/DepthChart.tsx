@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart, Brush, BarChart, Bar, ReferenceLine } from 'recharts';
-import { NFTfiCollection } from '../types/reservoir';
+import { NFTfiCollection } from '../api/nftfiApi';
 import { fetchLoanDistribution, LoanDistributionResponseItem } from '../api/nftfiApi';
 import { getCurrentFloorPrice } from '../api/reservoirApi';
 import './DepthChart.css';
+import { calculateLTV } from '../utils/financial';
 // Will be imported once we create the component
 // import { DepthChartComparison } from './DepthChartComparison';
 
 interface DepthChartProps {
   collection: NFTfiCollection;
-  onDataPointClick?: (ltv: number) => void;
-  visualizationType?: 'standard' | 'segmented' | 'brush' | 'barChart' | 'logarithmic' | 'symLog';
+  onDataPointClick: (ltv: number, floorPriceUSD: number) => void;
+  visualizationType?: 'standard' | 'segmented' | 'brush' | 'logarithmic' | 'symLog';
 }
 
 interface DataPoint {
@@ -80,6 +81,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
   const [brushDomain, setBrushDomain] = useState<[number, number]>([0, 100]);
   const [minLtvValue, setMinLtvValue] = useState<number>(0);
   const [distributionCenter, setDistributionCenter] = useState<number>(100);
+  const [floorPriceUSD, setFloorPriceUSD] = useState<number>(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -111,7 +113,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         
         loanData.forEach(loan => {
           if (loan.principalAmountUSD && floorPriceUSD > 0) {
-            const ltv = (loan.principalAmountUSD / floorPriceUSD) * 100;
+            const ltv = calculateLTV(loan.principalAmountUSD, floorPriceUSD);
             ltvValues.push(ltv);
           }
         });
@@ -144,7 +146,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         // Fill buckets with loan data
         loanData.forEach(loan => {
           if (loan.principalAmountUSD && floorPriceUSD > 0) {
-            const ltv = (loan.principalAmountUSD / floorPriceUSD) * 100;
+            const ltv = calculateLTV(loan.principalAmountUSD, floorPriceUSD);
             const bucketLtv = Math.floor(ltv / bucketSize) * bucketSize;
             
             if (buckets[bucketLtv]) {
@@ -177,6 +179,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         }
         
         setBucketData(points);
+        setFloorPriceUSD(floorPriceUSD);
         
       } catch (err) {
         console.error('Error fetching loan distribution:', err);
@@ -462,7 +465,8 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
             onClick={(e) => {
               if (e && e.activeLabel) {
-                onDataPointClick?.(parseInt(e.activeLabel));
+                const ltv = parseInt(e.activeLabel);
+                onDataPointClick(ltv, floorPriceUSD);
               }
             }}
           >
@@ -522,83 +526,6 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
     );
   }
 
-  if (visualizationType === 'barChart') {
-    // No need for the filtered data variables if we're not using them
-    return (
-      <div className="depth-chart">
-        <div className="chart-controls">
-          <label className="toggle-switch">
-            <input
-              type="checkbox"
-              checked={isCumulative}
-              onChange={(e) => setIsCumulative(e.target.checked)}
-            />
-            <span className="toggle-slider"></span>
-            <span className="toggle-label">Cumulative</span>
-          </label>
-        </div>
-        <ResponsiveContainer width="100%" height={400}>
-          <BarChart
-            data={bucketData}
-            margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
-            onClick={(e) => {
-              if (e && e.activeLabel) {
-                onDataPointClick?.(parseInt(e.activeLabel));
-              }
-            }}
-          >
-            <defs>
-              <linearGradient id="highRiskGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor={HIGH_RISK_COLOR} stopOpacity={0.8}/>
-                <stop offset="100%" stopColor={HIGH_RISK_COLOR} stopOpacity={0.8}/>
-              </linearGradient>
-              <linearGradient id="normalRiskGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#8884d8" stopOpacity={0.8}/>
-                <stop offset="100%" stopColor="#8884d8" stopOpacity={0.3}/>
-              </linearGradient>
-            </defs>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="ltv"
-              type="number"
-              domain={[minLtvValue, 100]} // Focus on the min-100% range
-              tickFormatter={(value) => `${value}%`}
-              label={{ value: 'Loan-to-Value Ratio (%) - Focus on 0-100%', position: 'bottom', offset: 0 }}
-            />
-            <YAxis 
-              tickFormatter={(value) => `${value}`}
-              label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <ReferenceLine x={100} stroke={REFERENCE_LINE_COLOR} strokeWidth={2} />
-            {/* Normal risk bars (LTV <= 100%) */}
-            <Bar
-              name="Normal Risk"
-              dataKey={(dataPoint: DataPoint) => 
-                dataPoint.ltv <= 100 
-                  ? (isCumulative ? dataPoint.cumulativeLoanCount : dataPoint.loanCount) 
-                  : 0
-              }
-              fill="url(#normalRiskGradient)"
-              animationDuration={500}
-            />
-            {/* High risk bars (LTV > 100%) */}
-            <Bar
-              name="High Risk"
-              dataKey={(dataPoint: DataPoint) => 
-                dataPoint.ltv > 100 
-                  ? (isCumulative ? dataPoint.cumulativeLoanCount : dataPoint.loanCount) 
-                  : 0
-              }
-              fill="url(#highRiskGradient)"
-              animationDuration={500}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-    );
-  }
-
   if (visualizationType === 'logarithmic') {
     // Early return if no data
     if (bucketData.length === 0) {
@@ -613,6 +540,36 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
     const hundredLtvBin = logBins.find(bin => bin.binStart <= 100 && bin.binEnd > 100);
     const refLineLabel = hundredLtvBin ? hundredLtvBin.displayLabel : undefined;
 
+    // Pre-calculate the values for bars to avoid custom dataKey functions
+    const processedLogBins = logBins.map(bin => ({
+      ...bin,
+      normalRiskValue: bin.binStart < 100 ? (isCumulative ? bin.cumulativeCount : bin.loanCount) : 0,
+      highRiskValue: bin.binStart >= 100 ? (isCumulative ? bin.cumulativeCount : bin.loanCount) : 0
+    }));
+
+    // Type-safe tooltip component for logarithmic chart
+    const LogTooltip = (props: { active?: boolean; payload?: Array<{ payload: LogBin & { normalRiskValue: number; highRiskValue: number } }> }) => {
+      if (!props.active || !props.payload || !props.payload.length) {
+        return null;
+      }
+      
+      const bin = props.payload[0].payload;
+      if (!bin) return null;
+      
+      const dataValue = isCumulative 
+        ? bin.cumulativeCount 
+        : bin.loanCount;
+        
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`LTV Range: ${bin.displayLabel}`}</p>
+          <p className="value">{`Number of loans: ${dataValue}`}</p>
+          <p className="value">{`Total value: $${isCumulative ? bin.cumulativeValue.toLocaleString() : bin.value.toLocaleString()}`}</p>
+          <p className="info">Bin width: ${(bin.binEnd - bin.binStart).toFixed(0)}%</p>
+        </div>
+      );
+    };
+
     return (
       <div className="depth-chart">
         <div className="chart-controls">
@@ -628,14 +585,15 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         </div>
         <ResponsiveContainer width="100%" height={400}>
           <BarChart
-            data={logBins}
+            data={processedLogBins}
             margin={{ top: 20, right: 30, left: 60, bottom: 60 }}
             onClick={(e) => {
               if (e && e.activeLabel) {
                 // Parse the bin display label to get the middle value
                 const bin = logBins.find(b => b.displayLabel === e.activeLabel);
                 if (bin) {
-                  onDataPointClick?.((bin.binStart + bin.binEnd) / 2);
+                  const ltv = (bin.binStart + bin.binEnd) / 2;
+                  onDataPointClick(ltv, floorPriceUSD);
                 }
               }
             }}
@@ -666,31 +624,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               tickFormatter={(value) => `${value}`}
               label={{ value: 'Number of Loans', angle: -90, position: 'left', offset: 10 }}
             />
-            <Tooltip 
-              formatter={(value, name) => {
-                return [value, name === 'Normal Risk' || name === 'High Risk' ? 'Loans' : name];
-              }}
-              labelFormatter={(label) => `LTV Range: ${label}`}
-              content={(props) => {
-                if (!props.active || !props.payload || !props.payload.length) {
-                  return null;
-                }
-                
-                const bin = props.payload[0].payload as LogBin;
-                const dataValue = isCumulative 
-                  ? bin.cumulativeCount 
-                  : bin.loanCount;
-                  
-                return (
-                  <div className="custom-tooltip">
-                    <p className="label">{`LTV Range: ${bin.displayLabel}`}</p>
-                    <p className="value">{`Number of loans: ${dataValue}`}</p>
-                    <p className="value">{`Total value: $${isCumulative ? bin.cumulativeValue.toLocaleString() : bin.value.toLocaleString()}`}</p>
-                    <p className="info">Bin width: ${(bin.binEnd - bin.binStart).toFixed(0)}%</p>
-                  </div>
-                );
-              }}
-            />
+            <Tooltip content={<LogTooltip />} />
             
             {/* Add reference line at 100% LTV */}
             {refLineLabel && (
@@ -709,9 +643,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             {/* Normal Risk Bars */}
             <Bar
               name="Normal Risk"
-              dataKey={(bin: LogBin) => 
-                bin.binStart < 100 ? (isCumulative ? bin.cumulativeCount : bin.loanCount) : 0
-              }
+              dataKey="normalRiskValue"
               fill="url(#normalRiskGradient)"
               animationDuration={500}
             />
@@ -719,9 +651,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             {/* High Risk Bars */}
             <Bar
               name="High Risk"
-              dataKey={(bin: LogBin) => 
-                bin.binStart >= 100 ? (isCumulative ? bin.cumulativeCount : bin.loanCount) : 0
-              }
+              dataKey="highRiskValue"
               fill="url(#highRiskGradient)"
               animationDuration={500}
             />
@@ -789,7 +719,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             onClick={(e) => {
               if (e && e.activeLabel) {
                 const originalValue = symLogInverse(parseFloat(e.activeLabel), distributionCenter);
-                onDataPointClick?.(originalValue);
+                onDataPointClick(originalValue, floorPriceUSD);
               }
             }}
           >
@@ -927,7 +857,8 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
           margin={{ top: 20, right: 30, left: 60, bottom: 20 }}
           onClick={(e) => {
             if (e && e.activeLabel) {
-              onDataPointClick?.(parseInt(e.activeLabel));
+              const ltv = parseInt(e.activeLabel);
+              onDataPointClick(ltv, floorPriceUSD);
             }
           }}
         >

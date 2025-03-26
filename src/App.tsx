@@ -1,122 +1,174 @@
-import { useState, useEffect } from 'react';
-import { useCollections } from './hooks/useCollections';
+import React, { useState, useEffect } from 'react';
+import { fetchCollections, fetchLoans, NFTfiCollection } from './api/nftfiApi';
+import { Loan } from './types/nftfi';
 import { CollectionDropdown } from './components/CollectionDropdown';
-import DepthChart from './components/DepthChart';
-import DepthChartDemo from './components/DepthChartDemo';
-import LoanTable from './components/LoanTable';
-import { NFTfiCollection } from './types/reservoir';
-import { fetchLoans } from './api/nftfiApi';
+import { DepthChartDemo } from './components/DepthChartDemo';
+import { isLoanMatchingLTV } from './utils/financial';
 import './App.css';
 
-interface Loan {
-  asset: string;
-  currentLTV: number;
-  currentLoanAmount: number;
-  originalLTV: number;
-  originalLoanAmount: number;
-  startDate: string;
-  dueDate: string;
-}
-
 function App() {
-  const { collections, isLoading, error } = useCollections();
+  const [collections, setCollections] = useState<NFTfiCollection[]>([]);
   const [selectedCollection, setSelectedCollection] = useState<NFTfiCollection | null>(null);
+  const [allLoans, setAllLoans] = useState<Loan[]>([]); // Store the complete set of loans
   const [selectedLoans, setSelectedLoans] = useState<Loan[]>([]);
   const [isLoadingLoans, setIsLoadingLoans] = useState(false);
   const [loanError, setLoanError] = useState<string | null>(null);
-  const [showDemo, setShowDemo] = useState(false);
+  const [isFiltered, setIsFiltered] = useState(false); // Track if filtering is active
+  const [activeLTV, setActiveLTV] = useState<number | null>(null); // Track active LTV filter
 
-  const handleCollectionSelect = (collectionId: string) => {
-    const selected = collections.find(c => c.nftProjectName === collectionId) || null;
-    setSelectedCollection(selected);
-    setSelectedLoans([]); // Clear selected loans when changing collections
-  };
+  useEffect(() => {
+    const loadCollections = async () => {
+      try {
+        const collectionsData = await fetchCollections();
+        setCollections(collectionsData);
+      } catch (error) {
+        console.error('Failed to fetch collections:', error);
+      }
+    };
+    loadCollections();
+  }, []);
 
-  const handleDataPointClick = async (ltv: number) => {
-    if (!selectedCollection) return;
-
+  const handleCollectionSelect = async (collectionId: string) => {
     setIsLoadingLoans(true);
     setLoanError(null);
-
+    setIsFiltered(false); // Reset filter status when selecting a new collection
+    
     try {
-      const response = await fetchLoans(365, selectedCollection.nftProjectName);
+      const selected = collections.find(c => c.nftProjectName === collectionId) || null;
+      setSelectedCollection(selected);
       
-      if (!response.data || !Array.isArray(response.data)) {
-        throw new Error('Invalid loan data received from API');
-      }
-
-      // Filter loans by LTV and transform into our format
-      const transformedLoans = response.data
-        .filter(loan => {
-          const loanLtv = (loan.repaymentAmount / loan.principalAmount) * 100;
-          // Match loans within ±2.5% of the clicked LTV (one bucket width)
-          return Math.abs(loanLtv - ltv) <= 2.5;
-        })
-        .map(loan => ({
-          asset: selectedCollection.nftProjectName,
-          currentLTV: (loan.repaymentAmount / loan.principalAmount) * 100,
-          currentLoanAmount: loan.principalAmount,
-          originalLTV: (loan.repaymentAmount / loan.principalAmount) * 100,
-          originalLoanAmount: loan.principalAmount,
-          startDate: new Date().toISOString(),
-          dueDate: loan.dueDate
+      if (selected) {
+        const response = await fetchLoans(365, collectionId);
+        if (!response.data || !Array.isArray(response.data)) {
+          throw new Error('Invalid loan data received from API');
+        }
+        
+        const transformedLoans = response.data.map(loan => ({
+          loanId: loan.loanId,
+          protocolName: loan.protocolName,
+          nftId: loan.nftId,
+          nftImageSmallUri: loan.nftImageSmallUri,
+          principalAmountUSD: loan.principalAmountUSD,
+          maximumRepaymentAmountUSD: loan.maximumRepaymentAmountUSD,
+          apr: loan.apr,
+          durationDays: loan.durationDays,
+          hoursUntilDue: loan.hoursUntilDue,
+          borrowerAddress: loan.borrowerAddress,
+          lenderAddress: loan.lenderAddress
         }));
-
-      setSelectedLoans(transformedLoans);
+        
+        // Set both allLoans and selectedLoans to the full dataset
+        setAllLoans(transformedLoans);
+        setSelectedLoans(transformedLoans);
+      }
     } catch (err) {
       setLoanError(err instanceof Error ? err.message : 'Failed to fetch loans');
+      setAllLoans([]);
       setSelectedLoans([]);
     } finally {
       setIsLoadingLoans(false);
     }
   };
 
+  const handleDataPointClick = (ltv: number, floorPriceUSD: number) => {
+    if (!selectedCollection) return;
+    
+    console.log('Chart point clicked:', { 
+      ltv, 
+      floorPriceUSD,
+      allLoansCount: allLoans.length
+    });
+    
+    // Find loans where the LTV is close to the clicked value
+    // We'll use a 5% tolerance to account for rounding and small variations
+    const tolerance = 0.05;
+    
+    // Always filter from the complete dataset (allLoans), not the already filtered set
+    const filteredLoans = allLoans.filter(loan => {
+      // We now have the floor price directly from the chart
+      const isWithinTolerance = isLoanMatchingLTV(loan, ltv, floorPriceUSD, tolerance * 100);
+      
+      // Log only a few sample loans to avoid console spam
+      const loanIdNumber = parseInt(loan.loanId, 10);
+      if (!isNaN(loanIdNumber) && loanIdNumber % 50 === 0) {
+        console.log('Loan LTV check (sample):', {
+          loanId: loan.loanId,
+          targetLtv: ltv,
+          floorPriceUSD,
+          tolerance: ltv * tolerance,
+          isWithinTolerance
+        });
+      }
+      
+      return isWithinTolerance;
+    });
+
+    console.log('Filtered loans:', {
+      totalLoans: allLoans.length,
+      filteredCount: filteredLoans.length,
+      ltv,
+      floorPriceUSD
+    });
+
+    setSelectedLoans(filteredLoans);
+    setIsFiltered(true); // Set filter status to active
+    setActiveLTV(ltv); // Track which LTV we're currently filtering on
+  };
+
+  // Function to reset to the full dataset
+  const handleResetFilters = () => {
+    console.log('Resetting filters, showing all loans:', allLoans.length);
+    setSelectedLoans(allLoans);
+    setIsFiltered(false);
+    setActiveLTV(null);
+  };
+
   return (
-    <div className="app">
-      <header className="app-header">
-        <div className="header-controls">
-          {isLoading ? (
-            <p>Loading collections...</p>
-          ) : error ? (
-            <p className="error">Error: {error}</p>
-          ) : (
+    <div className="min-h-screen bg-gray-100">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-8">NFTfi Loan Analysis</h1>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white rounded-lg shadow p-6">
             <CollectionDropdown
               collections={collections}
               selectedCollectionId={selectedCollection?.nftProjectName || null}
               onSelect={handleCollectionSelect}
             />
-          )}
-          <button 
-            className={`view-toggle ${showDemo ? 'active' : ''}`}
-            onClick={() => setShowDemo(!showDemo)}
-          >
-            {showDemo ? 'Standard View' : 'Demo View'}
-          </button>
-        </div>
-      </header>
-      <main className="app-main">
-        {selectedCollection && (
-          <>
-            {showDemo ? (
-              <DepthChartDemo collection={selectedCollection} />
-            ) : (
-              <>
-                <DepthChart 
-                  collection={selectedCollection}
-                  onDataPointClick={handleDataPointClick}
-                />
-                {isLoadingLoans ? (
-                  <p>Loading loans...</p>
-                ) : loanError ? (
-                  <p className="error">Error: {loanError}</p>
-                ) : (
-                  <LoanTable loans={selectedLoans} />
+          </div>
+          
+          {selectedCollection && (
+            <div className={`bg-white rounded-lg shadow p-6 ${isFiltered ? 'filter-active' : ''}`}>
+              <div className="flex justify-between items-center mb-4">
+                <div>
+                  <h2 className="text-xl font-bold">{selectedCollection.nftProjectName}</h2>
+                  {isFiltered && activeLTV && (
+                    <p className="text-sm text-gray-600">
+                      Showing loans with LTV around {activeLTV.toFixed(0)}% 
+                      ({selectedLoans.length} of {allLoans.length} loans)
+                    </p>
+                  )}
+                </div>
+                {isFiltered && (
+                  <button 
+                    onClick={handleResetFilters}
+                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors reset-button"
+                  >
+                    View All Loans
+                  </button>
                 )}
-              </>
-            )}
-          </>
-        )}
-      </main>
+              </div>
+              <DepthChartDemo
+                collection={selectedCollection}
+                onDataPointClick={handleDataPointClick}
+                loans={selectedLoans}
+                isLoadingLoans={isLoadingLoans}
+                loanError={loanError}
+              />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import Select, { StylesConfig, GroupBase } from 'react-select';
-import type { NFTfiCollection } from '../types/reservoir';
+import type { NFTfiCollection } from '../api/nftfiApi';
 import './CollectionDropdown.css';
 
 interface Props {

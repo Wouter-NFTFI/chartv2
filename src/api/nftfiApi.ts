@@ -33,15 +33,32 @@ export interface NFTfiLoanMeta {
 }
 
 export interface NFTfiLoan {
-  id: string
-  protocolName: string
-  principalAmount: number
-  repaymentAmount: number
-  currencyName: string
-  dueDate: string
-  lenderAddress: string
-  borrowerAddress: string
-  // Additional loan data fields from the API
+  id: string;
+  protocolName: string;
+  loanId: string;
+  loanContractAddress: string;
+  nftProjectName: string;
+  nftProjectImageUri: string;
+  nftAddress: string;
+  nftId: string;
+  nftName: string;
+  nftImageSmallUri: string;
+  nftImageLargeUri: string;
+  status: string;
+  currencyName: string;
+  principalAmount: number;
+  principalAmountETH: number;
+  principalAmountUSD: number;
+  maximumRepaymentAmount: number;
+  maximumRepaymentAmountETH: number;
+  maximumRepaymentAmountUSD: number;
+  apr: number;
+  durationDays: number;
+  borrowerAddress: string;
+  lenderAddress: string;
+  dueTime: string;
+  startTime: string;
+  hoursUntilDue: number;
 }
 
 export interface NFTfiCollection {
@@ -107,39 +124,32 @@ export async function fetchLoans(
   lenderAddress?: string
 ): Promise<NFTfiLoansResponse> {
   try {
-    const url = new URL(`${NFTFI_API_URL}/data/v0/pipes/loans_v2.json`)
-    url.searchParams.append('howDaysFromNow', daysFromNow.toString())
-    url.searchParams.append('page_size', '10000')
+    // Use the working endpoint instead of loans_v2.json
+    let url = `${NFTFI_API_URL}/data/v0/pipes/loans_due_endpoint.json?daysFromNow=${daysFromNow}&page_size=10000&page=0`;
     
     if (lenderAddress) {
-      url.searchParams.append('lenderAddress', lenderAddress)
+      url += `&lenderAddress=${lenderAddress}`;
     }
 
     if (collectionName) {
-      url.searchParams.append('nftProjectName', encodeURIComponent(collectionName))
+      url += `&nftProjectName=${encodeURIComponent(collectionName)}`;
     }
     
-    console.log('Fetching loans from:', url.toString()); // Debug log
+    console.log('Fetching loans from:', url); // Debug log
     
-    const response = await fetch(url.toString(), {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Origin': window.location.origin
-      },
-      mode: 'cors' // Explicitly request CORS
-    })
+    const response = await fetch(url);
     
     if (!response.ok) {
-      throw new Error(`Failed to fetch loans: ${response.status} ${response.statusText}`)
+      console.error(`API response not OK: ${response.status} ${response.statusText}`);
+      throw new Error(`Failed to fetch loans: ${response.status} ${response.statusText}`);
     }
     
-    const data = await response.json()
+    const data = await response.json();
     console.log('Raw loan data:', data); // Debug log
-    return data as NFTfiLoansResponse
+    return data as NFTfiLoansResponse;
   } catch (error) {
-    console.error('Error fetching loans:', error)
-    throw error
+    console.error('Error fetching loans:', error);
+    throw error;
   }
 }
 

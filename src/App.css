@@ -62,4 +62,18 @@
 .error {
   color: #ff4444;
   font-weight: 500;
+}
+
+.filter-active {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+  padding-left: 12px;
+}
+
+.reset-button {
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  transform: scale(1.05);
 } 

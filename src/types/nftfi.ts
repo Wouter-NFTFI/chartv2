@@ -89,4 +89,18 @@ export interface LoanStats {
   median: number;
   stdDev: number;
   count: number;
+}
+
+export interface Loan {
+  loanId: string;
+  protocolName: string;
+  nftId: string;
+  nftImageSmallUri: string;
+  principalAmountUSD: number;
+  maximumRepaymentAmountUSD: number;
+  apr: number;
+  durationDays: number;
+  hoursUntilDue: number;
+  borrowerAddress: string;
+  lenderAddress: string;
 } 

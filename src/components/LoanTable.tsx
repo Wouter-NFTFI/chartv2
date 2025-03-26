@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
+import { Loan } from '../types/nftfi';
 import './LoanTable.css';
-
-interface Loan {
-  asset: string;
-  currentLTV: number;
-  currentLoanAmount: number;
-  originalLTV: number;
-  originalLoanAmount: number;
-  startDate: string;
-  dueDate: string;
-}
 
 interface Props {
   loans: Loan[];
 }
 
-type SortField = 'asset' | 'currentLTV' | 'originalLTV' | 'startDate' | 'dueDate';
+type SortField = 'protocolName' | 'nftId' | 'principalAmountUSD' | 'maximumRepaymentAmountUSD' | 'apr' | 'durationDays' | 'hoursUntilDue' | 'borrowerAddress' | 'lenderAddress';
 type SortDirection = 'asc' | 'desc';
 
 const LoanTable: React.FC<Props> = ({ loans }) => {
-  const [sortField, setSortField] = useState<SortField>('currentLTV');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+  const [sortField, setSortField] = useState<SortField>('hoursUntilDue');
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -31,13 +22,16 @@ const LoanTable: React.FC<Props> = ({ loans }) => {
     }).format(amount);
   };
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: '2-digit'
-    }).replace(/\//g, '/');
+  const formatAddress = (address: string) => {
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
+
+  const formatDuration = (hours: number) => {
+    if (hours < 24) {
+      return `${Math.round(hours)}h`;
+    }
+    const days = Math.floor(hours / 24);
+    return `${days}d ${Math.round(hours % 24)}h`;
   };
 
   const handleSort = (field: SortField) => {
@@ -52,20 +46,32 @@ const LoanTable: React.FC<Props> = ({ loans }) => {
   const sortedLoans = [...loans].sort((a, b) => {
     let comparison = 0;
     switch (sortField) {
-      case 'asset':
-        comparison = a.asset.localeCompare(b.asset);
+      case 'protocolName':
+        comparison = a.protocolName.localeCompare(b.protocolName);
         break;
-      case 'currentLTV':
-        comparison = a.currentLTV - b.currentLTV;
+      case 'nftId':
+        comparison = a.nftId.localeCompare(b.nftId);
         break;
-      case 'originalLTV':
-        comparison = a.originalLTV - b.originalLTV;
+      case 'principalAmountUSD':
+        comparison = a.principalAmountUSD - b.principalAmountUSD;
         break;
-      case 'startDate':
-        comparison = new Date(a.startDate).getTime() - new Date(b.startDate).getTime();
+      case 'maximumRepaymentAmountUSD':
+        comparison = a.maximumRepaymentAmountUSD - b.maximumRepaymentAmountUSD;
         break;
-      case 'dueDate':
-        comparison = new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+      case 'apr':
+        comparison = a.apr - b.apr;
+        break;
+      case 'durationDays':
+        comparison = a.durationDays - b.durationDays;
+        break;
+      case 'hoursUntilDue':
+        comparison = a.hoursUntilDue - b.hoursUntilDue;
+        break;
+      case 'borrowerAddress':
+        comparison = a.borrowerAddress.localeCompare(b.borrowerAddress);
+        break;
+      case 'lenderAddress':
+        comparison = a.lenderAddress.localeCompare(b.lenderAddress);
         break;
     }
     return sortDirection === 'asc' ? comparison : -comparison;
@@ -76,33 +82,58 @@ const LoanTable: React.FC<Props> = ({ loans }) => {
       <table className="loan-table">
         <thead>
           <tr>
-            <th onClick={() => handleSort('asset')}>
+            <th onClick={() => handleSort('protocolName')}>
+              Protocol
+              {sortField === 'protocolName' && (
+                <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+              )}
+            </th>
+            <th onClick={() => handleSort('nftId')}>
               Asset
-              {sortField === 'asset' && (
+              {sortField === 'nftId' && (
                 <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
               )}
             </th>
-            <th onClick={() => handleSort('currentLTV')}>
-              Current LTV
-              {sortField === 'currentLTV' && (
+            <th>Thumbnail</th>
+            <th onClick={() => handleSort('principalAmountUSD')}>
+              Principal
+              {sortField === 'principalAmountUSD' && (
                 <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
               )}
             </th>
-            <th onClick={() => handleSort('originalLTV')}>
-              Original LTV
-              {sortField === 'originalLTV' && (
+            <th onClick={() => handleSort('maximumRepaymentAmountUSD')}>
+              Repayment
+              {sortField === 'maximumRepaymentAmountUSD' && (
                 <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
               )}
             </th>
-            <th onClick={() => handleSort('startDate')}>
-              Start
-              {sortField === 'startDate' && (
+            <th onClick={() => handleSort('apr')}>
+              APR
+              {sortField === 'apr' && (
                 <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
               )}
             </th>
-            <th onClick={() => handleSort('dueDate')}>
-              Due
-              {sortField === 'dueDate' && (
+            <th onClick={() => handleSort('durationDays')}>
+              Duration
+              {sortField === 'durationDays' && (
+                <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+              )}
+            </th>
+            <th onClick={() => handleSort('hoursUntilDue')}>
+              Due in
+              {sortField === 'hoursUntilDue' && (
+                <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+              )}
+            </th>
+            <th onClick={() => handleSort('borrowerAddress')}>
+              Borrower
+              {sortField === 'borrowerAddress' && (
+                <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+              )}
+            </th>
+            <th onClick={() => handleSort('lenderAddress')}>
+              Lender
+              {sortField === 'lenderAddress' && (
                 <span className="sort-indicator">{sortDirection === 'asc' ? '↑' : '↓'}</span>
               )}
             </th>
@@ -110,16 +141,23 @@ const LoanTable: React.FC<Props> = ({ loans }) => {
         </thead>
         <tbody>
           {sortedLoans.map((loan, index) => (
-            <tr key={`${loan.asset}-${index}`}>
-              <td>{loan.asset}</td>
+            <tr key={`${loan.nftId}-${index}`}>
+              <td>{loan.protocolName}</td>
+              <td>{loan.nftId}</td>
               <td>
-                {loan.currentLTV}% {formatCurrency(loan.currentLoanAmount)}
+                <img 
+                  src={loan.nftImageSmallUri} 
+                  alt={`NFT ${loan.nftId}`}
+                  className="nft-thumbnail"
+                />
               </td>
-              <td>
-                {loan.originalLTV}% {formatCurrency(loan.originalLoanAmount)}
-              </td>
-              <td>{formatDate(loan.startDate)}</td>
-              <td>{formatDate(loan.dueDate)}</td>
+              <td>{formatCurrency(loan.principalAmountUSD)}</td>
+              <td>{formatCurrency(loan.maximumRepaymentAmountUSD)}</td>
+              <td>{loan.apr.toFixed(2)}%</td>
+              <td>{loan.durationDays}d</td>
+              <td>{formatDuration(loan.hoursUntilDue)}</td>
+              <td title={loan.borrowerAddress}>{formatAddress(loan.borrowerAddress)}</td>
+              <td title={loan.lenderAddress}>{formatAddress(loan.lenderAddress)}</td>
             </tr>
           ))}
         </tbody>
