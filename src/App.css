@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100vh;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: #FFFFFF;
 }
 
 .app-header {
@@ -55,8 +55,8 @@
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: white;
-  background-color: #1e1e1e;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: #FFFFFF;
 }
 
 .error {
@@ -76,4 +76,18 @@
 
 .reset-button:hover {
   transform: scale(1.05);
+}
+
+/* Override Tailwind's bg-gray-100 for the page background */
+.min-h-screen.bg-gray-100 {
+  background-color: #FFFFFF !important;
+}
+
+/* Remove shadow from the container to make it blend into the background */
+.bg-white.rounded-lg.shadow {
+  box-shadow: none;
+}
+
+.white-bg-override {
+  background-color: #FFFFFF !important;
 } 

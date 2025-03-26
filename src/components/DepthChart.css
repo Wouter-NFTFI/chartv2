@@ -80,7 +80,7 @@
   grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
   height: 100vh;
   overflow: hidden;
-  background: #F9FAFB;
+  background: #FFFFFF;
 }
 
 .depth-chart-demo-content {
@@ -254,7 +254,7 @@ input:checked + .toggle-slider:before {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 12px 16px;
-  min-width: 200px;
+  min-width: 240px;
 }
 
 .custom-tooltip p {
@@ -267,6 +267,9 @@ input:checked + .toggle-slider:before {
 .custom-tooltip .label {
   font-weight: 600;
   color: #212B36;
+  border-bottom: 1px solid rgba(145, 158, 171, 0.16);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .custom-tooltip .value {
@@ -279,6 +282,29 @@ input:checked + .toggle-slider:before {
   margin-top: 8px;
   padding-top: 8px;
   border-top: 1px solid rgba(145, 158, 171, 0.16);
+}
+
+.tooltip-section {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(145, 158, 171, 0.16);
+}
+
+.tooltip-section:first-of-type {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.tooltip-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #637381;
+  margin-bottom: 4px;
+}
+
+.depth-chart-active-dot {
+  transition: r 0.2s ease, stroke-width 0.2s ease, fill 0.2s ease;
 }
 
 .depth-chart-tooltip {

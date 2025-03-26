@@ -1,9 +1,17 @@
 .collection-select-container {
   width: 100%;
-  max-width: 90%;
-  margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  font-family: 'Public Sans', sans-serif;
   position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .collection-select {
@@ -12,26 +20,27 @@
 
 /* React Select custom styles */
 .select__control {
-  background-color: #333 !important;
-  border-color: #444 !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-  min-height: 44px !important;
-  color: white !important;
+  background-color: #FFFFFF !important;
+  border-color: rgba(145, 158, 171, 0.2) !important;
+  box-shadow: none !important;
+  min-height: 54px !important;
+  color: #212B36 !important;
+  border-radius: 8px !important;
 }
 
 .select__control:hover {
-  border-color: #0052ff !important;
-  box-shadow: 0 2px 8px rgba(0, 82, 255, 0.3) !important;
+  border-color: rgba(145, 158, 171, 0.5) !important;
+  box-shadow: none !important;
 }
 
 .select__control--is-focused {
-  border-color: #0052ff !important;
-  box-shadow: 0 0 0 1px #0052ff !important;
+  border-color: rgba(145, 158, 171, 0.5) !important;
+  box-shadow: 0 0 0 1px rgba(145, 158, 171, 0.3) !important;
 }
 
 .select__menu {
-  background-color: #333 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16) !important;
   z-index: 1000 !important;
   height: 90vh !important;
   max-height: 90vh !important;
@@ -39,6 +48,7 @@
   position: absolute !important;
   width: 100% !important;
   margin-top: 4px !important;
+  border-radius: 8px !important;
 }
 
 /* Make sure menu contents take up full height */
@@ -51,44 +61,50 @@
 .select__option {
   padding: 12px 16px !important;
   cursor: pointer !important;
-  color: #eee !important;
+  color: #212B36 !important;
 }
 
 .select__option--is-focused {
-  background-color: #444 !important;
+  background-color: rgba(145, 158, 171, 0.08) !important;
 }
 
 .select__option--is-selected {
-  background-color: #0052ff !important;
-  color: white !important;
+  background-color: rgba(145, 158, 171, 0.16) !important;
+  color: #212B36 !important;
 }
 
 .select__option--is-selected .collection-volume {
-  color: white !important;
+  color: #637381 !important;
 }
 
 .select__placeholder {
-  color: #aaa !important;
+  color: #919EAB !important;
+  font-weight: 266;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .select__single-value {
-  color: #eee !important;
+  color: #212B36 !important;
+  font-weight: 266;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .select__indicator {
-  color: #aaa !important;
+  color: #637381 !important;
 }
 
 .select__indicator:hover {
-  color: #eee !important;
+  color: #212B36 !important;
 }
 
-.select__multi-value {
-  background-color: #444 !important;
+.select__value-container {
+  padding-left: 40px !important;
 }
 
-.select__multi-value__label {
-  color: #eee !important;
+.select__input {
+  color: #212B36 !important;
 }
 
 /* Collection option styles */
@@ -101,13 +117,17 @@
 }
 
 .collection-name {
-  font-weight: 500;
-  color: #eee;
+  font-weight: 400;
+  color: #212B36;
+  flex: 1;
+  text-align: left;
+  margin-right: 12px;
 }
 
 .collection-volume {
-  color: #0052ff;
-  font-weight: 600;
+  color: #637381;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 /* Custom styles for the collection item display */

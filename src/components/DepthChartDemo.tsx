@@ -27,8 +27,6 @@ export function DepthChartDemo({
   return (
     <div className="depth-chart-demo-container">
       <div className="depth-chart-demo-content">
-        <h1>LTV Distribution Visualization Options</h1>
-        <p>The following visualizations show different approaches to display the wide range of LTV values in the loan data.</p>
         
         <section>
           <h1>1. Standard View</h1>
@@ -99,14 +97,7 @@ export function DepthChartDemo({
             {isLoadingLoans ? ' (loading...)' : ''}
           </p>
           <p className="text-xs text-gray-500 mt-1">
-            {isFiltered 
-              ? activeLTV 
-                ? `Filtered to show loans with LTV around ${activeLTV.toFixed(0)}%` 
-                : "Filtered loan data"
-              : loans.length === 0 
-                ? "Try clicking a different point on the chart" 
-                : "Click on any chart point to filter loans by LTV"
-            }
+            {isFiltered && activeLTV ? "" : loans.length === 0 ? "Try clicking a chart point to see loans" : "Click on any chart point to filter loans by LTV"}
           </p>
         </div>
 

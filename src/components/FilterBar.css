@@ -1,0 +1,180 @@
+.filter-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  gap: 36px;
+  width: 100%;
+  background: #FFFFFF;
+}
+
+.filter-status {
+  font-family: 'Public Sans', sans-serif;
+  font-style: normal;
+  font-weight: 266;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 367px;
+  text-align: center;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.reset-filter-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 16px;
+  gap: 8px;
+  margin: 0 auto;
+  width: 130px;
+  min-width: 64px;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-filter-button:hover {
+  background: #F9FAFB;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reset-filter-button-label {
+  width: 98px;
+  height: 26px;
+  font-family: 'Public Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 26px;
+  color: #212B36;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* Collection dropdown container within filter bar */
+.filter-bar-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 0 auto;
+  width: 552px;
+  height: 54px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Collection field within filter bar */
+.filter-bar-dropdown .collection-select-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Override the existing styles for the dropdown to match the TextField style */
+.filter-bar-dropdown .select__control {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 12px 0px 14px;
+  isolation: isolate;
+  width: 552px;
+  height: 54px;
+  border: 1px solid rgba(145, 158, 171, 0.2);
+  border-radius: 8px;
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+}
+
+.filter-bar-dropdown .select__control:hover {
+  border-color: rgba(145, 158, 171, 0.5) !important;
+  box-shadow: none !important;
+}
+
+.filter-bar-dropdown .select__control--is-focused {
+  border-color: rgba(145, 158, 171, 0.5) !important;
+  box-shadow: 0 0 0 1px rgba(145, 158, 171, 0.3) !important;
+}
+
+.filter-bar-dropdown .select__value-container {
+  padding: 0;
+}
+
+.filter-bar-dropdown .select__placeholder {
+  font-family: 'Public Sans', sans-serif;
+  font-style: normal;
+  font-weight: 266;
+  font-size: 14px;
+  line-height: 22px;
+  color: #919EAB !important;
+}
+
+.filter-bar-dropdown .select__single-value {
+  font-family: 'Public Sans', sans-serif;
+  font-style: normal;
+  font-weight: 266;
+  font-size: 14px;
+  line-height: 22px;
+  color: #212B36 !important;
+}
+
+.filter-bar-dropdown .select__dropdown-indicator {
+  color: #637381 !important;
+}
+
+/* Collection option styles */
+.filter-bar-dropdown .collection-option {
+  font-family: 'Public Sans', sans-serif;
+}
+
+.filter-bar-dropdown .collection-name {
+  color: #212B36 !important;
+  font-weight: 400;
+}
+
+.filter-bar-dropdown .collection-volume {
+  color: #637381 !important;
+  font-weight: 400;
+}
+
+/* Ensure dropdown menu matches width of control */
+.filter-bar-dropdown .select__menu {
+  width: 100% !important;
+  min-width: 552px !important;
+  margin-top: 4px !important;
+}
+
+/* For smaller screens */
+@media (max-width: 1080px) {
+  .filter-bar {
+    padding: 16px 0;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .filter-bar-dropdown {
+    width: 100%;
+  }
+
+  .filter-bar-dropdown .select__control {
+    width: 100%;
+  }
+} 
