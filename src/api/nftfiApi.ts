@@ -82,6 +82,8 @@ export interface LoanDistributionResponseItem {
   principalAmountUSD: number;
   maximumRepaymentAmountUSD: number;
   nftAddress: string;
+  tokenId?: string;
+  daysToMaturity?: number;
   // Add other fields as needed
 }
 

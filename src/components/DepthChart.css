@@ -216,4 +216,72 @@ input:checked + .toggle-slider:before {
   line-height: 1.5;
   color: #212B36;
   font-size: 14px;
+}
+
+/* Maturity chart specific styles */
+.log-scale-note {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.maturity-threshold-control {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.maturity-threshold-control label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.maturity-threshold-control select {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.feature-explanation {
+  margin-top: 20px;
+  background-color: #f3f3f9;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #8884d8;
+}
+
+.feature-explanation ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.feature-explanation li {
+  margin-bottom: 5px;
+}
+
+.custom-tooltip .info {
+  font-style: italic;
+  color: #666;
+  margin-top: 5px;
+  border-top: 1px solid #eee;
+  padding-top: 5px;
+}
+
+.symlog-explanation {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.symlog-explanation p {
+  margin: 5px 0;
 } 

@@ -18,7 +18,7 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
       <p>The following visualizations show different approaches to display the wide range of LTV values in the loan data.</p>
       
       <section>
-        <h2>1. Standard View</h2>
+        <h1>1. Standard View</h1>
         <p>Full range of data, but most information is bunched up on the left due to extreme LTV values.</p>
         <div className="chart-demo-container">
           <DepthChart 
@@ -30,7 +30,7 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
       </section>
 
       <section>
-        <h2>2. Segmented Views</h2>
+        <h1>2. Segmented Views</h1>
         <p>Breaking the chart into meaningful LTV segments (0-100%, 100-500%, 500%+) to see details at each level.</p>
         <div className="chart-demo-container">
           <DepthChart 
@@ -42,7 +42,7 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
       </section>
 
       <section>
-        <h2>3. Interactive Brush & Zoom</h2>
+        <h1>3. Interactive Brush & Zoom</h1>
         <p>Use the brush at the bottom to focus on specific LTV ranges.</p>
         <div className="chart-demo-container">
           <DepthChart 
@@ -54,7 +54,7 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
       </section>
 
       <section>
-        <h2>4. Bar Chart (0-100% Focus)</h2>
+        <h1>4. Bar Chart (0-100% Focus)</h1>
         <p>Bar chart focusing on the most common LTV range (0-100%).</p>
         <div className="chart-demo-container">
           <DepthChart 
@@ -65,16 +65,29 @@ export function DepthChartDemo({ collection }: DepthChartDemoProps) {
         </div>
       </section>
 
-      <div className="recommendations">
-        <h2>Recommendations</h2>
-        <p>Based on the data distribution:</p>
-        <ul>
-          <li>For overview: The standard view provides a quick overall picture of the LTV distribution.</li>
-          <li>For detailed analysis: The segmented approach gives the clearest view of each LTV range.</li>
-          <li>For interactive exploration: The brush & zoom approach allows users to focus on specific areas of interest.</li>
-          <li>For comparison: The bar chart is best for comparing loan counts within the critical 0-100% range.</li>
-        </ul>
-      </div>
+      <section>
+        <h1>5. Logarithmic Distribution View</h1>
+        <p>Dynamic variable-width bins showing LTV distribution across the entire range.</p>
+        <div className="chart-demo-container">
+          <DepthChart 
+            collection={collection} 
+            visualizationType="logarithmic"
+            onDataPointClick={handleDataPointClick}
+          />
+        </div>
+      </section>
+
+      <section>
+        <h1>6. Symmetric Log View</h1>
+        <p>Centered around the distribution peak with logarithmic scaling in both directions for balanced visualization.</p>
+        <div className="chart-demo-container">
+          <DepthChart 
+            collection={collection} 
+            visualizationType="symLog"
+            onDataPointClick={handleDataPointClick}
+          />
+        </div>
+      </section>
     </div>
   );
 }
