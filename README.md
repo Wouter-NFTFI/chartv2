@@ -47,6 +47,7 @@ Production URL: https://chartv2.pages.dev
 
 ## Recent Updates
 
+- Fixed loan filtering to exactly match the LTV buckets shown in chart tooltips
 - Replaced custom dropdown with React Select for improved search functionality
 - Added proper TypeScript support
 - Implemented responsive styling

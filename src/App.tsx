@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { fetchCollections, fetchLoans, NFTfiCollection } from './api/nftfiApi';
 import { Loan } from './types/nftfi';
-import { CollectionDropdown } from './components/CollectionDropdown';
 import { DepthChartDemo } from './components/DepthChartDemo';
+import { FilterBar } from './components/FilterBar';
 import { isLoanMatchingLTV } from './utils/financial';
 import './App.css';
 
@@ -79,14 +79,16 @@ function App() {
       allLoansCount: allLoans.length
     });
     
-    // Find loans where the LTV is close to the clicked value
-    // We'll use a 5% tolerance to account for rounding and small variations
-    const tolerance = 0.05;
-    
     // Always filter from the complete dataset (allLoans), not the already filtered set
     const filteredLoans = allLoans.filter(loan => {
-      // We now have the floor price directly from the chart
-      const isWithinTolerance = isLoanMatchingLTV(loan, ltv, floorPriceUSD, tolerance * 100);
+      // Use exact bucket matching instead of tolerance-based matching
+      // This ensures we only show loans that are in the exact LTV bucket shown in the tooltip
+      // The bucket size (1%) must match what's used in the DepthChart component
+      // This fixes the issue where tooltip shows X loans but table shows many more
+      const isExactMatch = isLoanMatchingLTV(loan, ltv, floorPriceUSD, { 
+        exactMatch: true, 
+        bucketSize: 1  // Must match the bucket size used in the chart
+      });
       
       // Log only a few sample loans to avoid console spam
       const loanIdNumber = parseInt(loan.loanId, 10);
@@ -95,12 +97,11 @@ function App() {
           loanId: loan.loanId,
           targetLtv: ltv,
           floorPriceUSD,
-          tolerance: ltv * tolerance,
-          isWithinTolerance
+          exactMatch: isExactMatch
         });
       }
       
-      return isWithinTolerance;
+      return isExactMatch;
     });
 
     console.log('Filtered loans:', {
@@ -124,50 +125,36 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">NFTfi Loan Analysis</h1>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-lg shadow p-6">
-            <CollectionDropdown
-              collections={collections}
-              selectedCollectionId={selectedCollection?.nftProjectName || null}
-              onSelect={handleCollectionSelect}
-            />
-          </div>
-          
-          {selectedCollection && (
-            <div className={`bg-white rounded-lg shadow p-6 ${isFiltered ? 'filter-active' : ''}`}>
-              <div className="flex justify-between items-center mb-4">
-                <div>
-                  <h2 className="text-xl font-bold">{selectedCollection.nftProjectName}</h2>
-                  {isFiltered && activeLTV && (
-                    <p className="text-sm text-gray-600">
-                      Showing loans with LTV around {activeLTV.toFixed(0)}% 
-                      ({selectedLoans.length} of {allLoans.length} loans)
-                    </p>
-                  )}
-                </div>
-                {isFiltered && (
-                  <button 
-                    onClick={handleResetFilters}
-                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors reset-button"
-                  >
-                    View All Loans
-                  </button>
-                )}
-              </div>
-              <DepthChartDemo
-                collection={selectedCollection}
-                onDataPointClick={handleDataPointClick}
-                loans={selectedLoans}
-                isLoadingLoans={isLoadingLoans}
-                loanError={loanError}
-              />
-            </div>
-          )}
+    <div className="min-h-screen bg-gray-100 white-bg-override">
+      <div className="container mx-auto px-6 py-8 white-bg-override">
+        <div className="chart-container-filter-bar mb-6">
+          <FilterBar 
+            collections={collections}
+            selectedCollectionId={selectedCollection?.nftProjectName || null}
+            onSelectCollection={handleCollectionSelect}
+            isFiltered={isFiltered}
+            activeLTV={activeLTV}
+            selectedLoansCount={selectedLoans.length}
+            totalLoansCount={allLoans.length}
+            onResetFilters={handleResetFilters}
+          />
         </div>
+        
+        {selectedCollection ? (
+          <DepthChartDemo
+            collection={selectedCollection}
+            onDataPointClick={handleDataPointClick}
+            loans={selectedLoans}
+            isLoadingLoans={isLoadingLoans}
+            loanError={loanError}
+            isFiltered={isFiltered}
+            activeLTV={activeLTV}
+          />
+        ) : (
+          <div className="flex items-center justify-center h-64 white-bg-override">
+            {/* Placeholder text removed */}
+          </div>
+        )}
       </div>
     </div>
   );

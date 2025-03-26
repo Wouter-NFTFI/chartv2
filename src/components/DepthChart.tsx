@@ -4,7 +4,7 @@ import { NFTfiCollection } from '../api/nftfiApi';
 import { fetchLoanDistribution, LoanDistributionResponseItem } from '../api/nftfiApi';
 import { getCurrentFloorPrice } from '../api/reservoirApi';
 import './DepthChart.css';
-import { calculateLTV } from '../utils/financial';
+import { calculateLTV, getLoanBucket } from '../utils/financial';
 // Will be imported once we create the component
 // import { DepthChartComparison } from './DepthChartComparison';
 
@@ -46,6 +46,20 @@ interface BrushDomain {
 const HIGH_RISK_COLOR = '#ffb8b8'; // More vibrant pink for high risk area
 const REFERENCE_LINE_COLOR = '#ff4444'; // Red for 100% LTV line
 const REFERENCE_LINE_LABEL = { value: '100% LTV', position: 'insideTopRight' as const };
+
+// Define constants for dot styling
+const DOT_ACTIVE_RADIUS = 7;
+const DOT_ACTIVE_STROKE = '#0747A6';  // Dark blue for active points with loans
+const DOT_ACTIVE_STROKE_WIDTH = 2.5;
+
+// Simpler activeDot configuration that works with Recharts typings
+const activeDotConfig = {
+  r: DOT_ACTIVE_RADIUS,
+  fill: DOT_ACTIVE_STROKE,
+  stroke: DOT_ACTIVE_STROKE,
+  strokeWidth: DOT_ACTIVE_STROKE_WIDTH,
+  className: 'depth-chart-active-dot',
+};
 
 // Symmetric logarithmic transformation functions
 function symLogTransform(x: number, center: number, epsilon = 0.0001): number {
@@ -126,7 +140,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         
         // Create buckets with 1% increments
         const bucketSize = 1;
-        const minBucket = Math.floor(minLtv / bucketSize) * bucketSize;
+        const minBucket = getLoanBucket(minLtv, bucketSize);
         const maxBucket = Math.ceil(maxLtv / bucketSize) * bucketSize;
         
         setMinLtvValue(minBucket);
@@ -147,7 +161,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
         loanData.forEach(loan => {
           if (loan.principalAmountUSD && floorPriceUSD > 0) {
             const ltv = calculateLTV(loan.principalAmountUSD, floorPriceUSD);
-            const bucketLtv = Math.floor(ltv / bucketSize) * bucketSize;
+            const bucketLtv = getLoanBucket(ltv, bucketSize);
             
             if (buckets[bucketLtv]) {
               buckets[bucketLtv].loanCount++;
@@ -316,11 +330,27 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
   const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: DataPoint }> }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
+      
+      // Calculate percentage of total (avoid division by zero)
+      const percentageOfTotal = data.cumulativeLoanCount > 0 
+        ? ((data.loanCount / data.cumulativeLoanCount) * 100).toFixed(1) 
+        : '0.0';
+      
       return (
         <div className="custom-tooltip">
           <p className="label">{`LTV: ${data.ltv}%`}</p>
-          <p className="value">{`Number of loans: ${isCumulative ? data.cumulativeLoanCount : data.loanCount}`}</p>
-          <p className="value">{`Total value: $${(isCumulative ? data.cumulativeValue : data.value).toLocaleString()}`}</p>
+          
+          <div className="tooltip-section">
+            <h4 className="tooltip-section-title">At this LTV point</h4>
+            <p className="value">{`Loans: ${data.loanCount} (${percentageOfTotal}% of total)`}</p>
+            <p className="value">{`Value: $${data.value.toLocaleString()}`}</p>
+          </div>
+          
+          <div className="tooltip-section">
+            <h4 className="tooltip-section-title">Cumulative (≥ this LTV)</h4>
+            <p className="value">{`Total loans: ${data.cumulativeLoanCount}`}</p>
+            <p className="value">{`Total value: $${data.cumulativeValue.toLocaleString()}`}</p>
+          </div>
         </div>
       );
     }
@@ -380,6 +410,9 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   fill="#8884d8"
                   fillOpacity={0.3}
                   isAnimationActive={true}
+                  animationDuration={500}
+                  animationEasing="ease-in-out"
+                  activeDot={activeDotConfig}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -408,6 +441,9 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   fill="#82ca9d"
                   fillOpacity={0.3}
                   isAnimationActive={true}
+                  animationDuration={500}
+                  animationEasing="ease-in-out"
+                  activeDot={activeDotConfig}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -436,6 +472,9 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   fill="#ffc658"
                   fillOpacity={0.3}
                   isAnimationActive={true}
+                  animationDuration={500}
+                  animationEasing="ease-in-out"
+                  activeDot={activeDotConfig}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -499,6 +538,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               isAnimationActive={true}
               animationDuration={500}
               animationEasing="ease-in-out"
+              activeDot={activeDotConfig}
             />
             <Area
               type="step"
@@ -556,15 +596,27 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
       const bin = props.payload[0].payload;
       if (!bin) return null;
       
-      const dataValue = isCumulative 
-        ? bin.cumulativeCount 
-        : bin.loanCount;
+      // Calculate percentage of total
+      const percentageOfTotal = bin.cumulativeCount > 0 
+        ? ((bin.loanCount / bin.cumulativeCount) * 100).toFixed(1) 
+        : '0.0';
         
       return (
         <div className="custom-tooltip">
           <p className="label">{`LTV Range: ${bin.displayLabel}`}</p>
-          <p className="value">{`Number of loans: ${dataValue}`}</p>
-          <p className="value">{`Total value: $${isCumulative ? bin.cumulativeValue.toLocaleString() : bin.value.toLocaleString()}`}</p>
+          
+          <div className="tooltip-section">
+            <h4 className="tooltip-section-title">At this LTV range</h4>
+            <p className="value">{`Loans: ${bin.loanCount} (${percentageOfTotal}% of total)`}</p>
+            <p className="value">{`Value: $${bin.value.toLocaleString()}`}</p>
+          </div>
+          
+          <div className="tooltip-section">
+            <h4 className="tooltip-section-title">Cumulative (≥ this LTV)</h4>
+            <p className="value">{`Total loans: ${bin.cumulativeCount}`}</p>
+            <p className="value">{`Total value: $${bin.cumulativeValue.toLocaleString()}`}</p>
+          </div>
+          
           <p className="info">Bin width: ${(bin.binEnd - bin.binStart).toFixed(0)}%</p>
         </div>
       );
@@ -764,11 +816,26 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                 const originalLtv = symLogInverse(transformedValue, distributionCenter);
                 const dataPoint = props.payload[0].payload as (DataPoint & { transformedLtv: number });
                 
+                // Calculate percentage of total
+                const percentageOfTotal = dataPoint.cumulativeLoanCount > 0 
+                  ? ((dataPoint.loanCount / dataPoint.cumulativeLoanCount) * 100).toFixed(1) 
+                  : '0.0';
+                
                 return (
                   <div className="custom-tooltip">
                     <p className="label">{`LTV: ${Math.round(originalLtv)}%`}</p>
-                    <p className="value">{`Number of loans: ${isCumulative ? dataPoint.cumulativeLoanCount : dataPoint.loanCount}`}</p>
-                    <p className="value">{`Total value: $${(isCumulative ? dataPoint.cumulativeValue : dataPoint.value).toLocaleString()}`}</p>
+                    
+                    <div className="tooltip-section">
+                      <h4 className="tooltip-section-title">At this LTV point</h4>
+                      <p className="value">{`Loans: ${dataPoint.loanCount} (${percentageOfTotal}% of total)`}</p>
+                      <p className="value">{`Value: $${dataPoint.value.toLocaleString()}`}</p>
+                    </div>
+                    
+                    <div className="tooltip-section">
+                      <h4 className="tooltip-section-title">Cumulative (≥ this LTV)</h4>
+                      <p className="value">{`Total loans: ${dataPoint.cumulativeLoanCount}`}</p>
+                      <p className="value">{`Total value: $${dataPoint.cumulativeValue.toLocaleString()}`}</p>
+                    </div>
                   </div>
                 );
               }}
@@ -809,6 +876,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               isAnimationActive={true}
               animationDuration={500}
               animationEasing="ease-in-out"
+              activeDot={activeDotConfig}
             />
             
             {/* High risk area (LTV > 100%) */}
@@ -892,6 +960,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             isAnimationActive={true}
             animationDuration={500}
             animationEasing="ease-in-out"
+            activeDot={activeDotConfig}
           />
           <Area
             type="step"

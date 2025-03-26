@@ -31,20 +31,49 @@ export const calculateFloorPrice = (principalAmountUSD: number, ltvPercentage: n
 };
 
 /**
+ * Get the LTV bucket for a given LTV value
+ * @param ltvValue The LTV value to get the bucket for
+ * @param bucketSize The size of each bucket (default: 1%)
+ * @returns The bucket value (floor of the LTV value)
+ */
+export const getLoanBucket = (ltvValue: number, bucketSize: number = 1): number => {
+  return Math.floor(ltvValue / bucketSize) * bucketSize;
+};
+
+/**
  * Check if a loan's LTV is within tolerance of a target LTV value
  * @param loan The loan object with principalAmountUSD
  * @param targetLTV The target LTV percentage to match
  * @param floorPriceUSD The floor price in USD
- * @param tolerancePercent The percentage tolerance (default: 5%)
+ * @param options Optional parameters for matching
  * @returns boolean indicating if loan matches the target LTV
  */
 export const isLoanMatchingLTV = (
   loan: { principalAmountUSD: number },
   targetLTV: number,
   floorPriceUSD: number,
-  tolerancePercent: number = 5
+  options: {
+    tolerancePercent?: number;
+    exactMatch?: boolean;
+    bucketSize?: number;
+  } = {}
 ): boolean => {
+  const { 
+    tolerancePercent = 5, 
+    exactMatch = false,
+    bucketSize = 1
+  } = options;
+  
   const loanLTV = calculateLTV(loan.principalAmountUSD, floorPriceUSD);
+  
+  if (exactMatch) {
+    // Use same bucketing logic as chart for exact matching
+    const loanBucket = getLoanBucket(loanLTV, bucketSize);
+    const targetBucket = getLoanBucket(targetLTV, bucketSize);
+    return loanBucket === targetBucket;
+  }
+  
+  // Existing tolerance-based logic
   const tolerance = targetLTV * (tolerancePercent / 100);
   return Math.abs(loanLTV - targetLTV) <= tolerance;
 }; 
