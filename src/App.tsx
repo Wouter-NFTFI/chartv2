@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchCollections, fetchLoans, NFTfiCollection } from './api/nftfiApi';
 import { Loan } from './types/nftfi';
 import { DepthChartDemo } from './components/DepthChartDemo';
 import { FilterBar } from './components/FilterBar';
 import { isLoanMatchingLTV } from './utils/financial';
+import { isExcludedCollection, logCollectionNameAnalytics } from './utils/collectionNameUtils';
 import './App.css';
 
 function App() {
@@ -16,11 +17,46 @@ function App() {
   const [isFiltered, setIsFiltered] = useState(false); // Track if filtering is active
   const [activeLTV, setActiveLTV] = useState<number | null>(null); // Track active LTV filter
 
+  // Note: Collection exclusion is now handled by the collectionNameUtils module
+  // which provides robust normalized string comparison to handle variations in collection names
+
   useEffect(() => {
     const loadCollections = async () => {
       try {
         const collectionsData = await fetchCollections();
-        setCollections(collectionsData);
+        
+        // First, filter out collections with null or empty names
+        const validNamedCollections = collectionsData.filter(collection => {
+          // Check for null, undefined, or empty string names
+          if (!collection.nftProjectName) {
+            console.log('Filtered out collection with null/empty name:', collection);
+            return false;
+          }
+          return true;
+        });
+        
+        console.log(`Removed ${collectionsData.length - validNamedCollections.length} collections with null/empty names`);
+        
+        // Then apply the normal exclusion logic
+        const filteredCollections = validNamedCollections.filter(collection => {
+          const collectionName = collection.nftProjectName;
+          const shouldExclude = isExcludedCollection(collectionName);
+          
+          // Log exclusions for debugging
+          if (shouldExclude) {
+            console.log(`Excluded collection: ${collectionName}`);
+            
+            // Log detailed analytics in non-production builds
+            if (import.meta.env.DEV) {
+              logCollectionNameAnalytics(collectionName);
+            }
+          }
+          
+          return !shouldExclude;
+        });
+        
+        setCollections(filteredCollections);
+        console.log(`Loaded ${filteredCollections.length} collections after filtering (from ${collectionsData.length} total).`);
       } catch (error) {
         console.error('Failed to fetch collections:', error);
       }
@@ -29,6 +65,12 @@ function App() {
   }, []);
 
   const handleCollectionSelect = async (collectionId: string) => {
+    // Guard against empty or null collection IDs
+    if (!collectionId || collectionId === 'null' || collectionId === 'undefined') {
+      console.error('Invalid collection ID provided:', collectionId);
+      return;
+    }
+    
     setIsLoadingLoans(true);
     setLoanError(null);
     setIsFiltered(false); // Reset filter status when selecting a new collection
@@ -147,8 +189,6 @@ function App() {
             loans={selectedLoans}
             isLoadingLoans={isLoadingLoans}
             loanError={loanError}
-            isFiltered={isFiltered}
-            activeLTV={activeLTV}
           />
         ) : (
           <div className="flex items-center justify-center h-64 white-bg-override">

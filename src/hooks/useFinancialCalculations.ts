@@ -31,7 +31,7 @@ export const useFinancialCalculations = (allLoans: Loan[], floorPriceUSD: number
   // Filter loans by LTV value with tolerance
   const filterLoansByLTV = (targetLTV: number, tolerancePercent: number = 5) => {
     return allLoans.filter(loan => 
-      isLoanMatchingLTV(loan, targetLTV, floorPriceUSD, tolerancePercent)
+      isLoanMatchingLTV(loan, targetLTV, floorPriceUSD, { tolerancePercent })
     );
   };
 
@@ -43,7 +43,7 @@ export const useFinancialCalculations = (allLoans: Loan[], floorPriceUSD: number
    * @returns Boolean indicating if the loan matches the criteria
    */
   const isLoanInLTVRange = (loan: Loan, targetLTV: number, tolerancePercent: number = 5): boolean => {
-    return isLoanMatchingLTV(loan, targetLTV, floorPriceUSD, tolerancePercent);
+    return isLoanMatchingLTV(loan, targetLTV, floorPriceUSD, { tolerancePercent });
   };
 
   return {

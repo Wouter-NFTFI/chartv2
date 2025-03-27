@@ -1,0 +1,390 @@
+{
+	"meta":
+	[
+		{
+			"name": "protocolName",
+			"type": "String"
+		},
+		{
+			"name": "loanId",
+			"type": "String"
+		},
+		{
+			"name": "loanContractAddress",
+			"type": "String"
+		},
+		{
+			"name": "nftProjectName",
+			"type": "Nullable(String)"
+		},
+		{
+			"name": "nftProjectImageUri",
+			"type": "String"
+		},
+		{
+			"name": "nftAddress",
+			"type": "String"
+		},
+		{
+			"name": "nftId",
+			"type": "String"
+		},
+		{
+			"name": "nftName",
+			"type": "String"
+		},
+		{
+			"name": "nftImageSmallUri",
+			"type": "String"
+		},
+		{
+			"name": "nftImageLargeUri",
+			"type": "String"
+		},
+		{
+			"name": "status",
+			"type": "String"
+		},
+		{
+			"name": "currencyName",
+			"type": "Nullable(String)"
+		},
+		{
+			"name": "principalAmount",
+			"type": "Float64"
+		},
+		{
+			"name": "principalAmountETH",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "principalAmountUSD",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "maximumRepaymentAmount",
+			"type": "Float64"
+		},
+		{
+			"name": "maximumRepaymentAmountETH",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "maximumRepaymentAmountUSD",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "apr",
+			"type": "Float64"
+		},
+		{
+			"name": "durationDays",
+			"type": "Int64"
+		},
+		{
+			"name": "borrowerAddress",
+			"type": "String"
+		},
+		{
+			"name": "lenderAddress",
+			"type": "String"
+		},
+		{
+			"name": "dueTime",
+			"type": "DateTime"
+		},
+		{
+			"name": "startTime",
+			"type": "DateTime"
+		},
+		{
+			"name": "hoursUntilDue",
+			"type": "Float64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"protocolName": "Arcade",
+			"loanId": "8434",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "21460525520470835992030763998966986204520557874",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 5.860000133514404,
+			"principalAmountETH": 5.860000133514404,
+			"principalAmountUSD": 14356.03749017429,
+			"maximumRepaymentAmount": 5.99478006362915,
+			"maximumRepaymentAmountETH": 5.99478006362915,
+			"maximumRepaymentAmountUSD": 14686.226173717878,
+			"apr": 27.979999780654907,
+			"durationDays": 30,
+			"borrowerAddress": "0xE540a8D94bd379C4d9c0478c8fe9f7Fe7F0B06e1",
+			"lenderAddress": "0x3b2A51FEC517BBc7fEaf68AcFdb068b57870713F",
+			"dueTime": "2025-03-27 23:53:47",
+			"startTime": "2025-02-25 23:53:47",
+			"hoursUntilDue": 17
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8027",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "920293458682549654002992088118576161238789092443",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 7.400000095367432,
+			"principalAmountETH": 7.400000095367432,
+			"principalAmountUSD": 23102.88520984759,
+			"maximumRepaymentAmount": 7.825500011444092,
+			"maximumRepaymentAmountETH": 7.825500011444092,
+			"maximumRepaymentAmountUSD": 24431.30083028425,
+			"apr": 34.97999906539917,
+			"durationDays": 60,
+			"borrowerAddress": "0xBeC69dfcE4c1fA8b7843FEE1Ca85788d84A86B06",
+			"lenderAddress": "0x9Fc4001133d3825B7CE4b05bCFbE227fB3CD5fDf",
+			"dueTime": "2025-03-28 08:38:59",
+			"startTime": "2025-01-27 08:38:59",
+			"hoursUntilDue": 26
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8439",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "1457659128580885043131793212806503320684538669504",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 3100,
+			"principalAmountETH": 1.2765087742385217,
+			"principalAmountUSD": 3100,
+			"maximumRepaymentAmount": 3204.159912109375,
+			"maximumRepaymentAmountETH": 1.3193994328615959,
+			"maximumRepaymentAmountUSD": 3204.159912109375,
+			"apr": 40.880000591278076,
+			"durationDays": 30,
+			"borrowerAddress": "0xF7B18e107eb36797f4cE36dE756630B9C30969ad",
+			"lenderAddress": "0x73A1Bb338613291AC6530870Fe2c5D354BFEC17e",
+			"dueTime": "2025-03-28 11:09:59",
+			"startTime": "2025-02-26 11:09:59",
+			"hoursUntilDue": 28
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8385",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "1177443042980394547468134487551981463883666300160",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 0.2199999988079071,
+			"principalAmountETH": 0.2199999988079071,
+			"principalAmountUSD": 599.9075016321513,
+			"maximumRepaymentAmount": 0.2305379956960678,
+			"maximumRepaymentAmountETH": 0.2305379956960678,
+			"maximumRepaymentAmountUSD": 628.6430626305118,
+			"apr": 49.950000643730164,
+			"durationDays": 35,
+			"borrowerAddress": "0x8264e9e0f4CbcBBbb3F8eCAec0A625B590Ae790e",
+			"lenderAddress": "0x73A1Bb338613291AC6530870Fe2c5D354BFEC17e",
+			"dueTime": "2025-03-29 01:04:59",
+			"startTime": "2025-02-22 01:04:59",
+			"hoursUntilDue": 42
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8394",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "639823920263943217618323462336076603546943394731",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 2600,
+			"principalAmountETH": 0.9534803204566277,
+			"principalAmountUSD": 2600,
+			"maximumRepaymentAmount": 2717,
+			"maximumRepaymentAmountETH": 0.9963869348771759,
+			"maximumRepaymentAmountUSD": 2717,
+			"apr": 46.93000018596649,
+			"durationDays": 35,
+			"borrowerAddress": "0x8264e9e0f4CbcBBbb3F8eCAec0A625B590Ae790e",
+			"lenderAddress": "0x73A1Bb338613291AC6530870Fe2c5D354BFEC17e",
+			"dueTime": "2025-03-29 15:24:59",
+			"startTime": "2025-02-22 15:24:59",
+			"hoursUntilDue": 57
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8268",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "17201092682985979131624115590963369081540574719",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 1600,
+			"principalAmountETH": 0.6074529779155027,
+			"principalAmountUSD": 1600,
+			"maximumRepaymentAmount": 1649.280029296875,
+			"maximumRepaymentAmountETH": 0.6261625407580964,
+			"maximumRepaymentAmountUSD": 1649.280029296875,
+			"apr": 24.979999661445618,
+			"durationDays": 45,
+			"borrowerAddress": "0x8eFD9ADDD8de6A4E64664D1893dEc51F8C3339E9",
+			"lenderAddress": "0x93857Ad03a9Ab1226D909FFa49BcA37e70e4D32d",
+			"dueTime": "2025-03-29 16:07:23",
+			"startTime": "2025-02-12 16:07:23",
+			"hoursUntilDue": 57
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8448",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "566400383047721810305639420885511059624240535940",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 1170,
+			"principalAmountETH": 0.5025002225554058,
+			"principalAmountUSD": 1170,
+			"maximumRepaymentAmount": 1202.6429443359375,
+			"maximumRepaymentAmountETH": 0.5165199548576899,
+			"maximumRepaymentAmountUSD": 1202.6429443359375,
+			"apr": 33.95000100135803,
+			"durationDays": 30,
+			"borrowerAddress": "0x1eC42019DB97210f5a587002F5C8E82850f31A8A",
+			"lenderAddress": "0x12e6ad13e280779264e2c4Ee0B40B312d4B97142",
+			"dueTime": "2025-03-29 21:33:35",
+			"startTime": "2025-02-27 21:33:35",
+			"hoursUntilDue": 63
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8315",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "100206656651744009365609207652039062846893807363",
+			"nftName": "",
+			"nftImageSmallUri": "",
+			"nftImageLargeUri": "",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 0.12999999523162842,
+			"principalAmountETH": 0.12999999523162842,
+			"principalAmountUSD": 353.91245039747446,
+			"maximumRepaymentAmount": 0.13597999513149261,
+			"maximumRepaymentAmountETH": 0.13597999513149261,
+			"maximumRepaymentAmountUSD": 370.1924234402941,
+			"apr": 41.98000133037567,
+			"durationDays": 40,
+			"borrowerAddress": "0x8264e9e0f4CbcBBbb3F8eCAec0A625B590Ae790e",
+			"lenderAddress": "0x73A1Bb338613291AC6530870Fe2c5D354BFEC17e",
+			"dueTime": "2025-03-29 22:28:35",
+			"startTime": "2025-02-17 22:28:35",
+			"hoursUntilDue": 64
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8458",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "422342922950323569895749568660330196290737385104",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 4350,
+			"principalAmountETH": 1.9625671942116076,
+			"principalAmountUSD": 4350,
+			"maximumRepaymentAmount": 4446.134765625,
+			"maximumRepaymentAmountETH": 2.005939823461917,
+			"maximumRepaymentAmountUSD": 4446.134765625,
+			"apr": 26.890000700950623,
+			"durationDays": 30,
+			"borrowerAddress": "0x9Ec3Ea35856C3047E4e3f6F5Fa7895704110f9bb",
+			"lenderAddress": "0x007CE5c372CC6fcc47d2aaC5665a94a2b165a1b5",
+			"dueTime": "2025-03-31 13:29:47",
+			"startTime": "2025-03-01 13:29:47",
+			"hoursUntilDue": 103
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "8459",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"nftAddress": "0x269363665Dbb1582b143099a3cb467E98a476D55",
+			"nftId": "1205230140144055259496008393641129531503647462807",
+			"nftName": "Arcade.xyz Vault Key",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/7%2FrdF%2Fe%2F0iXY8HduhRCoIehkmFeXPeOQQFbbmIPfjCb1PRnThuHTObTifwTJtcjErom4pver%2F5OS4pUS8IZ%2BAjy3R7DriKxBaVomcIEAgS3oEEMAZZiLJ%2FOQV1E66GMc7kpShA1cXMALt9XP64XiEg%3D%3D.png?width=1000",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 5700,
+			"principalAmountETH": 2.571639771725555,
+			"principalAmountUSD": 5700,
+			"maximumRepaymentAmount": 5882.39990234375,
+			"maximumRepaymentAmountETH": 2.653932200361703,
+			"maximumRepaymentAmountUSD": 5882.39990234375,
+			"apr": 38.92999887466431,
+			"durationDays": 30,
+			"borrowerAddress": "0xBeC69dfcE4c1fA8b7843FEE1Ca85788d84A86B06",
+			"lenderAddress": "0x12e6ad13e280779264e2c4Ee0B40B312d4B97142",
+			"dueTime": "2025-03-31 15:11:11",
+			"startTime": "2025-03-01 15:11:11",
+			"hoursUntilDue": 104
+		}
+	],
+
+	"rows": 10,
+
+	"rows_before_limit_at_least": 109,
+
+	"statistics":
+	{
+		"elapsed": 0.407743284,
+		"rows_read": 115478,
+		"bytes_read": 36965427
+	}
+}

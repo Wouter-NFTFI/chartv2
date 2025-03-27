@@ -1,0 +1,52 @@
+Testing normalization function with pairs:
+Original: "Chromie Squiggles by Snowfro" vs "Chromie Squiggle by Snowfro"
+Normalized: "chromiesquiggles" vs "chromiesquiggle"
+Match: false
+---
+Original: "Fidenza" vs "Fidenza by Tyler Hobbs"
+Normalized: "fidenza" vs "fidenza"
+Match: true
+---
+Original: "Wrapped SuperRare" vs "WrappedSuperRare"
+Normalized: "wrappedsuperrare" vs "wrappedsuperrare"
+Match: true
+---
+Original: "Known Origin" vs "KnownOrigin"
+Normalized: "knownorigin" vs "knownorigin"
+Match: true
+---
+Original: "CryptoPunks 721" vs "Wrapped CryptoPunks"
+Normalized: "cryptopunks721" vs "wrappedcryptopunks"
+Match: false
+---
+Original: "Ringers" vs "Ringers by Dmitri Cherniak"
+Normalized: "ringers" vs "ringers"
+Match: true
+---
+Original: "XCOPY" vs "XCOPY Official"
+Normalized: "xcopy" vs "xcopyofficial"
+Match: false
+---
+Original: "ArtBlocks" vs "Art Blocks"
+Normalized: "artblocks" vs "artblocks"
+Match: true
+---
+Original: "BAYC" vs "Bored Ape Yacht Club"
+Normalized: "bayc" vs "boredapeyachtclub"
+Match: false
+---
+WARNING: Normalization collision between "PudgyPenguins" and "Pudgy Penguins"
+Both normalize to: "pudgypenguins"
+WARNING: Normalization collision between "Genesis by DCA" and "Genesis by Claire Silver"
+Both normalize to: "genesis"
+WARNING: Normalization collision between "a KID called BEAST" and "A Kid Called Beast"
+Both normalize to: "akidcalledbeast"
+WARNING: Normalization collision between "Terraforms by math castle" and "Terraforms by Mathcastles"
+Both normalize to: "terraforms"
+
+
+Testing exclusion list against actual collection names:
+SHOULD EXCLUDE: "Fidenza by Tyler Hobbs" (normalizes to "fidenza")
+SHOULD EXCLUDE: "WrappedSuperRare" (normalizes to "wrappedsuperrare")
+SHOULD EXCLUDE: "KnownOrigin" (normalizes to "knownorigin")
+SHOULD EXCLUDE: "Ringers by Dmitri Cherniak" (normalizes to "ringers")

@@ -1,0 +1,390 @@
+{
+	"meta":
+	[
+		{
+			"name": "protocolName",
+			"type": "String"
+		},
+		{
+			"name": "loanId",
+			"type": "String"
+		},
+		{
+			"name": "loanContractAddress",
+			"type": "String"
+		},
+		{
+			"name": "nftProjectName",
+			"type": "Nullable(String)"
+		},
+		{
+			"name": "nftProjectImageUri",
+			"type": "String"
+		},
+		{
+			"name": "nftAddress",
+			"type": "String"
+		},
+		{
+			"name": "nftId",
+			"type": "String"
+		},
+		{
+			"name": "nftName",
+			"type": "String"
+		},
+		{
+			"name": "nftImageSmallUri",
+			"type": "String"
+		},
+		{
+			"name": "nftImageLargeUri",
+			"type": "String"
+		},
+		{
+			"name": "status",
+			"type": "String"
+		},
+		{
+			"name": "currencyName",
+			"type": "Nullable(String)"
+		},
+		{
+			"name": "principalAmount",
+			"type": "Float64"
+		},
+		{
+			"name": "principalAmountETH",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "principalAmountUSD",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "maximumRepaymentAmount",
+			"type": "Float64"
+		},
+		{
+			"name": "maximumRepaymentAmountETH",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "maximumRepaymentAmountUSD",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "apr",
+			"type": "Float64"
+		},
+		{
+			"name": "durationDays",
+			"type": "Int64"
+		},
+		{
+			"name": "borrowerAddress",
+			"type": "String"
+		},
+		{
+			"name": "lenderAddress",
+			"type": "String"
+		},
+		{
+			"name": "dueTime",
+			"type": "DateTime"
+		},
+		{
+			"name": "startTime",
+			"type": "DateTime"
+		},
+		{
+			"name": "hoursUntilDue",
+			"type": "Float64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"protocolName": "Gondi",
+			"loanId": "870",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "13",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 40000,
+			"principalAmountETH": 11.084946589758536,
+			"principalAmountUSD": 40000,
+			"maximumRepaymentAmount": 42367.125,
+			"maximumRepaymentAmountETH": 11.74093294466559,
+			"maximumRepaymentAmountUSD": 42367.125,
+			"apr": 18.000000715255737,
+			"durationDays": 120,
+			"borrowerAddress": "0x1da5331994e781ab0e2af9f85bfce2037a514170",
+			"lenderAddress": "0x08fa1d231580ff854db5513ae8f877a25dda9576",
+			"dueTime": "2025-04-02 05:07:59",
+			"startTime": "2024-12-03 05:07:59",
+			"hoursUntilDue": 142
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "1503",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "334",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 1035000,
+			"principalAmountETH": 289.91219941858355,
+			"principalAmountUSD": 1035000,
+			"maximumRepaymentAmount": 1075832.875,
+			"maximumRepaymentAmountETH": 301.3498309160078,
+			"maximumRepaymentAmountUSD": 1075832.875,
+			"apr": 15.999999642372131,
+			"durationDays": 90,
+			"borrowerAddress": "0x1e8fd4c82adae5aeeafca2df14252d1610322179",
+			"lenderAddress": "0xba15e9b644685cb845af18a738abd40c6bcd78ed",
+			"dueTime": "2025-04-07 03:09:11",
+			"startTime": "2025-01-07 03:09:11",
+			"hoursUntilDue": 260
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3598",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "420",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 1.399999976158142,
+			"principalAmountETH": 1.399999976158142,
+			"principalAmountUSD": 2854.342920140829,
+			"maximumRepaymentAmount": 1.411423683166504,
+			"maximumRepaymentAmountETH": 1.411423683166504,
+			"maximumRepaymentAmountUSD": 2877.63376140967,
+			"apr": 22.910000383853912,
+			"durationDays": 13,
+			"borrowerAddress": "0x50cd286b00bda2243eff0148d46ea817e54c5411",
+			"lenderAddress": "0xbb10fd334dbcdc713b0a92cc70fce79b8e8e0ff1",
+			"dueTime": "2025-04-08 15:34:47",
+			"startTime": "2025-03-26 15:34:47",
+			"hoursUntilDue": 297
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3060",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "23",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 26,
+			"principalAmountETH": 26,
+			"principalAmountUSD": 49452.257080078125,
+			"maximumRepaymentAmount": 26.320547103881836,
+			"maximumRepaymentAmountETH": 26.320547103881836,
+			"maximumRepaymentAmountUSD": 50061.94084113347,
+			"apr": 15.000000596046448,
+			"durationDays": 30,
+			"borrowerAddress": "0xc35f3f92a9f27a157b309a9656cfea30e5c9cce3",
+			"lenderAddress": "0xda96af1d1f753d05bb9d1d4e795e5b97da3efebf",
+			"dueTime": "2025-04-10 04:43:23",
+			"startTime": "2025-03-11 04:43:23",
+			"hoursUntilDue": 334
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3183",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "8",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 50000,
+			"principalAmountETH": 26.228359362333258,
+			"principalAmountUSD": 50000,
+			"maximumRepaymentAmount": 50657.53515625,
+			"maximumRepaymentAmountETH": 26.573280729763116,
+			"maximumRepaymentAmountUSD": 50657.53515625,
+			"apr": 15.999999642372131,
+			"durationDays": 30,
+			"borrowerAddress": "0xbddb878b393bf91f8d34b2edf7087ca529e3ccaf",
+			"lenderAddress": "0xf1a9676b03dd3b2066214d2ad8b4b59ed6642c53",
+			"dueTime": "2025-04-13 07:36:59",
+			"startTime": "2025-03-14 07:36:59",
+			"hoursUntilDue": 409
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3188",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "417",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 29,
+			"principalAmountETH": 29,
+			"principalAmountUSD": 55283.67138671875,
+			"maximumRepaymentAmount": 29.472898483276367,
+			"maximumRepaymentAmountETH": 29.472898483276367,
+			"maximumRepaymentAmountUSD": 56185.17360564042,
+			"apr": 19.840000569820404,
+			"durationDays": 30,
+			"borrowerAddress": "0xc35f3f92a9f27a157b309a9656cfea30e5c9cce3",
+			"lenderAddress": "0x9fc4001133d3825b7ce4b05bcfbe227fb3cd5fdf",
+			"dueTime": "2025-04-13 15:18:11",
+			"startTime": "2025-03-14 15:18:11",
+			"hoursUntilDue": 417
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3256",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "363",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 8660,
+			"principalAmountETH": 4.524447405921378,
+			"principalAmountUSD": 8660,
+			"maximumRepaymentAmount": 8731.1064453125,
+			"maximumRepaymentAmountETH": 4.561597217935054,
+			"maximumRepaymentAmountUSD": 8731.1064453125,
+			"apr": 9.98999997973442,
+			"durationDays": 30,
+			"borrowerAddress": "0x148216a1800ab3d71668b4126b4244a9a909955f",
+			"lenderAddress": "0x007ce5c372cc6fcc47d2aac5665a94a2b165a1b5",
+			"dueTime": "2025-04-16 00:39:47",
+			"startTime": "2025-03-17 00:39:47",
+			"hoursUntilDue": 474
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3257",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "362",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 9913.5,
+			"principalAmountETH": 5.17934288205561,
+			"principalAmountUSD": 9913.5,
+			"maximumRepaymentAmount": 9994.8994140625,
+			"maximumRepaymentAmountETH": 5.221870291732122,
+			"maximumRepaymentAmountUSD": 9994.8994140625,
+			"apr": 9.98999997973442,
+			"durationDays": 30,
+			"borrowerAddress": "0x148216a1800ab3d71668b4126b4244a9a909955f",
+			"lenderAddress": "0x007ce5c372cc6fcc47d2aac5665a94a2b165a1b5",
+			"dueTime": "2025-04-16 00:41:47",
+			"startTime": "2025-03-17 00:41:47",
+			"hoursUntilDue": 474
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3293",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "430",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 39.900001525878906,
+			"principalAmountETH": 39.900001525878906,
+			"principalAmountUSD": 75867.13510350324,
+			"maximumRepaymentAmount": 40.3915901184082,
+			"maximumRepaymentAmountETH": 40.3915901184082,
+			"maximumRepaymentAmountUSD": 76801.8573275255,
+			"apr": 14.990000426769257,
+			"durationDays": 30,
+			"borrowerAddress": "0x0ed341413d5f7cb0e3011b938082d24d7f8e8f25",
+			"lenderAddress": "0x9fc4001133d3825b7ce4b05bcfbe227fb3cd5fdf",
+			"dueTime": "2025-04-17 13:32:23",
+			"startTime": "2025-03-18 13:32:23",
+			"hoursUntilDue": 511
+		},
+		{
+			"protocolName": "Gondi",
+			"loanId": "3344",
+			"loanContractAddress": "",
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftAddress": "0x823de2c44369e94cac3da789ad4b6493e27e4bfe",
+			"nftId": "418",
+			"nftName": "Gondi Vault",
+			"nftImageSmallUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"nftImageLargeUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 1.399999976158142,
+			"principalAmountETH": 1.399999976158142,
+			"principalAmountUSD": 2797.0755383035867,
+			"maximumRepaymentAmount": 1.420689344406128,
+			"maximumRepaymentAmountETH": 1.420689344406128,
+			"maximumRepaymentAmountUSD": 2838.411057457095,
+			"apr": 17.980000376701355,
+			"durationDays": 30,
+			"borrowerAddress": "0x50cd286b00bda2243eff0148d46ea817e54c5411",
+			"lenderAddress": "0x840724f70d2dc236cde4ba7ab53df743bd09ff83",
+			"dueTime": "2025-04-19 06:13:47",
+			"startTime": "2025-03-20 06:13:47",
+			"hoursUntilDue": 552
+		}
+	],
+
+	"rows": 10,
+
+	"rows_before_limit_at_least": 28,
+
+	"statistics":
+	{
+		"elapsed": 0.388943851,
+		"rows_read": 115478,
+		"bytes_read": 36965427
+	}
+}

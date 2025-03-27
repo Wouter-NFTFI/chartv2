@@ -1,0 +1,174 @@
+{
+	"meta":
+	[
+		{
+			"name": "protocolName",
+			"type": "String"
+		},
+		{
+			"name": "loanId",
+			"type": "String"
+		},
+		{
+			"name": "loanContractAddress",
+			"type": "String"
+		},
+		{
+			"name": "nftProjectName",
+			"type": "Nullable(String)"
+		},
+		{
+			"name": "nftProjectImageUri",
+			"type": "String"
+		},
+		{
+			"name": "nftAddress",
+			"type": "String"
+		},
+		{
+			"name": "nftId",
+			"type": "String"
+		},
+		{
+			"name": "nftName",
+			"type": "String"
+		},
+		{
+			"name": "nftImageSmallUri",
+			"type": "String"
+		},
+		{
+			"name": "nftImageLargeUri",
+			"type": "String"
+		},
+		{
+			"name": "status",
+			"type": "String"
+		},
+		{
+			"name": "currencyName",
+			"type": "Nullable(String)"
+		},
+		{
+			"name": "principalAmount",
+			"type": "Float64"
+		},
+		{
+			"name": "principalAmountETH",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "principalAmountUSD",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "maximumRepaymentAmount",
+			"type": "Float64"
+		},
+		{
+			"name": "maximumRepaymentAmountETH",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "maximumRepaymentAmountUSD",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "apr",
+			"type": "Float64"
+		},
+		{
+			"name": "durationDays",
+			"type": "Int64"
+		},
+		{
+			"name": "borrowerAddress",
+			"type": "String"
+		},
+		{
+			"name": "lenderAddress",
+			"type": "String"
+		},
+		{
+			"name": "dueTime",
+			"type": "DateTime"
+		},
+		{
+			"name": "startTime",
+			"type": "DateTime"
+		},
+		{
+			"name": "hoursUntilDue",
+			"type": "Float64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"protocolName": "Gondi",
+			"loanId": "1999",
+			"loanContractAddress": "",
+			"nftProjectName": "XCOPY",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAC5jYdJ9dZ8taYYUxpMNK%2BSSj%2BacEDpCQ2nq8V4jkB5fFe3DJNnutId9KRBpQvmOQWZyZPYycwYsM0DB7XXZ7eYXXsqlRyqFB0NWR9UXC877Etq7cefNihkHUKR3UoCWNqorPa30G%2Fe%2F5wy%2BAOQoaOi2Qn3LFMwc9X1HhbWNJ94A782yUjadTIzgmEkUmeh01w%3D%3D?width=250",
+			"nftAddress": "0xc4560031bf20e5c930e77a61a4de9794db51e504",
+			"nftId": "13900020001",
+			"nftName": "Bitcoin Protestors #1\/1",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKR%2B9rUVroVtCJujcRBL8LCPguTldi6nu6z8F8FF3ncvKYZikTsCSfLl7T%2F3%2BBMbJBv9CY%2FV22UUIwew%2FHIXok%2B%2Br5TAiNj7IJ5w%2B4DEYeFj?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKR%2B9rUVroVtCJujcRBL8LCPguTldi6nu6z8F8FF3ncvKYZikTsCSfLl7T%2F3%2BBMbJBv9CY%2FV22UUIwew%2FHIXok%2B%2Br5TAiNj7IJ5w%2B4DEYeFj?width=1000",
+			"status": "Active",
+			"currencyName": "USDC",
+			"principalAmount": 300000,
+			"principalAmountETH": 95.37002880426334,
+			"principalAmountUSD": 300000,
+			"maximumRepaymentAmount": 342410.96875,
+			"maximumRepaymentAmountETH": 108.85247984194405,
+			"maximumRepaymentAmountUSD": 342410.96875,
+			"apr": 15.000000596046448,
+			"durationDays": 344,
+			"borrowerAddress": "0x2f44fb58135ae5d3793803c73d471c7cde4bb774",
+			"lenderAddress": "0x7eb29af9bab59b56c6ed152c3d583a8e742b8d0d",
+			"dueTime": "2025-04-04 18:13:35",
+			"startTime": "2024-04-25 18:13:35",
+			"hoursUntilDue": 203
+		},
+		{
+			"protocolName": "Arcade",
+			"loanId": "3223",
+			"loanContractAddress": "0x89bc08BA00f135d608bc335f6B33D7a9ABCC98aF",
+			"nftProjectName": "XCOPY",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAC5jYdJ9dZ8taYYUxpMNK%2BSSj%2BacEDpCQ2nq8V4jkB5fFe3DJNnutId9KRBpQvmOQWZyZPYycwYsM0DB7XXZ7eYXXsqlRyqFB0NWR9UXC877Etq7cefNihkHUKR3UoCWNqorPa30G%2Fe%2F5wy%2BAOQoaOi2Qn3LFMwc9X1HhbWNJ94A782yUjadTIzgmEkUmeh01w%3D%3D?width=250",
+			"nftAddress": "0xfd04E14334d876635E7eA46ae636D4a45D8ffDde",
+			"nftId": "0",
+			"nftName": "NGMI",
+			"nftImageSmallUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAIm8C3SCSd6lNHROmSankiB6O9sCxCVK8PbAibgOEAKGSLVb2GwMO3hGNyRK0jJ1IkvOnY%2F0mTlbg%2BdfqYVAmjiczaooVgmsBbOuSphH6KGn5kinlpv8jApTLn8arm7pVHgHUoKIv27MmKVa10rzRQeWZJbyId29O4LQ0RNlSqx8?width=1000",
+			"nftImageLargeUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAIm8C3SCSd6lNHROmSankiB6O9sCxCVK8PbAibgOEAKGSLVb2GwMO3hGNyRK0jJ1IkvOnY%2F0mTlbg%2BdfqYVAmjiczaooVgmsBbOuSphH6KGn5kinlpv8jApTLn8arm7pVHgHUoKIv27MmKVa10rzRQeWZJbyId29O4LQ0RNlSqx8?width=1000",
+			"status": "Active",
+			"currencyName": "wETH",
+			"principalAmount": 130,
+			"principalAmountETH": 130,
+			"principalAmountUSD": 460110.6884765625,
+			"maximumRepaymentAmount": 156,
+			"maximumRepaymentAmountETH": 156,
+			"maximumRepaymentAmountUSD": 552132.826171875,
+			"apr": 20.000000298023224,
+			"durationDays": 365,
+			"borrowerAddress": "0xA78f3ec4A858341fc9Cae5672f7381e4e74E657B",
+			"lenderAddress": "0x40FEf8e0A18eB5326F91A865BF016F642358DE80",
+			"dueTime": "2025-04-11 14:59:11",
+			"startTime": "2024-04-11 14:59:11",
+			"hoursUntilDue": 368
+		}
+	],
+
+	"rows": 2,
+
+	"rows_before_limit_at_least": 2,
+
+	"statistics":
+	{
+		"elapsed": 0.412894077,
+		"rows_read": 115478,
+		"bytes_read": 36965427
+	}
+}

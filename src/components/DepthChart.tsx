@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, AreaChart, Brush, BarChart, Bar, ReferenceLine } from 'recharts';
 import { NFTfiCollection } from '../api/nftfiApi';
 import { fetchLoanDistribution, LoanDistributionResponseItem } from '../api/nftfiApi';
@@ -51,14 +51,55 @@ const REFERENCE_LINE_LABEL = { value: '100% LTV', position: 'insideTopRight' as 
 const DOT_ACTIVE_RADIUS = 7;
 const DOT_ACTIVE_STROKE = '#0747A6';  // Dark blue for active points with loans
 const DOT_ACTIVE_STROKE_WIDTH = 2.5;
+const DOT_NO_LOANS_STROKE = '#777777'; // Gray for points with no loans
 
-// Simpler activeDot configuration that works with Recharts typings
-const activeDotConfig = {
-  r: DOT_ACTIVE_RADIUS,
-  fill: DOT_ACTIVE_STROKE,
-  stroke: DOT_ACTIVE_STROKE,
-  strokeWidth: DOT_ACTIVE_STROKE_WIDTH,
-  className: 'depth-chart-active-dot',
+// Custom activeDot rendering function
+const CustomActiveDot = (props: { 
+  cx: number; 
+  cy: number; 
+  payload: DataPoint;
+  // Common Recharts properties
+  index?: number;
+  dataKey?: string;
+  value?: number;
+  r?: number;
+  stroke?: string;
+  strokeWidth?: number;
+  fill?: string;
+  className?: string;
+}) => {
+  const { cx, cy, payload } = props;
+  
+  // Check if there are loans at this data point
+  const hasLoans = payload.loanCount > 0;
+  
+  // Set the stroke color based on whether there are loans
+  const strokeColor = hasLoans ? DOT_ACTIVE_STROKE : DOT_NO_LOANS_STROKE;
+  
+  // Adjust radius and other properties based on loan availability
+  const radius = hasLoans ? DOT_ACTIVE_RADIUS - 1 : DOT_ACTIVE_RADIUS - 2;
+  const strokeWidth = hasLoans ? DOT_ACTIVE_STROKE_WIDTH : DOT_ACTIVE_STROKE_WIDTH - 0.5;
+  const strokeDasharray = hasLoans ? 'none' : '2,1';
+  
+  return (
+    <svg x={cx - DOT_ACTIVE_RADIUS} y={cy - DOT_ACTIVE_RADIUS} width={DOT_ACTIVE_RADIUS * 2} height={DOT_ACTIVE_RADIUS * 2}>
+      <circle
+        cx={DOT_ACTIVE_RADIUS}
+        cy={DOT_ACTIVE_RADIUS}
+        r={radius}
+        fill="#FFFFFF"
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
+        strokeDasharray={strokeDasharray}
+        className="depth-chart-active-dot"
+      >
+        <title>{hasLoans 
+          ? `LTV: ${payload.ltv}% - ${payload.loanCount} loan(s) available` 
+          : `LTV: ${payload.ltv}% - No loans available`}
+        </title>
+      </circle>
+    </svg>
+  );
 };
 
 // Symmetric logarithmic transformation functions
@@ -392,6 +433,12 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               <AreaChart
                 data={segment1Data}
                 margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
+                onClick={(e) => {
+                  if (e && e.activeLabel) {
+                    const ltv = parseInt(e.activeLabel);
+                    onDataPointClick(ltv, floorPriceUSD);
+                  }
+                }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
@@ -412,7 +459,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   isAnimationActive={true}
                   animationDuration={500}
                   animationEasing="ease-in-out"
-                  activeDot={activeDotConfig}
+                  activeDot={CustomActiveDot}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -424,6 +471,12 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               <AreaChart
                 data={segment2Data}
                 margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
+                onClick={(e) => {
+                  if (e && e.activeLabel) {
+                    const ltv = parseInt(e.activeLabel);
+                    onDataPointClick(ltv, floorPriceUSD);
+                  }
+                }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
@@ -443,7 +496,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   isAnimationActive={true}
                   animationDuration={500}
                   animationEasing="ease-in-out"
-                  activeDot={activeDotConfig}
+                  activeDot={CustomActiveDot}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -455,6 +508,12 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               <AreaChart
                 data={segment3Data}
                 margin={{ top: 10, right: 10, left: 60, bottom: 20 }}
+                onClick={(e) => {
+                  if (e && e.activeLabel) {
+                    const ltv = parseInt(e.activeLabel);
+                    onDataPointClick(ltv, floorPriceUSD);
+                  }
+                }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
@@ -474,7 +533,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
                   isAnimationActive={true}
                   animationDuration={500}
                   animationEasing="ease-in-out"
-                  activeDot={activeDotConfig}
+                  activeDot={CustomActiveDot}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -538,7 +597,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               isAnimationActive={true}
               animationDuration={500}
               animationEasing="ease-in-out"
-              activeDot={activeDotConfig}
+              activeDot={CustomActiveDot}
             />
             <Area
               type="step"
@@ -876,7 +935,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
               isAnimationActive={true}
               animationDuration={500}
               animationEasing="ease-in-out"
-              activeDot={activeDotConfig}
+              activeDot={CustomActiveDot}
             />
             
             {/* High risk area (LTV > 100%) */}
@@ -960,7 +1019,7 @@ export function DepthChart({ collection, onDataPointClick, visualizationType = '
             isAnimationActive={true}
             animationDuration={500}
             animationEasing="ease-in-out"
-            activeDot={activeDotConfig}
+            activeDot={CustomActiveDot}
           />
           <Area
             type="step"

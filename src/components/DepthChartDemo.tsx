@@ -1,4 +1,3 @@
-import React from 'react';
 import { DepthChart } from './DepthChart';
 import { NFTfiCollection } from '../api/nftfiApi';
 import { Loan } from '../types/nftfi';
@@ -11,8 +10,6 @@ interface DepthChartDemoProps {
   loans: Loan[];
   isLoadingLoans: boolean;
   loanError: string | null;
-  isFiltered?: boolean;
-  activeLTV?: number | null;
 }
 
 export function DepthChartDemo({ 
@@ -21,8 +18,6 @@ export function DepthChartDemo({
   loans, 
   isLoadingLoans, 
   loanError,
-  isFiltered = false,
-  activeLTV = null
 }: DepthChartDemoProps) {
   return (
     <div className="depth-chart-demo-container">
@@ -95,13 +90,6 @@ export function DepthChartDemo({
       <div className="depth-chart-demo-table">
         <div className="table-header">
           <h2 className="text-xl font-semibold">Loan Data</h2>
-          <p className="text-sm text-gray-600">
-            {loans.length} loan{loans.length !== 1 ? 's' : ''} displayed
-            {isLoadingLoans ? ' (loading...)' : ''}
-          </p>
-          <p className="text-xs text-gray-500 mt-1">
-            {isFiltered && activeLTV ? "" : loans.length === 0 ? "Try clicking a chart point to see loans" : "Click on any chart point to filter loans by LTV"}
-          </p>
         </div>
 
         {isLoadingLoans ? (

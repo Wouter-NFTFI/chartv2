@@ -1,0 +1,1778 @@
+{
+	"meta":
+	[
+		{
+			"name": "nftProjectName",
+			"type": "Nullable(String)"
+		},
+		{
+			"name": "nftProjectImageUri",
+			"type": "String"
+		},
+		{
+			"name": "total_usd_value",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "avg_usd_value",
+			"type": "Nullable(Float64)"
+		},
+		{
+			"name": "avg_apr",
+			"type": "Float64"
+		},
+		{
+			"name": "loan_count",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"nftProjectName": "Wrapped Cryptopunks",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuABFuoqH0Xw8RwP3XGRDltop1fhPM8HEzGHYJJoP7nCutORfRiuoOYI9cOjaDwPMUnvsZ4I%2FEcSV51ZEMCeIgkaUzJ3sC7iGBCJmA%2FXjNPV9kjocMgQxxcILm31shdGOIv44J39zOuznSVkFGmZsbEGU0Kc92OZF5IjYqO4KWWg0JnYF4QaHmDbV6H7bQS5zIkg%3D%3D?width=250",
+			"total_usd_value": 16801914.546875,
+			"avg_usd_value": 73692.60766173246,
+			"avg_apr": 14.41013104455513,
+			"loan_count": 228
+		},
+		{
+			"nftProjectName": "CryptoPunks 721",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAIntbW3M%2BLdrQ9IBqdAsDlk%2FUf0z9ursO4CbP%2BiOoBgTnCPdMG9ebrFVGju8fL63kHBqdMK7UN%2Fx4%2F4qov%2B7ZJCWtYFSyJY6Eaz3IuUWU%2F1m9yoJZ%2FnhIW4f1UTyOgRrtHy1of78wdnl%2FBm%2Bir%2FQWegNaQmaCJJSw%2BFI0R6iZYZp5Eb8yGjBsKBIal1FCB1SZg%3D%3D?width=250",
+			"total_usd_value": 8336210.251953125,
+			"avg_usd_value": 98073.06178768382,
+			"avg_apr": 15.273411829331343,
+			"loan_count": 85
+		},
+		{
+			"nftProjectName": "Autoglyphs",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAH9DtZypgFtPDSwZxgeBCcB2qfdMb7yTp29ZhmPfSFJtQIQHNOO2gKNzriSV6MtrYzaL6bTE5oBwWkxKHQM0AoaN4Jl3l6H6fJKzS1IF2i3eQ1l%2B5d%2FPkCAk9YXxoeCMUxGW%2Fe42Tt3z3%2FsC3kQ9Gs9dAsET4bgLhnuymJ2K9niD3Bhev7Xpp7gLTB2ePuJiD6Msy7eXX3gjnqD3rKIO5ZjKBuao5CJJ0i6zBOm38j0UmfNGwR5K8pRmLOspRFmLOg%3D%3D?width=250",
+			"total_usd_value": 4576089.1171875,
+			"avg_usd_value": 208004.05078125,
+			"avg_apr": 14.725000338120894,
+			"loan_count": 22
+		},
+		{
+			"nftProjectName": "Chromie Squiggle by Snowfro",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FXEX2qgUanA95eKzzFGvJW5Aeed%2FBVUismUSqPriLRE9bFd90ClIkpdxVXhefZyrf9edKZZ0HrexjY9NiZuN4%2FJD%2FLAsiMSlqCWTJ2q3KkJDNKADUNHORmeIhtRLtkJ57GO6Sn5SztPGr5AX3O5qySTukfB6KrGUakMzv%2Fw9kNbw%3D%3D?width=250",
+			"total_usd_value": 3000914.028564453,
+			"avg_usd_value": 14155.254851719119,
+			"avg_apr": 15.002687998537747,
+			"loan_count": 212
+		},
+		{
+			"nftProjectName": "Gondi Vault",
+			"nftProjectImageUri": "https:\/\/pbs.twimg.com\/profile_images\/1830987536002330624\/_4J1mQR2_400x400.jpg",
+			"total_usd_value": 2731782.836669922,
+			"avg_usd_value": 97563.67273821149,
+			"avg_apr": 17.72714298112052,
+			"loan_count": 28
+		},
+		{
+			"nftProjectName": "Fidenza by Tyler Hobbs",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkHiAJG%2FDIAnUgxUYt9s3sEBTuyyNNTVLn3S10SIVCST0wvnM3mW0gc2OhZB%2BegcyquDHzWQXP16J1814Tzn7dS%2Fk5pfCukd6ist0vac1vbJdnWRQW%2Bp4L%2BKyDuDbJwLGCQ%3D%3D?width=250",
+			"total_usd_value": 1753197.630859375,
+			"avg_usd_value": 46136.77975945724,
+			"avg_apr": 17.15947356976961,
+			"loan_count": 38
+		},
+		{
+			"nftProjectName": "Arcade Vault",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"total_usd_value": 1692075.7543652803,
+			"avg_usd_value": 15523.630773993396,
+			"avg_apr": 36.666751091633365,
+			"loan_count": 109
+		},
+		{
+			"nftProjectName": "WrappedSuperRare",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKM5v2dthdDNgoFYsopVhfV00ugYwexIUnl3OjDpcWY7%2F2ZgIOfP3urE01DLkwsM2Ebe%2Fl1HTdsEOTGoVBKIDsMhBpaL%2FWHd3CyMDysIG%2BzYOdLQUP%2Fa44caklfe9FTZaktT40li6WYdCVJ7LONNb335PFySg52oLFz6od8jBG1EyAnxCFZnblpifQVd1TeZRw%3D%3D?width=250",
+			"total_usd_value": 1296727.505859375,
+			"avg_usd_value": 185246.7865513393,
+			"avg_apr": 17.571428571428573,
+			"loan_count": 7
+		},
+		{
+			"nftProjectName": "KnownOrigin",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKd%2BTi0nRkPP4EbuM7TV2xfbgbXC4qLlkpZ%2BXbB1cdw8hZLUvakSRbP%2FsZTN9RKH%2FgTd66ND9RzfLgGaaFM0Qpgd%2FiMu4w6GJ5B%2BV5bVwPo0RV6bitPmpOMIMGzedP4T5OKhJq9NFdWUQuXUlt35Vx%2By26cgew2ewncZvpH6lCdrV6J2jnN5ujUy4u743rXRWwPSIAVkb7zj%2FnMF1ZuYNkSpX9jbA1s9TAuAMAC3QitQ%2Fb2rqCt47iG6%2BRgsJRlXWg%3D%3D?width=250",
+			"total_usd_value": 1200823.6352539062,
+			"avg_usd_value": 80054.90901692708,
+			"avg_apr": 18.261999956766765,
+			"loan_count": 15
+		},
+		{
+			"nftProjectName": "Bored Ape Yacht Club",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAA79K674Y2b4%2F48FTC1v%2BJ4rEwpjEK3D0qjUdzqyInvnSJFH5IaIgEk7pF0NEn6WqgSgbCdGL27rkoWAYjQhV2aH%2F8nBd9uVO2ymg2znWvbXJa379tKUzlm4lW4%2BFvX3Lkybz6boYKjCsVC4GCdwAv31e%2BCSMdhCyyVeL2Un9dcLOA78C2fikkVa0IrHu8NT7ZLNEHOGf3f%2F6Glrmk5hPMQCESBDZgtca2GNwcP7lvjzDJXMS9jKgLqNBZFUSYsb2g%3D%3D?width=250",
+			"total_usd_value": 1029457.9384765625,
+			"avg_usd_value": 23396.771329012783,
+			"avg_apr": 20.627714807336982,
+			"loan_count": 44
+		},
+		{
+			"nftProjectName": "BEEPLE - GENESIS COLLECTION",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuADrJVX3cEXpIab5cxaiP1gESgs8vxTNIpjPIKhWNR%2BfrG%2BnuxYM0PxAXixXnJywEoQTl1xcFdb2kYJSvmpp5lggK7W%2BIQBmhQGx9MFVEF2eSTytVZuU0z%2BYTuGNIqSTW6goiGUEGxUfckjYAN74SGSxjxTyimFaCkL7fhH8P%2BnmTZY0viilezBx8v2rU%2FwBwGqaebhfufZ9ipbNZ54eSz4RRVgjsVExRVLQepvmwV%2Ft7y0fGymo31Ey1Ud7KbcsWzjn8vJTd7NPD6tosMDpf31k%3D?width=250",
+			"total_usd_value": 989186.09375,
+			"avg_usd_value": 141312.29910714287,
+			"avg_apr": 16.71142864227295,
+			"loan_count": 7
+		},
+		{
+			"nftProjectName": "XCOPY",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAC5jYdJ9dZ8taYYUxpMNK%2BSSj%2BacEDpCQ2nq8V4jkB5fFe3DJNnutId9KRBpQvmOQWZyZPYycwYsM0DB7XXZ7eYXXsqlRyqFB0NWR9UXC877Etq7cefNihkHUKR3UoCWNqorPa30G%2Fe%2F5wy%2BAOQoaOi2Qn3LFMwc9X1HhbWNJ94A782yUjadTIzgmEkUmeh01w%3D%3D?width=250",
+			"total_usd_value": 894543.78125,
+			"avg_usd_value": 447271.890625,
+			"avg_apr": 17.500000476837158,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": null,
+			"nftProjectImageUri": "",
+			"total_usd_value": 867614.7631835938,
+			"avg_usd_value": 37722.38100798234,
+			"avg_apr": 19.35217397109322,
+			"loan_count": 23
+		},
+		{
+			"nftProjectName": "Skulls of Luci",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAL%2FZsqJuySxGhJBLk5xFrtbsDRe9KrsX8kkLmU79y2gKRUckISoc9VqE1eCfg7GJIihaBsSBgNDxbtBsETNDJ0OlonbWpb2K3o7ss%2F2HQjI91x44sfMaZGacVTnSc%2FHK4aOvi25wgCD1vE8RTjvWF3dqwX2JqVIzu3FTMvXrNluFQuBQH7CcU2PpoExfyZ3qmcKv5JrQyPLdOsm%2FMipqykJaPpBQCFgCEvdBl8iUKoNDBCaDWFFu5XOr1KcB2rSJJe%2FU2rylGiqJUGlMNzqh3Pg%3D?width=250",
+			"total_usd_value": 544732.984375,
+			"avg_usd_value": 108946.596875,
+			"avg_apr": 16.99600009918213,
+			"loan_count": 5
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: bottoproject",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBRJ3wMqD5Jx4ae6ShHwm6gY%2FqLz95VYRdyWebZoJC0Wx1QTTcOGB%2FyvTgRxjJy4FJqb6y3CW2EUd7L%2FB%2BmmCPv%2BpcQV41f5%2FHASzZyPAgB7ew%3D%3D?width=250",
+			"total_usd_value": 509825.53125,
+			"avg_usd_value": 509825.53125,
+			"avg_apr": 15.000000953674316,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Art Blocks V1",
+			"nftProjectImageUri": "",
+			"total_usd_value": 497879.7694091797,
+			"avg_usd_value": 45261.797219016335,
+			"avg_apr": 32.52902819893577,
+			"loan_count": 11
+		},
+		{
+			"nftProjectName": "Ringers by Dmitri Cherniak",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkF3%2FPuz7uVnB0qK4JupepYgWEsvWxzdhO1F5c2GiCS0d2kQWqyXkUPO%2B8rH7%2FtbNMZAaInjm%2BgsNSVihTF7tcUKEbelUIDy%2B7gt%2B8zixwEmkBj9kQaKbK%2BWdccJKaPV1tA%3D%3D?width=250",
+			"total_usd_value": 468415.44140625,
+			"avg_usd_value": 17348.720052083332,
+			"avg_apr": 16.902593047530562,
+			"loan_count": 27
+		},
+		{
+			"nftProjectName": "Pudgy Penguins",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/rDrYz8pfL2FIiB4lkmFIWl2YJIbVYWi1ij0Ztqa%2B%2B5xQBB8%2BAV2STTiGPskKJRMyUQds%2FnSbhlmkVB6H2mqtG%2BBQTwYXZNKjFtZUa2zBWeBJsEBCqkiYgwFjUVkGelsebqxrCEB7%2FI%2FFJaLUHzCUw8OEh%2FCDe%2FYgzMcDxTtBIRuDaT138vwMAedNsfRkIZy3VdV06K2JUjRJa4NMP1Tn8w%3D%3D?width=250",
+			"total_usd_value": 457713.34130859375,
+			"avg_usd_value": 22885.667065429687,
+			"avg_apr": 17.816363191604616,
+			"loan_count": 20
+		},
+		{
+			"nftProjectName": "Machine Hallucinations — NFT Collections by Refik Anadol",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAG9jLc0S%2B802sL4Va%2Bo0sKe6nk8m9Bd7dQCwJzkKaSB5B9gnQIMuWkX32EIpxyWfoPRRD5hUFNkSYM2gpD6JsvrunvFLsrkJn4fKITySPDAMnyWZJYmaiXp%2FBqiAkDZiYgXox4MvxaRa3NLuRQSq43tB7E6r99gbj4RVZNZpkcR3?width=250",
+			"total_usd_value": 423671.21875,
+			"avg_usd_value": 423671.21875,
+			"avg_apr": 18,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Doodles",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAI8ipNM7MJ1GQZfU57rB7lIEyx%2FONfn5NjLUzG%2FzZsB4eeY3HDjf3tMPF6UwbHrdugzI82FcZAJinIUWgzzPszDGXzz9oJv7LqNUEZXQCDfS9JzdDxDaXT6v8cZSMCoGb1QH%2BDRiHE2QCIIxSUorRo2uKhCFK5dEgZZ%2FpIRwFKSV2pQ%2BOI5MWML1aOUMaGJ6sA%3D%3D?width=250",
+			"total_usd_value": 407928.78552246094,
+			"avg_usd_value": 3812.4185562846815,
+			"avg_apr": 24.096699215541378,
+			"loan_count": 107
+		},
+		{
+			"nftProjectName": "BEEPLE - SPRING\/SUMMER COLLECTION 2021",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAJT%2Bm34zhF1yiwNpQeqvaCp2tywDCpFEmwOaYZ70I6JLC8gRjpVXI89TWWmY858iRudEvjK8w3D30OTtLdeW6ikbFbAzOhjsIdyZDCnjxQUa9QOqoN0GNkAOt9aa74eqfb8FfJnBTp%2BFJDQKHZpVJ8v5xulFHm2uNBr6B4oXrA4IjF2GPBOE%2Fj4eJzruRgQbr4gRQGNOGpU7p%2BtR%2BGQPfztvAJDTGfPr055LSyeaEAOYu8jFVPKkFrc2SW6jFGjNo0mtOtncUM4Tc%2B4ZJnYrAM4%3D?width=250",
+			"total_usd_value": 382516.0046386719,
+			"avg_usd_value": 38251.60046386719,
+			"avg_apr": 19.69199934005737,
+			"loan_count": 10
+		},
+		{
+			"nftProjectName": "Nodemonkes",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAI37ZMpGmBWtUpAQDl1tI6A4KWKXsgOQIDr4N1ChxcnfkRdCr7V3OTpampk%2F9ragXYXBbh1MIDiziNqS9Vgw%2BiYae6IlIReTje%2BEWVhIWjcPAn6PE4fFyw42AWgPwhQs9K6YeW%2FdFyZzPaPVpVjFLn2g%2Bv1G4Ii%2BOg%2Fm3sxUfnQ%2FXfpzze6UeaYMYpY0A2k%2FpQ%3D%3D?width=250",
+			"total_usd_value": 377855.75,
+			"avg_usd_value": 377855.75,
+			"avg_apr": 29.989999771118164,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Azuki",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGpnDPPI%2BsrhYBKQuBYc6XZMHTg6SSHih%2BOpmF%2FwAS4qY4NdVw4CAhgA1Wbpkx5GEXUwbgPcTN51MGZZWQi4%2FXlqxGoEDq%2FdAAlbOf2MwsZeMqMtUcF4j9cSCSDQMIVxbE%2FH2GQQzLcaEiWTS7%2Br1jEJDCE%2BYyhgHNXRacqbg83%2BQ4QYFGBjxNvychHF%2FNyuNa%2BvVUHgqphLLXAqCylsW4ksfFCek7vv6cH6YB9rq3gRu6M2sO7uiFyK95Ew%2FJIuMA%3D%3D?width=250",
+			"total_usd_value": 344645.10546875,
+			"avg_usd_value": 19146.950303819445,
+			"avg_apr": 37.12878804736667,
+			"loan_count": 18
+		},
+		{
+			"nftProjectName": "Creepz by OVERLORD",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGWMlxciEQCESPKStAj21DoWGPdanIKW7%2BUS788E3S4rr0vZtLulIV9OaZh44AlF0TUBeMht1PGSZieiyJRtvrDYZyzlWyxDpHYMMs3NqwMmXN4mTjhv9Mz6DUBl%2Beh9TZ0QRuBd%2FXjLGzAveLMPrCD2IyH9BJQfws%2F%2FHAXE5on%2Fvv%2Bm2%2FahPsuULBYyngIugA%3D%3D?width=250",
+			"total_usd_value": 310334.9423828125,
+			"avg_usd_value": 2955.5708798363094,
+			"avg_apr": 45.06835758572533,
+			"loan_count": 105
+		},
+		{
+			"nftProjectName": "WrappedSupeRare",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEaPekw4eyhAp5W%2FhuiJBJ%2BeKwte9KB7mSVwcDRLNare526PWP%2FnbmNWpp3zFyNM7yZ3O9y1Xd7Y2dFnQMkJEZxUjFbTsA7EuFTHzzDNb2JDCgzHyy61M%2BGALyjJqYL2FEKiDLYGIUQNV9HrE%2BNQi1t%2Bduc8NDMu3LduxdJh35zH1fnTOgGAyCYJ9qm1we8YzQ%3D%3D?width=250",
+			"total_usd_value": 293967.125,
+			"avg_usd_value": 293967.125,
+			"avg_apr": 18,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Wrapped Ether Rock",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuALwqyRPJ1ez4cKMSXhITvwjXuzEAmo%2FvUwm2A%2FiMvrKjFSBmq48JLqxUPKPYV1Y7ocq1fOR%2FvOffBihSp%2BdAY3MAzOS95XllZ9dK0eNQGd6raIV%2Fwq8bXH2zUMrJTu8QuLZCojZ%2BDdl9Azgp014%2BxrdkSyMYy5fgMITU0wUksDJcrWV13IEVIoQrB1uxpBHyR7awA3LxYm5bwGZfYyBwO3HSxTBhPrz2EUf2u6Tf2YcUOzoquSkoGU5vSMnLZaN4H6lIE3Z7ewYKdzcSaquSKOc%3D?width=250",
+			"total_usd_value": 286084.3828125,
+			"avg_usd_value": 143042.19140625,
+			"avg_apr": 21,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Mutant Ape Yacht Club",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAL4v83jn3jtpVIO3s%2BzOvztJqa5dvM8sRQqWqJxNeLprZLk7t%2FkKV14mfw6ax5Z%2FAKVk5y7e4bemc5zTfUUG5yDP0SFukSjUsdQGmQKcKezFnGdbphLT3%2Fk9v3OUYIaaEVzHYKUgQoV%2Bq8aKahdtgXphuoQwP84%2FuONfP%2F4i3OUkm%2FpudGx8XstMS9yAZrtbTGKHRxTKwkJCjb7v6qI5VO6ro4nvj0F16%2FRcLaGeY7WqfJS3JVCa%2FacTF0MWbMnllg47eFISdt%2Fu8B7dkR53OO4%3D?width=250",
+			"total_usd_value": 259667.65692138672,
+			"avg_usd_value": 9987.217573899488,
+			"avg_apr": 37.04728295252873,
+			"loan_count": 26
+		},
+		{
+			"nftProjectName": "XCOPY editions 2019-22",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuADUDhkXZQAmThe3YOUxOSazl%2BYbwy9qQxaY1e6f%2BRYFirvtK0MPKEvh%2FiKi9TPObAhe%2B10kZeL3m1jWuJPWRlQUMvU3FRuaUSI5EC2q5Z1PxQEapOqTU2QIdp5RzCKhvzetacEIiz9blvHPOnIJJUXQv9hRz13gahl6ZURno0pZUCqM2ISu4z5NRm6S0JEFa5Q%3D%3D?width=250",
+			"total_usd_value": 259252.017578125,
+			"avg_usd_value": 37036.00251116072,
+			"avg_apr": 21.635677337646484,
+			"loan_count": 7
+		},
+		{
+			"nftProjectName": "Memeland MVP",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuADAj5iX9mxFT8EzFkqTjlf5gCig1T70Am0dG1oMrAs61g%2By5Uw4W%2BupUs7Idl4%2Br51%2Fi8ItqE95AOv2alZv7fuFeWq8JGN9zN3diwOEMD6Lq8HC9lrIRao9k1vlcM2XI4830U87DJdUe1ujMrAVyPza9u8dXilIQ4rXj6nKMAlZE207PGBftP%2FJuFBLcl9qTYQ%3D%3D?width=250",
+			"total_usd_value": 245617.13671875,
+			"avg_usd_value": 40936.189453125,
+			"avg_apr": 31.78833293914795,
+			"loan_count": 6
+		},
+		{
+			"nftProjectName": "Fabrica Land",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAI37ZMpGmBWtUpAQDl1tI6DmJkfGhXGlU6DT2gXiWJ1ZdEmH3PExuD1iRXVSqsyUISjXwgdBcb0a6dpk4uzKmnGK6Anh1JJhYgwN%2FIRBM35cTXFjXt0Pd5so%2BlntzxIzTQ%2FRw7bCh1NRAOOPfcMHS8vl%2F4gcu38bXl9WYBK4t%2FNAC4FPo%2BtQ3Wfci60dYxJ3Vg%3D%3D?width=250",
+			"total_usd_value": 232697.26025390625,
+			"avg_usd_value": 116348.63012695312,
+			"avg_apr": 15.5,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Memories of Qilin by Emily Xie",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkLztjOc8pf%2BrUq8RVrDsaqMSe8xEnBQ8IMUlXKCvXkyYoo%2FUBYU0sLud9tik6GTUUbKlF1Tk4LLCxHdtofkwSsCVdp1K32lFt1qxiSgpaE3e3NW0t2YR4p6QG6QTltX90A%3D%3D?width=250",
+			"total_usd_value": 221406.36328125,
+			"avg_usd_value": 7380.212109375,
+			"avg_apr": 14.195000235239664,
+			"loan_count": 30
+		},
+		{
+			"nftProjectName": "BEEPLE:  EVERYDAYS",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOMx6z6GUy9iBICHw8uC6zUHLBgTA8v%2FfmzATXNe3ewo0y5iIe9UsjKRaxqEf%2B8gjcdRbAhC244hXl73I8aGatKRNFq27WlhdaiKK5YZ%2BlO8HbK0Gbd0Zcs6CNt8%2FhSu1FOATaP4khX%2BQ%2Fs6y2FB%2FvBwduBSDrALAwNgBVPxQfeE%2BGMmMwsb0qz%2BcNei2U%2FZDg%3D%3D?width=250",
+			"total_usd_value": 217184.9296875,
+			"avg_usd_value": 108592.46484375,
+			"avg_apr": 15.75,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "CryptoPunks",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuABZyrcC5KO5c%2Fpl9qoTyb1GXYbn1ksY1D9Vxjv7nkqqX5v3Kxd1M%2FV%2BIriyWSPgAmIlbJ5Zn3oFYI87ssNtSpi3kbyV5bfxjgqq45I7OyWHm1BmVO6ZZ9ARDi3eP%2F7bs%2BG%2By5msQ4%2FpiwMMsk4M9yWpe7GUMs0Td8rs%2BQKil68ir3TstQ%2FiOcGeVkiJgjzQkjceAUG9%2FdL%2F2Xo9ceRZiEEl4QMVRjJEkoE74jPtqaWPv3LJV6orLGzfcraFl0BOqgYZNA7Q6OxON5uBn1fB2kLs%3D?width=250",
+			"total_usd_value": 196217.96484375,
+			"avg_usd_value": 98108.982421875,
+			"avg_apr": 14.994991302490234,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: Sam Spratt",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBTFZTDXtEi0yXFN7h2xqx89tcJSzp4zUsZEBKoehc4z4ZuB4Mf%2BR512ZVUYYwb3lj33xkchcyt0eX%2Bb0vukdUwXbG0Y0HsafWI9fH5XZ6cdGg%3D%3D?width=250",
+			"total_usd_value": 181904.109375,
+			"avg_usd_value": 181904.109375,
+			"avg_apr": 16,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Arcade.xyz Vault Keys",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGVw2L8a%2FUXXKbdL8YY7N9j4Ne%2FSV0JbScQ9gtnP4lwrWor4hMr%2FrhhlrToi2QVo3G%2FnMOtGy6tJuf6u6d5D3cBh7g5FsfDoZSd6P9exAME2?width=250",
+			"total_usd_value": 172183.97579956055,
+			"avg_usd_value": 15653.088709050959,
+			"avg_apr": 37.201819159767844,
+			"loan_count": 11
+		},
+		{
+			"nftProjectName": "NFTfi Locked Bundle",
+			"nftProjectImageUri": "https:\/\/images.ctfassets.net\/21yktilggb3f\/3k28WnwKfSjRip5nmqUoXk\/e4f299d28f131d3217806164283f41dd\/nftfi_bundles_collection_image.jpg",
+			"total_usd_value": 161984.54548880458,
+			"avg_usd_value": 9528.502675812035,
+			"avg_apr": 32.09179440666647,
+			"loan_count": 17
+		},
+		{
+			"nftProjectName": "Milady Maker",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAIsk67N5jMstbeYGavsUixYM%2BZkA%2FyrzteG9PCFty%2BwNATyQ3RbaWJ1ltpLcAmGfl3KyswL%2FpDH%2BzCKCVV0EVFUB8h4G78qXOE2jLt7T0gP85tCRrR9NZ7bS56eofZmzX%2B81bxyCtBRKcgGJfhp3vklrsllcSTlAtUmNiziejsgpWpN6diSan3k1NobdtWcTtx63DjT6YgxPP0ct9SMS0kql0Hkk%2BUz8k2rZg8IYXsWtE9TThUtMa%2FWG1etjJNPja6jNf2p5keVh9sXl0v8xm4g%3D?width=250",
+			"total_usd_value": 160253.55419921875,
+			"avg_usd_value": 5341.785139973958,
+			"avg_apr": 25.23833335240682,
+			"loan_count": 30
+		},
+		{
+			"nftProjectName": "Grifters",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAA1o0NST4xmf2rfTaLP5wELN8vwbe2krDCt%2BEukuYd%2FAKkqa7d0XSB6%2F%2F5wDFJ0gULhwPUoTh8pLfqplXf%2F9M%2BLiQR0TGkVuyGLPUspVNVF08xFSF6f9KDxcLVM%2FCnjP%2Fgi5aw4VaI8Xx9hW0FbmMvRzesGEv69H%2F29eric6jhqFc0WlOTIYcsDZicmubL7h58Ft8CIGjwj%2Fjh7Vw1LI94wpFW6TjrC1QilTMK6KlA5si5UkeME06qn9tIgYDgMJtw8YNEDjoGVTrZISdG1LwOg%3D?width=250",
+			"total_usd_value": 151320.521484375,
+			"avg_usd_value": 15132.0521484375,
+			"avg_apr": 21.38799867630005,
+			"loan_count": 10
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: XCOPY",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBSFbk%2FU9K3RFBDQTwgLSyfn?width=250",
+			"total_usd_value": 145374.203125,
+			"avg_usd_value": 145374.203125,
+			"avg_apr": 20,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Anticyclone by William Mapan",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkCGX0f4oz5sejMTdkB%2BlHfLasBvjUlLnpIVu1AXEPGB%2FuX2fcJksxfN8A4zq0YUN%2FVVTN7Fb89Zpxmwhni4xSZ4mElD%2Fq9h107eEKPu4QytE7wcp9XobphJM4DOvtM8Vmw%3D%3D?width=250",
+			"total_usd_value": 134876.0616455078,
+			"avg_usd_value": 7493.114535861545,
+			"avg_apr": 15.102233250935873,
+			"loan_count": 18
+		},
+		{
+			"nftProjectName": "PudgyPenguins",
+			"nftProjectImageUri": "",
+			"total_usd_value": 126121.2783203125,
+			"avg_usd_value": 63060.63916015625,
+			"avg_apr": 17.035000324249268,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "CryptoPunks V1 (wrapped)",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAJ3MY1kYovwQFfVldWzDiKQKj0Pi2mcSKb7vtMVYP64buvui24RpHB4wXAr1FrTSiub907fhUlWWSvZCZ8vLzGtQczOESpBGOOn8DYh2UN0O%2BIKVdCbw3J5bKfjF0YOxLuVOjjVAecKTG9UK9tZ5tuC%2B%2BHtoer0vojuWAkDnEQ5UCz5Gb1Q%2FfLVwoH0T63x%2FZKMGlEM6wjLKpP3QXu7f1NW5TDHzhSYnEbGRqbQO0I7cR3jwSqwFOJfyC%2Fk4KwaOeSaulw4b2WJsKw80dmcK%2Bmg%3D?width=250",
+			"total_usd_value": 109136.068359375,
+			"avg_usd_value": 3637.8689453125,
+			"avg_apr": 45.883549499511716,
+			"loan_count": 30
+		},
+		{
+			"nftProjectName": "Arcade Vault V2",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/i9YO%2F4yHXUdJsWcTqhqvfw1bnNqXCXOMcCR95ej2AWv8Z6fJQlJJePhgGdHpIpvC05Kp47PbWjDY1G3dx9sEVdQFNRmwJXIFpK%2Bf8drMo8A%3D.png?width=250",
+			"total_usd_value": 99551.22802734375,
+			"avg_usd_value": 24887.807006835938,
+			"avg_apr": 25.91749900812283,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Winds of Yawanawa by Yawanawa and Refik Anadol",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANtQzu30DkEoTMvKMPabbcsDboKRK4NvQSnivzaAWQBEA6zAPXygkb%2BHDDnKBJaa1xNVPB25MdN5ok1EP1VI9rrROgLmXoPXtQ%2Blz%2FMXYm6Jzh1LfrLdc9DvyYXHm8rIFWmSrwGmsLK3KP0N4golJZg8eLGY8tHW8i8f7Uom33r3a45HZxZk9Q6YtvNZMZR5yA%3D%3D?width=250",
+			"total_usd_value": 98413.5234375,
+			"avg_usd_value": 8946.683948863636,
+			"avg_apr": 15.700000156055797,
+			"loan_count": 11
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: manoloide",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBRqAHrxC9aSre6KdQQ9fgATM7qKVgcJD9TAaNJHy%2FPXOZ2eTYejdcJ7BmmUi5NE4Ig4nXY%2FRDWSAY0gqXFDIb6TdLvSUoxVFcHythJq3fiU%2Bg%3D%3D?width=250",
+			"total_usd_value": 96050,
+			"avg_usd_value": 96050,
+			"avg_apr": 13,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "CyberKongz",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuALAUsoR6Vj2j2jksAsHzzmG2xZBoxhA%2Bt3hIQRssiTy8qhTI19wqILYa%2B0ddOrjmspVc6NEcDyHGskN%2BO8FtGsmaF3aIeyoBccPHGWW0wWS7LwdYmaAjqyxHUYYt2wYDeeLlgoLv%2FOF5rlbPGcFXvjyVPFUt8yNFSQHzkWMMbWTpb%2F53P9FxmkJOZARWfvyIlA%3D%3D?width=250",
+			"total_usd_value": 94110.65502929688,
+			"avg_usd_value": 5228.369723849826,
+			"avg_apr": 30.325576252407497,
+			"loan_count": 18
+		},
+		{
+			"nftProjectName": "Memeland Captainz",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKAqZuYOp7t%2FOr5ZyV8sbUtHf5CJ6Xrl9syI2KIHIh%2BhYpgiW69SNA3km8VZen%2BWf%2Fj6uYp%2Bqnt%2FCyow68bQeDA9Vc0mjzVZiRQSYZZ3LQu7mloNa2w75zjsbpwRNWWjwESkLfd8c05DuoXqWYAy3yJZr9oeU3yDmrqWNG%2BCGCSJL8Gh3K6HLHEtkUc5on%2Bqwg%3D%3D?width=250",
+			"total_usd_value": 93446.04290771484,
+			"avg_usd_value": 1507.1942404470135,
+			"avg_apr": 37.24828390921316,
+			"loan_count": 62
+		},
+		{
+			"nftProjectName": "ACK Unique Editions \/ 1 of 1's",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAFO%2Fure4lrWeVqxhbWTEP7a2NuLMZBnWyr%2BKp4nBbQ3Fv4kru6YwQRFhqOHRQgdGjnl%2B9U7bEMr1MftlnwmgjwzwAOPl8oMw%2FTH1rgezIBm%2FVl%2Fk581O0iwmk%2FUD63oNBMWf03GnrE8OnTVUOBnoVtpj5QxFhlcblTYTKuVciaq3CuBAaKpE%2Bw7C4P59E%2FRifA%3D%3D?width=250",
+			"total_usd_value": 90829.0283203125,
+			"avg_usd_value": 15138.17138671875,
+			"avg_apr": 34.140000343322754,
+			"loan_count": 6
+		},
+		{
+			"nftProjectName": "Legalize Ground Beef",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGWMlxciEQCESPKStAj21DrPinJZ65Poy0Su2Bo1aoPAsGWj3Tj1F2nZJVt81K2MYVgKeLTnkLiz6El1KbA93xFPHJaSwYGuXcvPkS%2BIb5n1%2F7q3cR1P%2FPlKeVAl2NxzQyYPfuMcoGUJsVBetsL6UkrtNN8EVps20ia4TvS0HEc%2FWayiEna5n94zhIdvBoo38Q%3D%3D?width=250",
+			"total_usd_value": 89208.765625,
+			"avg_usd_value": 89208.765625,
+			"avg_apr": 15.000000953674316,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Mocaverse",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAH6aHS6qyhvfdcldZtcEkEWNfwk4%2BaD42cbpN2fMnXc5jxlrOmLG8HYi2lHufjQS1QgQN%2Ba0w7ZHogXptM8jZsvDuN2vHgUELqJDDZ7Cu1BQSgDKo8EOISlHeFfT4IgY3o3sEQesMvI2ODQ%2BSQXwPWc%2BstuVpDEeG0adTGZw2Syw8I3rX6XFsHMA41XdjG3tpA%3D%3D?width=250",
+			"total_usd_value": 88490.75268554688,
+			"avg_usd_value": 2854.5404092111894,
+			"avg_apr": 41.7482241353681,
+			"loan_count": 31
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: Refik Anadol",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBSFbk%2FU9K3RFBDQTwgLSyfn?width=250",
+			"total_usd_value": 87197.484375,
+			"avg_usd_value": 87197.484375,
+			"avg_apr": 29.989999771118164,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "BEEPLE: EVERYDAYS - THE 2020 COLLECTION",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuADrJVX3cEXpIab5cxaiP1gESgs8vxTNIpjPIKhWNR%2BfrG%2BnuxYM0PxAXixXnJywEoQTl1xcFdb2kYJSvmpp5lggK7W%2BIQBmhQGx9MFVEF2eSTytVZuU0z%2BYTuGNIqSTW6goiGUEGxUfckjYAN74SGSxjxTyimFaCkL7fhH8P%2BnmTMKymfJLXRZoCQBUpBK8G60DlnjbTfG8sC8oYwyBNZ%2FXabUZxJlgNEr3cIkT14EXIcIDUw67U8D17XOIQCVqKQt3Wydfd%2F1DcZE0hGnXVUR8%3D?width=250",
+			"total_usd_value": 83659.9619140625,
+			"avg_usd_value": 11951.423130580357,
+			"avg_apr": 17.99571452822004,
+			"loan_count": 7
+		},
+		{
+			"nftProjectName": "Otherside Koda",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAJjfpL05%2B9HA7bOyh7N7LHs3PYxTU6tWp5BiUU40KxBPbdrBCLmjHP8sbQNeD28Mj7Jkzqy4yeOS8uPj1yQ8knbwZy2Un3RNqlMa0WYeeFVuc%2F13XdinLQAefqbAxXN96xuCxQnXEzqST8O94C86ZkgBKE6LQDNAMZKstUgp1NPyXJoUPQ05GHev%2FUMQjAAsdg%3D%3D?width=250",
+			"total_usd_value": 76820.31457519531,
+			"avg_usd_value": 1449.4398976451946,
+			"avg_apr": 73.34086065472297,
+			"loan_count": 53
+		},
+		{
+			"nftProjectName": "Quirkies Originals",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAIZ5vSjP6xd2MBYqPEnuCk70vrBpQhcCSFt4h6ct%2BLJQrDw5hBw3dt6jjV6O9tRR2P%2FeI6x2yJteXWsmtwivQKpRnEn3J6TVb4b2qhJSX9PXF6KTq0uObqwk7s4S2%2FSlM1khn9ynb97ucC4K2HuD8TAHGHjKXJZIV4QXUMoeuTtOixmE9ocbZ8B1Fi5R5SvcOg%3D%3D?width=250",
+			"total_usd_value": 73654.40600585938,
+			"avg_usd_value": 1567.1150214012632,
+			"avg_apr": 67.44733891588577,
+			"loan_count": 47
+		},
+		{
+			"nftProjectName": "Arcade Asset Vault 3",
+			"nftProjectImageUri": "",
+			"total_usd_value": 71238.04461669922,
+			"avg_usd_value": 7123.804461669922,
+			"avg_apr": 30.856999778747557,
+			"loan_count": 10
+		},
+		{
+			"nftProjectName": "NFTfiTestGrifters",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAA1o0NST4xmf2rfTaLP5wELN8vwbe2krDCt%2BEukuYd%2FAKkqa7d0XSB6%2F%2F5wDFJ0gULhwPUoTh8pLfqplXf%2F9M%2BLiQR0TGkVuyGLPUspVNVF08xFSF6f9KDxcLVM%2FCnjP%2Fgi5aw4VaI8Xx9hW0FbmMvRzesGEv69H%2F29eric6jhqFc0WlOTIYcsDZicmubL7h58Ft8CIGjwj%2Fjh7Vw1LI94wpFW6TjrC1QilTMK6KlA5si5UkeME06qn9tIgYDgMJtw8YNEDjoGVTrZISdG1LwOg%3D?width=250",
+			"total_usd_value": 67712.8984375,
+			"avg_usd_value": 33856.44921875,
+			"avg_apr": 16.989999771118164,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Meridian by Matt DesLauriers",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkIdVMtucLOtpDcux3dhKEbNw1SKmxT8JO0hvBWKkIrL2Mhgu%2FgDdVZIXAf4bpaBsN4ezXtvJ7v%2BC8mdtqzUs%2F0GA4OLwIi2pMT5xQ%2BV7KeECb%2FV8AeSvYLp5%2FpwTiVHeng%3D%3D?width=250",
+			"total_usd_value": 63589.71875,
+			"avg_usd_value": 4891.516826923077,
+			"avg_apr": 18.65847110748291,
+			"loan_count": 13
+		},
+		{
+			"nftProjectName": "Gazers by Matt Kane",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkK%2B6A0G%2FvTIOJgBzXG7nNKQXdJdMPIvUpphTWLAojxw%2B8SVoSLNGUHA2%2BD4MvzbBG4paWoaeznlIcDBAf%2FHBKOzxjWEwnd%2BA9CBU0yDwlafwXFSCAa56ewlsITccJFFcxQ%3D%3D?width=250",
+			"total_usd_value": 54268.65771484375,
+			"avg_usd_value": 9044.776285807291,
+			"avg_apr": 23.948330243428547,
+			"loan_count": 6
+		},
+		{
+			"nftProjectName": "The Eternal Pump by Dmitri Cherniak",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAM0UALUDL5d3%2BPYMOolgm108MZKaY0uxqOwvoILFf%2BMkVqKQ3sAL%2BSZEpi%2BT3nMRcd7wk70W9RPqsH3UEp0NX25tl8Dmwm56S52xQ8flp2GuGcmieNCt4QQNij7S8iVNvaq76wzMNY4PVGkNJJpmNXQi5x9ohL7S6Sf31Bexk1wEOsKGfCKaM56pq73chQXOYEB6c5lqh2CW%2Bzek8db%2BEst%2FVo25EUztQXZJCtuYq7GofSqMvWoQaxo9swu8EF5iI0z3cL%2Brx2NjrSNg4EHGL%2B8%3D?width=250",
+			"total_usd_value": 50359.89453125,
+			"avg_usd_value": 25179.947265625,
+			"avg_apr": 24.994999885559082,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Meebits",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOfe0thEa%2BoD5aisdthAZi1WDvyHO16SPaItXP93e82OMyMMIlODoCjcElvZFIG0nFHJ9NjBy3gvzU6Y0et02vexenRUyMecTFBlbddOCqgumL3Ltpz8IPZw3DhYrGW5HXbSepOMt%2F%2FTkCa5siX7G1QbIjDQO4XUnOwf1M909T5JTQjGo5QOHuSq%2Bz1h9%2Bqmwg%3D%3D?width=250",
+			"total_usd_value": 48782.854919433594,
+			"avg_usd_value": 938.1318253737229,
+			"avg_apr": 34.41358140798715,
+			"loan_count": 52
+		},
+		{
+			"nftProjectName": "Incomplete Control by Tyler Hobbs",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEVRYckZbCYzSG3MUDHanBWpTviWy3KAX8SoeXZJqt1AMQqlr3e1fQWaQmK%2BFrXWUUSIFWjNISdtwIi97XyzzRt%2Fw4aarWhC6y3UfKjV6sJXh0oYED8uO95%2BBUSUixgjSAOQvisXgTUxygmPrxJ0FS4fqV89icZY3ze0cbE8h6h4KGtRPPng4BjMJjJMlpVZ8A%3D%3D?width=250",
+			"total_usd_value": 43690.2197265625,
+			"avg_usd_value": 21845.10986328125,
+			"avg_apr": 12.5,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Azuki Elementals",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPzWajwX7U5rpGzNDDMgbjMSyOPU%2BGb1FL%2FuoinS78Xcw89y7UE7B9Jqv0Kvvgaq0orQ72S26uWUXm%2BNKQmOxEJMSaNBAp%2F7oSEapVndcmhe90bdygZzEdE32F%2FUt%2B3NHm74iLoycU9SED7P5H4UxMDQ64li3WLvkamX5%2BrTusPIdmpqh8sEzz%2FEb9Vn%2Bu9yoQ%3D%3D?width=250",
+			"total_usd_value": 41824.68925476074,
+			"avg_usd_value": 2987.4778039114817,
+			"avg_apr": 41.14069257463728,
+			"loan_count": 14
+		},
+		{
+			"nftProjectName": "Milady",
+			"nftProjectImageUri": "",
+			"total_usd_value": 40883.956787109375,
+			"avg_usd_value": 3144.9197528545674,
+			"avg_apr": 24.325385607205906,
+			"loan_count": 13
+		},
+		{
+			"nftProjectName": "Archetype by Kjetil Golid",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAFUEf4MdIk9akZAz%2FjaZZobrVLxPdTBubhqzwOUHZM2exKejTMTbKyutsHfkLq0OVqvr9xYPAVt5A3KmsfPqEANJvxN2MYXHCbQMxcnYOUwd7CPj%2BnjODqIC2SL98l2tF3BdsHBvf54L4ewTJTYZbZf70aTaGlMqRzhArw784psAgVzUrOErptP%2Bnof5JCD1jGvJCVTNHRnRJHekfVDva%2FGm45kmx6SuEn0UI9if1YQSurFqvst8%2BWCLb128FnqMt2LN6b6Drxm%2BRUQntXywsCg%3D?width=250",
+			"total_usd_value": 36400.63037109375,
+			"avg_usd_value": 3640.063037109375,
+			"avg_apr": 19.735996341705324,
+			"loan_count": 10
+		},
+		{
+			"nftProjectName": "YOU THE REAL MVP",
+			"nftProjectImageUri": "",
+			"total_usd_value": 35585.673828125,
+			"avg_usd_value": 17792.8369140625,
+			"avg_apr": 37.41250038146973,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Memeland Potatoz",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAAIHtaNew1KwzY5SIze1be7UagisPdAfci7Z5l65lXw3hwp7IrNnpPMUxfIVChmikhmLn9%2BvIU6zZtBEwyuE8C6nR%2F4X1ZC%2FFGJRbSz62arCvNteXK0oZKYO%2FRhU0MebX%2BwPfrfnTesiIVc3lTwF0Eiy2uKGLgaj%2B2qtHumJJsJs1IOzkmaIvv49ts%2FDBpyRMQ%3D%3D?width=250",
+			"total_usd_value": 35331.099670410156,
+			"avg_usd_value": 512.0449227595675,
+			"avg_apr": 37.853554794753805,
+			"loan_count": 69
+		},
+		{
+			"nftProjectName": "Where My Vans Go",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANgyc9tPOoYTBLhR9mOdhtnJtQ4ACiNQ4pPJPto1SFRXU8biDr46%2FY%2BB0EPY1J6cKkmhUV2Q7RxihJ3VsDFmvUk%2BfPvrAbxoPK7rsUsQp1Al4iHjzsXfxeYDaqlNCDGXMUbvsYTmo0TBAJvqc9OmqyP6TIe6x5lnIJls%2F7i6ngidvYwU93b5WQdpj4nsrhZIBaUfkf5LfNZPnr4Y%2Fqw%2Bi2eVufOiCm0vMicIBYB%2BaPfLAx28hCnJjPGSBWl1RzEFYDe0zym%2BgRkNJMlJekOtky8%3D?width=250",
+			"total_usd_value": 31758.36376953125,
+			"avg_usd_value": 6351.67275390625,
+			"avg_apr": 33.1239990234375,
+			"loan_count": 5
+		},
+		{
+			"nftProjectName": "Lil Pudgys",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANCXTgWBry4OTpgBkNYv7UUyEBmLSSFNbl%2Bcwm8SUyWB0nXRmWq0bYwWYyV7r1H0umeE2VZV2j5H3%2FyhPjl1QbzbWG5a0N0p5bxDpcr8pI9OTupqqIUnLPSk9sgC4ZhXsJEdcW%2BSisMt5wP7jfoti1WSqCZQOGrHk%2FyL8I4yHeLtZb0kGvTbIWZD4ijZthCTMw%3D%3D?width=250",
+			"total_usd_value": 30857.15625,
+			"avg_usd_value": 1815.1268382352941,
+			"avg_apr": 35.127028689664954,
+			"loan_count": 17
+		},
+		{
+			"nftProjectName": "The Captainz",
+			"nftProjectImageUri": "",
+			"total_usd_value": 28994.420959472656,
+			"avg_usd_value": 1073.8674429434318,
+			"avg_apr": 39.91559417159469,
+			"loan_count": 27
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: Grant Yun",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBSFbk%2FU9K3RFBDQTwgLSyfn?width=250",
+			"total_usd_value": 27974.224609375,
+			"avg_usd_value": 27974.224609375,
+			"avg_apr": 43.439998626708984,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Art Blocks V0",
+			"nftProjectImageUri": "",
+			"total_usd_value": 25564.6904296875,
+			"avg_usd_value": 3652.0986328125,
+			"avg_apr": 13.525714601789202,
+			"loan_count": 7
+		},
+		{
+			"nftProjectName": "Cool Cats",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuABwxFrYu%2FAVx2g8hAylFyVOqN1w9GmQHpFm0EQ25HGbnYDpEmfOyJD%2FpoylyCXLP3GCQfi%2BEDnvk0dFmGqiB989cs1hQv4bg6Gfwm1C7al33DdnOxcHf%2FbIfHzCvEutZ9Tu%2FqqTBrZvwwN5KVtsJcgLQvXrcaze9FgK3YkoQyrWvorb3Jb7Hmp6swZljox337ELN5lo70MaCqXirVNbNuvkbpJPPb%2Bhzke5gmiCB6o2HtgmEHMaU7fR1YRVUYJ6HHjRQRT570cdJmfGti%2B%2BQZzA%3D?width=250",
+			"total_usd_value": 24890.069793701172,
+			"avg_usd_value": 1464.1217525706572,
+			"avg_apr": 41.370454002829156,
+			"loan_count": 17
+		},
+		{
+			"nftProjectName": "TRAITORS by XCOPY",
+			"nftProjectImageUri": "",
+			"total_usd_value": 24754.931640625,
+			"avg_usd_value": 12377.4658203125,
+			"avg_apr": 19,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "BEEPLE - THE 5000 DAYS COLLECTION",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAAn1W3Ke5n2PfdUI0B6kDMM3Kb3NhxViKSAS36XA%2B02jn6sWHKT7zcbrspK2XgMuxMz5txaDXkKimW1hAz8Y5tBDEa8YGoAcV1XQyyiV4Jc8nsofAjlSLJmpLUgenVOjmgoBIVHYfqglWOSsAcqqXYpNyzdY%2FuNW4G81p8Sxt%2B99zblprBMgNyGC81rg06SDPJK0Dz87%2B0DQo4uguqo3O8R7h7JnJ3C7zCu8sMTTs7YnpAKyxQK1OlRA3GuAsy4sk%2FTLORTFcncAj8wdJaNlyZI%3D?width=250",
+			"total_usd_value": 24652.0546875,
+			"avg_usd_value": 12326.02734375,
+			"avg_apr": 10.5,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Fragments of an Infinite Field by Monica Rizzolli",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkB%2FuujX49gAS0jzjt3eMkf27UUa6LYol%2Fs9XDiEG84HO%2BqBEjezi72Midth52agqb9yTMm3b4eet2s9fk1SSBJeDXfru3qzZW%2FbpmTv8ST8HS9ihQqQBdZ2c5fXGDi2dXw%3D%3D?width=250",
+			"total_usd_value": 22701.666442871094,
+			"avg_usd_value": 987.0289757770041,
+			"avg_apr": 43.52495645440143,
+			"loan_count": 23
+		},
+		{
+			"nftProjectName": "VeeFriends",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGRbugWbtE9eIEDuwU2xxTkHqnQkF9z47SjbKWU2wV80RIoD95Rb1m2gZdrmVFUKGfaWZFQqeDfTJns8JRHVLMmIjk0i2dabF3we8Nkrcqg%2FpkNLvUnP72uhZE%2FFzs%2FuViQqdgMUkj%2BnaPze7R1u95Yd%2BmtarYBDVsaN2Ug%2BUi1ORTNl5ZtlZ83B8Xr69Q3Uqg%3D%3D?width=250",
+			"total_usd_value": 22516.14306640625,
+			"avg_usd_value": 1608.295933314732,
+			"avg_apr": 32.03567409515381,
+			"loan_count": 14
+		},
+		{
+			"nftProjectName": "The Potatoz",
+			"nftProjectImageUri": "",
+			"total_usd_value": 21424.843490600586,
+			"avg_usd_value": 351.2269424688621,
+			"avg_apr": 41.049301647749104,
+			"loan_count": 61
+		},
+		{
+			"nftProjectName": "Terraforms by Mathcastles",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPICt8Z%2Fe5wYtPpQ%2FWTgw8rYezVVcLNOefQBgJPwOvJ5tyOFK5GF2QI5Xs0fecLMrT7c8DVuvqiS2aiKuWIcj%2FPXo2Z2DMeisSaJK2WCkVyMTXrDCIMv2qef0W4qZ0MgNrmN%2F1Pxa38lOUUvmwTE%2BbuhIAfsGIaBVewJxFmaZSY1XmgcRWYzrI1RjSt%2FNrXKmg%3D%3D?width=250",
+			"total_usd_value": 21139.91244506836,
+			"avg_usd_value": 754.9968730381557,
+			"avg_apr": 29.09436001096453,
+			"loan_count": 28
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: Coldie",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBSFbk%2FU9K3RFBDQTwgLSyfn?width=250",
+			"total_usd_value": 20880,
+			"avg_usd_value": 20880,
+			"avg_apr": 16,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "DigiDaigaku Genesis",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAK96KWKC5kcWxPz1L2UEqRIYrAmk2hWKYw3P8TB9j9LcNEYuyQ7LpiJ3e31Ye4LdFZ2nOs%2FD6lnUdoYlkFLGtsxwN5m2GaoOSrhm6gaG3QdRxyPoHmhAt5b5%2FcruLNcBrN%2BxWMgBeXhe5tdRuoZa2ywWh4yd6PQnRt3AgYZICxNLowyS9SSm2WxTxjGR0Sm%2Bdw%3D%3D?width=250",
+			"total_usd_value": 20840.456298828125,
+			"avg_usd_value": 2605.0570373535156,
+			"avg_apr": 42.68786096572876,
+			"loan_count": 8
+		},
+		{
+			"nftProjectName": "MAX PAIN AND FRENS BY XCOPY",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEaPekw4eyhAp5W%2FhuiJBJ%2B7eg1kyd%2Fk%2FV5FTgw8xLZy%2B2M5QCaz90OU9CrCm8HgcRXvRdFsJQ4nnNRDY4kJbLp%2FsExXm25yd%2F5EKoLJZdotHTvxoQg2fkQpnblHPKMNjc8LqwLvK80vB4h1tezB%2BiHUVj2nzKnHOMnJ339TinP3OwO835V8NoCG4JXGJBF8Jw%3D%3D?width=250",
+			"total_usd_value": 19610.72735595703,
+			"avg_usd_value": 9805.363677978516,
+			"avg_apr": 20.00000023841858,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "ENS: Ethereum Name Service",
+			"nftProjectImageUri": "",
+			"total_usd_value": 19177.406494140625,
+			"avg_usd_value": 3196.234415690104,
+			"avg_apr": 35.76670138041178,
+			"loan_count": 6
+		},
+		{
+			"nftProjectName": "everything vs nothing",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGRbugWbtE9eIEDuwU2xxTlGDK2ngOw9oeOPiiD7S4QUvsdE6nj5K1SUGmIcVOcOnfxztrapI1%2FqD7zjuMSiS0%2F4ClEwjVEzg6cKTOoCsi9Wnq5mgdZHTceRmnVXdVIAQFoOBDP8K0UHs3Vcetm%2F%2BZDVwSXEIABXjpcqw%2BGgOfqB3Ei%2Fxmi%2FwKTVWhz%2BE%2Frthw%3D%3D?width=250",
+			"total_usd_value": 18798.904296875,
+			"avg_usd_value": 18798.904296875,
+			"avg_apr": 18,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Async Art",
+			"nftProjectImageUri": "",
+			"total_usd_value": 18233.5625,
+			"avg_usd_value": 18233.5625,
+			"avg_apr": 17,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "mfers",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGgnJFiQtBG1HMnY1lph%2BByh6D5f1c7ZsaROm9HzMTydWj5%2FXIhq1OyJuLdjvHv9fjJYmlyKj77RVo5i1VNaEecOz6aVfcehZtY25Z%2FEYEQZ19hax5p8Jnk3K4fSW5bfkLPxHjSo80szX%2FtIJ6TLVJNuDApPu0%2F2j08Ljvz6Q5cDz4nE%2BaULdHGhQ00%2ByPjzzVjIgUcfTzyzK1ceB8Nkow8G3AcDg3ZbzAXZOAFOoOAg7QuRvBJEWABg2fhX0xC5btO9xoGViGvEeSn7Ddbe8ak%3D?width=250",
+			"total_usd_value": 17243.315856933594,
+			"avg_usd_value": 1077.7072410583496,
+			"avg_apr": 34.24259805679321,
+			"loan_count": 16
+		},
+		{
+			"nftProjectName": "Redacted Remilio Babies",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAH9jsgKZBvWDCtYKUII0XUGE72IfvdT0oD5oUMTIR%2BGD63r%2FFCSdrPrHDHk26loi4th9yA%2BBpqtuzyoofnhZguIBAYwPNNGwwZ0vhm%2F%2BFHtKcU2xU5etX9ohyOBijbCWQzCWzqjdml1RGqElsuBTXplnUBQeeaJk2w2CqdkS1vQ1ZH1abUsT98F0xXNp4UuBXQ%3D%3D?width=250",
+			"total_usd_value": 14589.150146484375,
+			"avg_usd_value": 729.4575073242188,
+			"avg_apr": 28.96000099182129,
+			"loan_count": 20
+		},
+		{
+			"nftProjectName": "CyberKongz & Babies",
+			"nftProjectImageUri": "",
+			"total_usd_value": 14573.346252441406,
+			"avg_usd_value": 1324.849659312855,
+			"avg_apr": 30.99797248840332,
+			"loan_count": 11
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: Seerlight",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBSFbk%2FU9K3RFBDQTwgLSyfn?width=250",
+			"total_usd_value": 13392.91015625,
+			"avg_usd_value": 13392.91015625,
+			"avg_apr": 29.92999839782715,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "alignDRAW",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/OZOACYlgslkWSExEBQXm4OOKqIpVNpEXXJgocvBPQDbRF%2B%2FkBR%2BZw88gv1le7ZzcMINDgijtYUJyBlZZUPnoVYHJwqTV8DmUzydng2Z2Wb4K%2FTv9xTFp4DNpnpOadJeGj%2F7Ml%2ByPlXtYl%2FjuHjIN6h04Eno733MlRBwpSsx%2F%2F7qWPJemcrPhfrepqSo%2F3cFG?width=250",
+			"total_usd_value": 13072.649291992188,
+			"avg_usd_value": 871.5099527994792,
+			"avg_apr": 17.34000006367763,
+			"loan_count": 15
+		},
+		{
+			"nftProjectName": "Sam Spratt - LUCI: Chapter 5 - The Monument Game",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAER5auGF%2B4p6%2FsBialnBUWHEyTrsFkZnfzhnrT40fSzWoEl7Fv1a1H81RbBbW6eYoxqnbIATD4EkArKa8ATIC%2FBhbJdTg1BWmhHcF9ywWkxztGvZGXu4QyomlILlvLKpI7XVanAQMeZp9OFFE2rVkHGTADPk0ha3ySEkZn6UOnqAf%2F5z%2Bc%2B6NnWcsZdIbVT23Q%3D%3D?width=250",
+			"total_usd_value": 12389.28125,
+			"avg_usd_value": 6194.640625,
+			"avg_apr": 22.404999256134033,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Nakamigos",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAL4Jt8Td5eEy1fHJOlfeu%2BGOenJqhAV2PgWTVSkOvo%2F%2FMJuaUXTR2PVAxOr9nDQup4Xbx3%2FvFZ04JWB%2B4hyUJsEuUPNWcfo5GxTYweBVjJHII2bV5yoMkwLprtnph6hGeFTVj3udRaa2dJupfqScO%2F5oou7w6uThd%2B0NY%2FQXo%2FcWNnFWT7%2FsviGHMqqFhtgikA%3D%3D?width=250",
+			"total_usd_value": 11691.875244140625,
+			"avg_usd_value": 307.68092747738484,
+			"avg_apr": 29.836013461414137,
+			"loan_count": 38
+		},
+		{
+			"nftProjectName": "SuperRare",
+			"nftProjectImageUri": "",
+			"total_usd_value": 11600,
+			"avg_usd_value": 11600,
+			"avg_apr": 16,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Opepen Edition",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAMXV9MNuM9QBymw2gxQ3NIV8Z7uAC2rjxHb6jeeZk7NPnqkNMTTz9RI4kSfFM8v1glDR4fL0OqQX6gnDquwtSPEK%2BXovtEwbWsU4vKt996A%2F3k7IXTa9DCmKP7wFjfDuzGLVL9dLUGrhS%2BWGPavtumtkjsLVGfRtLH1iBeaIf3X0VrYDn0OobyPNBMHBkZQweg%3D%3D?width=250",
+			"total_usd_value": 11422.655563354492,
+			"avg_usd_value": 335.96045774572036,
+			"avg_apr": 51.803576216978186,
+			"loan_count": 34
+		},
+		{
+			"nftProjectName": "Warothys",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAI37ZMpGmBWtUpAQDl1tI6BoVWD0Y583GdxvV6A4sYFIEueT90klGjG3Zd9DBciK%2BwfOu5wTrbUl3kiVYPXGJ5YkblX2u0KIdwC1CJTPar6IW41JKQGu9T21EuirA0uj4jJweCAj7SK0qW0CxpXEE0o76Nd3PliLbAsLNhJiw4sYR2dMDvFq1gN5HWBRC1ENeg%3D%3D?width=250",
+			"total_usd_value": 11194.259765625,
+			"avg_usd_value": 11194.259765625,
+			"avg_apr": 33.5,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "NextGen 6529 | Pebbles by Zeblocks",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGRbugWbtE9eIEDuwU2xxTn28DRO5UfvcLGgxzdWMztDoG9tsE0PGojgqHXmqnvBRjBS1Mgr%2FHfFADNby1F04CMp0A6Dh5Q5RXjlk0mp62NNZHNW727c27zfU4XDKIwGCQJoady%2F7WvcPQRINIkIEvauSA9FZepM6t5o0EYWJ%2Fg52j29VXFwfWi3JmrOROc26g%3D%3D?width=250",
+			"total_usd_value": 10693.75634765625,
+			"avg_usd_value": 972.15966796875,
+			"avg_apr": 24.86000009016557,
+			"loan_count": 11
+		},
+		{
+			"nftProjectName": "0N1 Force",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEkea555EK5qSXyKbq2Km1g%2FvDo9kNGpZkRhpfw%2FvMAz8GiurpBnx9tldw8vtSQAkqKFnJozDjcROQrjmGRYekevNoTVlUQ3LA1jq6O5gMkbfea9Vha5lH4df2tKuonJPxjPBz37FzQc2hsLkwJdsk2YldlmM1EIXOUtjgNiAsU0%2Bz2w9a3aJlCfJLr%2B%2FTl%2BNC71VLH7487hAzL3rZNgamG65Bty6uOnNFACW2yYbMsrMbzhOwau4a8tTzxI%2BJxKBsLMKRy9pJuRhnA6Cl1RwZQ%3D?width=250",
+			"total_usd_value": 10551.485473632812,
+			"avg_usd_value": 1758.5809122721355,
+			"avg_apr": 9.139354467391968,
+			"loan_count": 6
+		},
+		{
+			"nftProjectName": "Deafbeef",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKMSbthWMEB2%2F6e62stx8IJNYrshG%2F9BcbUW%2B0YgPeKMuV7l3JjIDJpC4DF2pMmMHHKTIDwububq37SYLmmk7N5c4dp97J7BSVYgQYZyaNv1wC62jiduic3fbtRUyoeDSuQ%2FxjKimzLujxHZcCpbkVH4QyAlr3CRGHYM9qwpN5uTuElw9jWruBzoS3aoTV%2FCdp1r9wHJGWFA3dXrvkWDlSe5ipPKBQ3En61mIvNiKVuFJ%2FQdBVerTeM1mAq0gZ9VmA%3D%3D?width=250",
+			"total_usd_value": 8919.177734375,
+			"avg_usd_value": 8919.177734375,
+			"avg_apr": 20,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Subscapes by Matt DesLauriers",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkIj6VdOs303wvbAuND9iS20y47jiGOpEwJifxY%2BycUa68r4LsR1sk0xhs4acDCSjT6uPEt%2FR8NE7u3igWeLqVSQ%2FjWME6z12Mds4KaiMR%2BDHzQJF0O6neztSK7e5FNiUjw%3D%3D?width=250",
+			"total_usd_value": 8801.011840820312,
+			"avg_usd_value": 2200.252960205078,
+			"avg_apr": 21.22249984741211,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Life In West America by Roope Rainisto",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEaPekw4eyhAp5W%2FhuiJBJ%2BY254dusQxm%2Fia07kgD%2B6AvhqtBqzzztN%2B6x8c1ctFaAcO4DnYXlrMGk5weRacMKq6EJVtsZCSvQYbS%2Btb2Uc2oxbbUh9wn8c%2BML3HXN3BRbiDxgs8L8wKbBYjC5cE0Ycl5ObC756VpB9TSrSlCP%2FmM5Z5%2BzxnzMFree5H5dq7OQ%3D%3D?width=250",
+			"total_usd_value": 8248.479736328125,
+			"avg_usd_value": 2749.4932454427085,
+			"avg_apr": 29.5500005086263,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Themes and Variations by Vera Molnár, in collaboration with Martin Grasser",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1Gu%2FueKxiiY1JkrDjb8q0Iz%2B5AbxZ4Acq0wEWt5e629gQIsbxXvURzhl5RldxLVirpw44WctHWEDsrn%2FjUcQqJ9jyZ9gPHZBqNNsaKHwI%2Fbz74wAyDED%2FZ9OCgN4%2FOfE8fO3SdDtNzZ2lYFr7prAkAsjIIIfd5DgczeTsfgvGjWQg%3D%3D?width=250",
+			"total_usd_value": 7719.6046142578125,
+			"avg_usd_value": 1929.9011535644531,
+			"avg_apr": 24.694904804229736,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Genesis by Claire Silver",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEc5DECFoqrpHRVYQI5UVoAFfhTyUM%2FSWdIXuxGm77w%2BL5HuwEbctkKMzU36QqG%2BRobY9Tzyq4hxwulK21cKfCoYlKJQ3OF95%2FXgzDRi6Y1gX8CjMo1MqHC4KvaA9LZqSxIQGJFz3TpsIYUEgGGcd%2FCrKYoHYkV95Uhi9bNUZQWSYSQk2hcWRdi5W7XbuNFyw%2FRNkmDc0hePfb6zCJcL%2BSb14%2B2WV4MahzCNGMFVVUvLaqv1BquGogERtDLtZmg%2BnA%3D%3D?width=250",
+			"total_usd_value": 7597.482421875,
+			"avg_usd_value": 3798.7412109375,
+			"avg_apr": 38.495235443115234,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Visions",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/mlW7AvaWRvTlZvCoiaVc4b9uvrTqsJQ0MEUPP3k9kwzVuRq3PC4cEM7iv%2BWv%2FuoAAV5EvSDqHbjVq27TgSwxP0w7CN3poSWtfhWnCzZdCS%2BnG7rO1Xsw3v4FkH5w1Akwuy14jgR1dFXsMeRgTnNTFBJQIp7CRtQZpjYo3I4KzspKG7TS1N8V%2BeptF0nbJndL?width=250",
+			"total_usd_value": 6872.0546875,
+			"avg_usd_value": 6872.0546875,
+			"avg_apr": 22,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Pudgy Rods",
+			"nftProjectImageUri": "",
+			"total_usd_value": 6375.561553955078,
+			"avg_usd_value": 637.5561553955079,
+			"avg_apr": 48.32414665222168,
+			"loan_count": 10
+		},
+		{
+			"nftProjectName": "Genesis by DCA",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FXEX2qgUanA95eKzzFGvJW5Aeed%2FBVUismUSqPriLRE7Rw37Xw0XAK2qaiKboTt5d%2B0yCu5uBL3ie8JL15Pk8i8fSC9MF8A6jmZqmekQdzfxLQ9%2B2zB%2FeTIxBh86YgfE6%2FyRglaMvho6k4NGb00fHRTixLkA7LPugB%2BUKd24Ok6Q%3D%3D?width=250",
+			"total_usd_value": 6374.7052001953125,
+			"avg_usd_value": 2124.9017333984375,
+			"avg_apr": 48.32653045654297,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "FEWOCiOUS",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAM51Z3hOQx5UPGlsHphm0ixi4q6Wp%2BL08LakfArdrMRl4L%2Fm92NX70ZsflIpLpqCoRlb5oMi4UM7KMXln2FFvO7uz8QixJt8uqPQcgIISG1mxIw4RlTBW214RhegfhM1QbCVZ5OWinQ%2BtV8dK%2BhT4mCJ6xK50DrvM0yeRo8RKgPdAVROKKg%2FFWP16GSAlvlOLWbdUyG9Crj8dpRJTDBM%2B7C2YifLjKMx7wNSyHMLd4pM6s6h7tjj90FlkerDvK4jpQ%3D%3D?width=250",
+			"total_usd_value": 6219.063720703125,
+			"avg_usd_value": 3109.5318603515625,
+			"avg_apr": 61.4999942779541,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Neo Tokyo Citizens",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPvUPSQq%2Bukrxw2RouDqyMYtjArgMHUi5Psm1CMH8WlEUGURRbjgJAvaMHSK%2BRij9Vz65b4oF3T7uZyI%2Bf4ipdOy57xCS0XupoZzo1XxVvb%2Bh4czexS3g1QJ8bnaxIIjIm4lgtUFFPN9DD0d30lzXLyOPpFSS2iAHk0lgBoqr1v7ryYfkBXSr6gTcLxtW1yPeg%3D%3D?width=250",
+			"total_usd_value": 5940.75341796875,
+			"avg_usd_value": 5940.75341796875,
+			"avg_apr": 32.5,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Construction Token by Jeff Davis",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FXEX2qgUanA95eKzzFGvJW5Aeed%2FBVUismUSqPriLREwauriUbPyhMSQpxAh8DL0PzjNXnKBs2VQ9QHzgKElVbQt89P%2BKwrtYEQwae6g%2F0FLMY6YmZDZNm6Q42yILCgiViYXVeolbsfJFzozAAVwNJhFo1c8iWObERVi%2FZUuJi%2Bw%3D%3D?width=250",
+			"total_usd_value": 5802.673583984375,
+			"avg_usd_value": 1934.2245279947917,
+			"avg_apr": 33.06677754720052,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "CLONE X - X TAKASHI MURAKAMI",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAG4sCr0QqNBj9PITBHNiyZ9zO7bik7ABC3drusibN0DlR5iBxVe8K2hZyp8CDXsAou7a%2F%2BXwOD4TWfVd4%2BTVNqnjV9KRjQeOL%2B35ch4h8NcQLeHUsyZhCQ9CJSj0mnS3WFrmn240i8EWT%2Bq8i7NSfNIUfQ8k%2FzNrjW%2BrjHv40oyWYqFQY0CSKzXqe%2BAp3nuyjwlcuUuFb3NAsf7n2netXhAv6GbirmZKuyRpKqYxogugbJdd6FbeSjuio5EEqEPfHCJp9C7ixcOBEnehckgNTLY%3D?width=250",
+			"total_usd_value": 5214.866622924805,
+			"avg_usd_value": 274.4666643644634,
+			"avg_apr": 51.96265411376953,
+			"loan_count": 19
+		},
+		{
+			"nftProjectName": "The Collision by Pak & Trevor Jones",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAHGr0aJJ3cziqz58kKesDuUj9%2FY9GExahenItAEP6cSHzJKKRDbhXudTIZq2RkqB2qJLX9VWHRjZiqgUYHrLbbMKJQGHvmU0WSjC4TvmgAN3wRAhzKBJIRWlbwYhYGhuW%2FKVzwjMizka4fn2kpM4QI%2FxJkYjMp1J1hnrzULmSoR6tjTab4mJdju5VBgdMxt5LZflwb36Bpr4BPjeZaiMqv3E%2BSu0K%2BV1e2yMpmeVhm6n1fzwEQLJjgIRQGUu7dPQuG8Ad%2Fp6TAKatCNFekd1ceA%3D?width=250",
+			"total_usd_value": 4914.071105957031,
+			"avg_usd_value": 614.2588882446289,
+			"avg_apr": 33.21692770719528,
+			"loan_count": 8
+		},
+		{
+			"nftProjectName": "Hackatao",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuABw8X7mv3i8QDDiv%2BfVjDr0KUCafOpK6zSiOTW4mreBoIZNDRvvIhbLnjJWx6jhBoEGrnPNfdX2JUcWPyz7uhWZQUa4SCBDCpW26jeh7Q0QefVdAZpxdKr6%2FHFcwddStaanR%2BIHmiVe3Ei3A59uEAyLivIsh1bTlmikGMM4Yu49qVO%2F34UEw5usTZQF3oPte6S793Gg81leG39MB8LldChHesqT1Vz655lVg8QZneu19MlAPTfP3r4s%2Fb2UaI5P6Uw%3D%3D?width=250",
+			"total_usd_value": 4699.78369140625,
+			"avg_usd_value": 939.95673828125,
+			"avg_apr": 35.81728448867798,
+			"loan_count": 5
+		},
+		{
+			"nftProjectName": "Squares by Martin Grasser",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPJhRTwCYBdb%2F%2FPlagHSwj9Y0D7Sm8CwkreJeodOLehRhx2T9jMjM3vA4m%2Ft%2BMKdRe0F1nITTibETbCF9kaG8IP5tMfMvm3jpHc9dOlWPEygpM17iSdFRfWx9mDqlSw2Gzo61TCinBJ0lpvjr%2Bw8jZoisYghpYQnWq3mM5KTW0v%2FThvtTLtj3UJ0YpCS3In8mSD3JIawU49cMgjhndvmqENdkxnouuO327UI8eZzF1aNCsIWHv9IcKwpXS5BXbOmuQ%3D%3D?width=250",
+			"total_usd_value": 4595.8477783203125,
+			"avg_usd_value": 919.1695556640625,
+			"avg_apr": 49.84357872009277,
+			"loan_count": 5
+		},
+		{
+			"nftProjectName": "Cargo by Kim Asendorf",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1EHCzFwfyjoY3K%2FOBVIyKg1J7XvI8QJbN%2F8%2BT9WbW4oxAUlPrwfUbf%2FqVJ91n2Wjlxt3%2BGx2TVbsTLFDSFCrX0mzL2VibLOWnv274DhSUCVfVAjWV%2B7PD4eeLimm2o1XlZrsJgEZa3pZ59dQtHdDX3q8HSMV6Vj6xvA58FvkHTsPg%3D%3D?width=250",
+			"total_usd_value": 4540.78662109375,
+			"avg_usd_value": 1135.1966552734375,
+			"avg_apr": 20.68000054359436,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "The Harvest by Per Kristian Stoveland",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1EHCzFwfyjoY3K%2FOBVIyKg1J7XvI8QJbN%2F8%2BT9WbW4oxOnH3lhyqScmysI8jVQwk1VCGjkW3we3xrQXDpnD8gF06N4ScNIzDTJBI5msNMbWa%2BhZJC0ESyKkXvCA4Ul%2FQpabA1ktxGnl6vgvMdm2pLO5kxfkIBsqzQmm9qEhLeoJrA%3D%3D?width=250",
+			"total_usd_value": 4357.43505859375,
+			"avg_usd_value": 4357.43505859375,
+			"avg_apr": 9.989999771118164,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "CryptoDickbutts",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAMrWU66RPkZ9rgKPvWeO970XTUvAIqdBCBOOKG9KH4LJTKCQU9ADm39LpAl8EhjCQXspn0da0PN8ZYZDzb%2BBmRoqD9NvFB27ct1eFYJSzohlrZs39m%2B61qf%2BEeWN4hRM2z0m8QEwKa9Cl9Q4D1K70Qtv2NOHB%2BwHzHzUKdjXBC5Sw3tRxuQsCcg1KlXkSVLOXCqWEFG4vj%2Fh5f3tYwqNOWw7SFylxvXie1v92bdHah22gQdIbyQ5Oy%2BOOwvzPr371p7hMrwbDnCbjNV2XgckftM%3D?width=250",
+			"total_usd_value": 4231.947509765625,
+			"avg_usd_value": 1410.649169921875,
+			"avg_apr": 25.666765213012695,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Etheria v1.0",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANWk4UOZr%2BOkwJEj%2BOh%2BXV6N%2F401zDtYwlungDmVCYA56NGa%2F4ZhO9XGLrIwCCXm4ORJbj1GPwWFxknxoK%2FzLYXcBsOY78%2FNBZ3IZAJAOexyAEyENXkdWlLTiapboq8%2BLL3TuyC9PPZmpT2ozRfRkJxWPPKEGtnzLHgh9jJTHny6xljqKX0ZnWkTRDas0M1eo6zaGO2DWK61V%2Bv12UE2Xmq79X%2Fge4pUPpLoO9eJ9YDRPVwZUf5G0OtpMzf%2BRGO3Ydrl080ut43NXuLCxWxWJm4%3D?width=250",
+			"total_usd_value": 4185.20556640625,
+			"avg_usd_value": 4185.20556640625,
+			"avg_apr": 25,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Contractions by Loie Hollowell",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1ED9G9v6RCwXkf708%2FX7Ax2J4Zb%2Fiaj%2BHkUF9WVejzu6RR1r91lFic7ilhwArI0CYItWywsazC1TqpEKVcOJjYGsRFuUGEi8%2BWV0d%2FUEV5JLbyMPfgg%2FPAt47%2FW5eyah9%2BV8cEYwgN5ljF6sEX0lL5r2wilplb6qf0tjeJzxhpGIA%3D%3D?width=250",
+			"total_usd_value": 4181.6571044921875,
+			"avg_usd_value": 2090.8285522460938,
+			"avg_apr": 55.00024604797363,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Sproto Gremlins",
+			"nftProjectImageUri": "",
+			"total_usd_value": 4055.890380859375,
+			"avg_usd_value": 1013.9725952148438,
+			"avg_apr": 17,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Counterparty",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPZ3gqiUTB1SfLkDh5Rfivc3mvnD1AWdrLoBkUPkzw%2BtlTuAhkoxPbLVg%2BTeQ4C6Hbpg7SDkrAvVg3uZOz%2BdqngWddYlA8Id13ZgVoSSUskjfacosblu2N5kKAs4Wmmi2LoGilOAWoUaYsQ1N9AqoBNApxUnbro9NE3IXC0jQOQHaIGJdkhYZ%2FoG3ehzcZBwrQ%3D%3D?width=250",
+			"total_usd_value": 3886.85009765625,
+			"avg_usd_value": 3886.85009765625,
+			"avg_apr": 40.959999084472656,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Damien Hirst - The Currency",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAAOF0DZQ0UMj6PjTM4j1E2ou2sH%2BnUu7d9lOAHtju4%2BGphLg33tFHdzkRLvLOy3dCCX2d%2FGcnYvkrTzO7tlDvZQDVPCt4rdVqeF61QLlWGGMl257NyzY341DS2%2FgWBoL7iG%2BBubr%2BHSeJgCbzdYUCJG%2Bj7cryqG9ZznJLM2GQu4ViTaq6b2Z9B4L5MqZvVLL4g%3D%3D?width=250",
+			"total_usd_value": 3871.43896484375,
+			"avg_usd_value": 1290.4796549479167,
+			"avg_apr": 31.660228888193767,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Math Art (1980-1995) by Herbert W. Franke",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGoOtpNg5EC4C%2BdSstkg9x21tBsY0JMT3SvjyraInSiRcPKM8v%2FVEqqWlEt00oIxF4VusnI5ifdGdL8d%2FruI4gesGvCOlJjtsNaf1egzBV49crtXsp1ulBsmNHxWDuUmULorUdilZh81aY44fEvJOFRlEI%2BbpVMTT2NaVw%2Bva3afYvTCgQOuDN72nTF%2BTMUREGxAg212IyG4YtyPTE9Fo%2FQWhILJqZ%2FPG5Rz8zpBdAhkkNnSEUA7pTf3aNAOTEeK0Q%3D%3D?width=250",
+			"total_usd_value": 3818.057861328125,
+			"avg_usd_value": 3818.057861328125,
+			"avg_apr": 39.99026870727539,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "CrypToadz by GREMPLIN",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPpbj9LO%2B2slTeGnlE4eRPeDoCYTwuCZcqmbtFwLio5wYEWzsRW2j6EujOHfgY1906nGrW7QKPhzvv5Dia9AApvpyy7lkwA8PlwUzl77NZIIfcMlcNYJJVLUyEHcDybG73voyAbJFoRDVJLUCDO9p73mNTTsn1drzVsGu8keBULR%2Fm951QDaI8C3mIpQoHGum8oH3M0Ebt6Apb3tbLAex4VfuPTDGKe0EZINbF1Bxw0hB%2Bq%2Bg5cPqrPHrCN2C15qL3wJFzgcG8z4fDa%2BRfG%2B8S0%3D?width=250",
+			"total_usd_value": 3696.4874572753906,
+			"avg_usd_value": 616.0812428792318,
+			"avg_apr": 29.138355890909832,
+			"loan_count": 6
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: Helena Sarin",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBQF6ikgCr%2BMmIVG3ztw7QbYg0ZNW7mFd%2Bj3aFzVyFk%2FLg8Y7nVGc2mkC9PoO7cIjPg2LTiqZIS%2FSkhOjmJl77526e9cA%2FYGvbr7LOLlft54Hw%3D%3D?width=250",
+			"total_usd_value": 3563.159912109375,
+			"avg_usd_value": 3563.159912109375,
+			"avg_apr": 39.90999984741211,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Mutant Garden Seeder",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAI3i3iLN9eKYdMUPIImWrTSKSwcChGmiaiId%2FTMIyb%2FxdcC9lfrTf5au6C5hdggfxhC54DZkdzOQC%2FIzVhRlmjUKNSLOfGcZDrlGKlINL1kMUvNM69XuO4JXS9COF4LG3FLTeURP1te%2BkBHAIUFW9UdAXZ9QxyD3yDOcLnq%2BThq7PYA5oAFaOYDiwOuqV%2BrRKU9nzgtpQqZiIF1FNCPVXx8WfvZVmf67GeYGJ2lCRU34m%2FvVy%2BaA5gCfUyUiyGMqWeP7LK%2FVvYxUGPOiswUheug%3D?width=250",
+			"total_usd_value": 3486.94091796875,
+			"avg_usd_value": 1162.3136393229167,
+			"avg_apr": 65.33326466878255,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Sappy Seals",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEvkzVquy%2BkhDpxXcxL2h4gk9co8bZJciiTSvpi8it5wF0t1xpdvY2kVvnceKE8vqpyqMWUN6HCkOvaFHbOh3JF9DpQ5QyiiYTtMgCr4I9NLlqwredqYaI3lYE5oy%2BoPZauaVNGj2fVP5cSJi6EWIBv%2FsUawT68%2BSAKr9BhH1Hhb%2F%2Fa%2FiJww%2FmE1nzDCa70nFQ%3D%3D?width=250",
+			"total_usd_value": 3427.53173828125,
+			"avg_usd_value": 856.8829345703125,
+			"avg_apr": 47.33137512207031,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "CryptoCubes",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAFG54ZhGjWDB4K7yz2xTB%2BE482euYx3yXvqK56pb3s%2BuR3Rw3mloCZ0GMTdWMSDgwV6K4Dwo4kQQqO7UROiL9mlGglYk8BeZm1KFyh6VT4Gjjsa272wrTBfzanqQbNN9CddISE7BrLoyWCuFxxKK%2B8zaoO3K0gr%2BVLLfu63N3ovcjOarbIIBGMmE%2BNAE5NjYuEjYp7d4udUcJqiwH%2Foe0gcBhzdQNRB9NwQYzqv2Vu5S1AG8TGoJ9Wa3Epkl9ljO3A%3D%3D?width=250",
+			"total_usd_value": 3216.341796875,
+			"avg_usd_value": 3216.341796875,
+			"avg_apr": 10.00004768371582,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Invisible Friends",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOeNBGhNMIFC3EOEB8Fco5%2BkpUpGv6LQYuKOiakElGd5MXzkMg5ZsFwGikeLcFJPilte8vfWNUexiHHpW6WPMBy2Shw2BeJRuOxaJ0gRinFnUR95Ef%2BKBqdjFbmZUkSRo2LP%2BDay14m7gt3G3taJ3c4Gj1gL8%2F0Za3I1%2Bf%2FabZdSm9oiQ0RsJyRuMxWIqzR2KTNKbFmdab%2FQ8mXJjzDj3slLNDQpHZL8uU6ko4zIKdF0ts075bcEWAVI1MGayAlSyg%3D%3D?width=250",
+			"total_usd_value": 3166.2488708496094,
+			"avg_usd_value": 197.8905544281006,
+			"avg_apr": 44.188029766082764,
+			"loan_count": 16
+		},
+		{
+			"nftProjectName": "VeeFriends Series 2",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGRbugWbtE9eIEDuwU2xxTkHqnQkF9z47SjbKWU2wV80RIoD95Rb1m2gZdrmVFUKGfaWZFQqeDfTJns8JRHVLMmIjk0i2dabF3we8Nkrcqg%2FmBrM4dCtnxxZB1lCJOclUCz8YZj8oN2Qbyq4CTkdVsB1X3zW2ie4B%2BNV674pV5ETOTv9Aaim4VsOpTGkLrDKgw%3D%3D?width=250",
+			"total_usd_value": 2965.1206588745117,
+			"avg_usd_value": 148.2560329437256,
+			"avg_apr": 12.182981824874878,
+			"loan_count": 20
+		},
+		{
+			"nftProjectName": "Chimpers",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAHHi8sdkiV1ldJ1nW3bLOdwnbetAlklfuHzUMxy0VYpIUG4mXXyhrnvzafjk5unLaalnFRuYaJwbtwzAJ4RxuQXJ3HEEsi5e%2BA5ZGi6qYaOGQ0HIqAd0ZGlf0VUcBsdrrHgwzSTRko3d5lM3nvkqMFafxZbRSxaRuCvDuFGdBnsgExBmfoxfzw7%2Fo2nky0p31w%3D%3D?width=250",
+			"total_usd_value": 2875.3384704589844,
+			"avg_usd_value": 319.48205227322046,
+			"avg_apr": 38.49538887871636,
+			"loan_count": 9
+		},
+		{
+			"nftProjectName": "FLUF World",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEU4hHGxbmyDPXaQv47X8oUopf%2Bf3N5%2Fzf%2BH7fy5vc8vts2b3RMljEX3AmsJUF5PG4espP8WBtokb1ynxeEDYBakB1%2FrrQmci44ByM6fZh7SIXfkShx325SaarAGI1MN7XzXqTrqLXZfnwCsP3fwTyLVDZzYHVHnIl8aV21BLqtpXywbbaFvNktWLaC10FdZ%2Fw%3D%3D?width=250",
+			"total_usd_value": 2681.0069580078125,
+			"avg_usd_value": 243.7279052734375,
+			"avg_apr": 40.50042100386186,
+			"loan_count": 11
+		},
+		{
+			"nftProjectName": "Human Unreadable by Operator",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1EHCzFwfyjoY3K%2FOBVIyKg1J7XvI8QJbN%2F8%2BT9WbW4oxGvZ8xvAblnKOUslkvrFvXT17H9Vp4TsHr9pJ7xKd%2FYt1jrdt9HCGx0CXI0BVqI0wqdKMyfdjNYxxd3ORhJ1Iua1QeVmTc0tEfBOIjJv7Z%2BtidhYGpz%2Fd5uk2MCpR1SsZw%3D%3D?width=250",
+			"total_usd_value": 2632.54150390625,
+			"avg_usd_value": 2632.54150390625,
+			"avg_apr": 21.666515350341797,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Pixelmon - Generation 1",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAAGwXNIK0%2FSqtymd8wH8ae9A%2BRlvEcD1FO0JhTpZ0eF6F110xKMt7GLY3wFPgGYpwMFM3JiTMVeWV8EgEJG6%2BdASiWQ8EW55MxLza6PoahC5P6zfkZB90yYqF0MXohjMG1OorxyKNc0Kq7OlRPjjB7go49UTpTrMX9iwwcFDux8ndoziLNGSd43YM16erLAl%2Bw%3D%3D?width=250",
+			"total_usd_value": 2630.780517578125,
+			"avg_usd_value": 657.6951293945312,
+			"avg_apr": 57.51267337799072,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Impostors Genesis Aliens",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKM5v2dthdDNgoFYsopVhfXzuP43vXKe%2Fd3YDxFU%2BTVblwIJT8cziHSa3jkS31J29oDU10ec119RbKezo3hIjS3t65P%2BwVxpt4AhZLnukyC4Lxhx3UazAAFo1liEeshBCyBe%2Ft3pPXNxE0FUXIJRTWEMhM8tZ3Obsshk%2FsiJQ4%2BWYUgL%2Fj1vBnRJeYT%2FuO7v%2Fg%3D%3D?width=250",
+			"total_usd_value": 2618.916534423828,
+			"avg_usd_value": 238.0833213112571,
+			"avg_apr": 68.55925403941761,
+			"loan_count": 11
+		},
+		{
+			"nftProjectName": "RENGA",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAHGBvqZFuryJkatcVeutnfvhAp0R3LYGIi5OM%2BcQlTErQhWyDzxtLXzwSVW5pdXbLEw2V7X0i4T4hgPLZNqXl%2BihxrfvkfES4u%2FsPyoRvtolSigTT%2Fr0RKR7YM8m8P13OLv214Px%2BWZqX7MXzuJg6QiFRJxScIOdRVBilzda7vVHkl8QsdPsDhkmnV6oguSPVA%3D%3D?width=250",
+			"total_usd_value": 2557.035186767578,
+			"avg_usd_value": 852.3450622558594,
+			"avg_apr": 6.916841506958008,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "KILLABEARS",
+			"nftProjectImageUri": "",
+			"total_usd_value": 2348.7174072265625,
+			"avg_usd_value": 260.9686008029514,
+			"avg_apr": 59.88689931233724,
+			"loan_count": 9
+		},
+		{
+			"nftProjectName": "BEANZ Official",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEYz3NvhBUqFaczju6etp8BohN6wAF67FtoJ%2FkNsmZYX5nx5wzpYwia4xMNgdDitnAaU4hFEzV9PlNr2XpIfVTS0NsvzwDPNIC89YNgSczlgvDdwl0q84AQcreBCGKnuWc%2FxoauDqSuRWlOwubpC0Iew8HIX%2FEVLtbD109nbb%2F2g859Stlr34U7l%2B4FU9wViYaVPljA0McbPMh29IyDHf2z8JLaYhTFtFnfnlcXQnA4il6fQ42QYiyTqzOqqKmbrmQ%3D%3D?width=250",
+			"total_usd_value": 2259.241142272949,
+			"avg_usd_value": 161.37436730521065,
+			"avg_apr": 39.278426034109934,
+			"loan_count": 14
+		},
+		{
+			"nftProjectName": "Kumono Shingou by zancan",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1Hi%2FI8ah1vSS1Gc24ujdmQbRFBOoBtd7ZxB3Pjl%2FeTkB1ZQD7BnNKAWpYjpl85qhOHDRN142GJ876PMFjYh%2F0%2FEfxxqZFsyyTuvQACjUKwuBPtht4laqRKJ8SWcA5%2Bswr7P8a0atO7LN%2BkDgBzOCbVIC4q%2BAHpFJAWydTlwONBYyw%3D%3D?width=250",
+			"total_usd_value": 2182.160888671875,
+			"avg_usd_value": 2182.160888671875,
+			"avg_apr": 6.000030994415283,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "rektguy",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuACGeVFekQUhA2EoaBHTkzZL9Bd8h6PHqYOecYJGvANxhD9Zqy7MgMmyAdKBNy4QvntNbrfI08bOJaNMPjZ2REJzBVtMAYnYXWGaL%2BKj1hiJneZKTx9koMDRTT6PDoFxtzUSGXn6x5fc8qUijKRt5CAllW2HIqkwxqmVzaiXPhT%2FZ53NWVsMfOdXg9IZ2CVeUlg%3D%3D?width=250",
+			"total_usd_value": 2122.9151000976562,
+			"avg_usd_value": 303.2735857282366,
+			"avg_apr": 45.67900139944894,
+			"loan_count": 7
+		},
+		{
+			"nftProjectName": "RKL Club Mint Pass",
+			"nftProjectImageUri": "",
+			"total_usd_value": 2113.975830078125,
+			"avg_usd_value": 2113.975830078125,
+			"avg_apr": 68.00010681152344,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "CENTURY by Casey REAS",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkMmeyYos2GwJQlWDKB5Vs36KSYksNZmMDSzVWf%2BvKHnZ0NaXExkZ9iZHvBmuuSes9jDoebIvxSD611VP5n3dK1BJHAXH9tUJDwND7aqOqc1XdYrWfW5qAtjdCP0L5Y8KCg%3D%3D?width=250",
+			"total_usd_value": 1956.3360290527344,
+			"avg_usd_value": 489.0840072631836,
+			"avg_apr": 27.66646385192871,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Otherdeed Expanded",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKQolwSS%2BaqmMt5VvjSo4X22EMKPsWCDh0jmrhWaBodyZkHKUbLviT4SZ8CkMaRMCPT7oDzmbBz9ty7k39fwxKeRJ3Z2bNa8AAPlAE3Jx97SYP3db4pxuwTmv%2FcYafci9Q%2BcjC83LQWvHtamWmqOnu4YD0paNjZfqCY9WXoFcJzoQSeNmqpDCG5CuNmObuWSmg%3D%3D?width=250",
+			"total_usd_value": 1922.6651000976562,
+			"avg_usd_value": 240.33313751220703,
+			"avg_apr": 44.912500858306885,
+			"loan_count": 8
+		},
+		{
+			"nftProjectName": "Lazy Lions",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEFGvcKzHHrnPSLmvYNguaHqqKWjxEtRpkpvBIXQ9etwCnusHchab8zqCOzCbsTmM9xELCYJAu1DcA7KG%2FQmurkfQvxRJdmlPFRtDPEB%2BWGOmDn3QY0KbieOjS9gfiqWjKdX4TMDCVCULxfJCLQ0ElSyzJrO9vw1L6zL7ZhN49bA5hfWY9xD9TxTGLDfDGbcKiMjkvxWLX8ky10GMnW5kYIF7oUs1BT8LzFKINWkiPOl7RDRIpl9t8rQXE6xv6shjA%3D%3D?width=250",
+			"total_usd_value": 1870.3114013671875,
+			"avg_usd_value": 124.6874267578125,
+			"avg_apr": 63.19939270019531,
+			"loan_count": 15
+		},
+		{
+			"nftProjectName": "Synthetic Dreams by Refik Anadol",
+			"nftProjectImageUri": "",
+			"total_usd_value": 1862.9627685546875,
+			"avg_usd_value": 1862.9627685546875,
+			"avg_apr": 69.99980926513672,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Decal by XCOPY",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAMsAUSFbuWy6Eh82zyW9rU05THKcCLuJB0WXX%2BfyEwhafm%2BB7WXzcV9QEpjUE4d%2BCZCYOdlt4cjBQ%2FE4WxUehQouQHjvcqa8uLCRLctxT9chDVPgdZZjlmdFgpbDQziE69PTvTtW1FPCq8hb4P0rWPRXigZryPWRRyF3PeCJwcFwdW4kc2o%2Fn8u2UfwE0xh9aA%3D%3D?width=250",
+			"total_usd_value": 1847.5616455078125,
+			"avg_usd_value": 1847.5616455078125,
+			"avg_apr": 5,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "The Fungible by Pak",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANeJnkTGCM%2FAsiPnPj4KZIucJwtvTP8sK5%2BMPBoGz16JSE%2BFIrcBIsdpD7cGZFWbrhr%2BtUfZU2fb5bXrLptdbi1WRY%2FRrqupXATU4iCHSr8XEeo%2F7cHW1mtFcV74oQgJece4MYXg7nCEDrAJlaWc%2Fa9Wuw5lbVdpN9eA1DrNklvGY8hQcGmi8JhrUKFnWLk8Ge3OqSxINkZhYOuhtHOup53VkBs7WRhXXBfxxceFNppa07rl5y1VBZUru9jXcXJsxOgCiJ4gvh9oZv4Eshd0D48%3D?width=250",
+			"total_usd_value": 1798.9234008789062,
+			"avg_usd_value": 899.4617004394531,
+			"avg_apr": 46.499549865722656,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Forgotten Runes Wizards Cult",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAAe%2FwID5J8103TOTEakMkj14VFgGmuufaR%2BQADCJv0NBCpN7RAyrju0BZm8IT8A%2FMiti0pxfey5XOnM0fL40SSdfOT84NwpOb49I3ymwqUtsiC4Egacqffnz2dAg2hRrbtcdmhxUvXk4ic6iAmK2ZEl8xj6rDo749jO1CehezGaJoSDC%2FpVdoxqN8Y9MstXIwlA%2BhD88fzMfUuNeW9Cdh2%2BZyLiwxznUcLQOcKmsKBgdECKJQu2SBUqzNtYiv8vIx%2FTj9HFstQmQTCHGhNSgoFA%3D?width=250",
+			"total_usd_value": 1764.937255859375,
+			"avg_usd_value": 882.4686279296875,
+			"avg_apr": 37.49926042556763,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: BarabasiLab",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOoySJDtGf5%2BYgM193xRTyFzhN2anI4%2B7ugIG0L%2F8d6Bwnz2cnikb5sKqOr2MswTSZZAa937s9TG1fcpwMKiXT%2Blyi26VmKYrr%2Bf9ipR%2B2FsjsJY8R60u5QguL%2F8VAxmYbpSvWH4IFUZEjiMu9HHnBSFbk%2FU9K3RFBDQTwgLSyfn?width=250",
+			"total_usd_value": 1733.324951171875,
+			"avg_usd_value": 1733.324951171875,
+			"avg_apr": 40.959999084472656,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "MoonCats",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAMutTsoj0GSsqRuruzSuUWRGBzbxQstpoo3qW0FSLe7q3fQQWOdj3rw%2BLhVUBRPk%2BVq42IUBhF6zOKd1JUiP1MaLhprMMAUS0TQV19ZcWjxY%2BeeXHunDb5nJFx6UBQ%2ByqdGCZKNFEwf7FJ3bdCx8GXfgb9ehf0hAlhWmOLV%2BeQQAhMmHPXFfRz78R%2FH%2BAaA9fg%3D%3D?width=250",
+			"total_usd_value": 1694.8557586669922,
+			"avg_usd_value": 423.71393966674805,
+			"avg_apr": 25.472499132156372,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "A Kid Called Beast",
+			"nftProjectImageUri": "",
+			"total_usd_value": 1591.6157684326172,
+			"avg_usd_value": 397.9039421081543,
+			"avg_apr": 62.7708740234375,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Strands of Solitude by William Mapan",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuALOU8Lm%2Big%2FGdHOpixtZVAwJ45RV4axwZfx9c6N0GQfLNmS25C8pcrLbgflEXS2dEj3n2PLBUq%2BbaJJ5F3x5m9DfzfEcap%2FTVMA8DjRrdBgXUQuyeSETo4gu%2BMrNY37ItsC%2BDOykDI2pwQmEcKboY1asK0dWST1UFTE6zWAU8dPGkCaU5Svk58lUBhRj6QxHMg%3D%3D?width=250",
+			"total_usd_value": 1534.323486328125,
+			"avg_usd_value": 767.1617431640625,
+			"avg_apr": 59.99467849731445,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Geometry Runners by Rich Lord",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkGj5LWvu8qVM0zTVwzeLS6xy0F2pKXcm6t64v2Fd5Kk06gvjOMpLoxcE4SjeBW9znFy1EIYjrCtUFNJ%2B2dF6BxoW6n6jO8vyIi%2B5l7GvqI5pfmH%2FqpLsflTsP0fEZOb9sQ%3D%3D?width=250",
+			"total_usd_value": 1469.8607788085938,
+			"avg_usd_value": 367.46519470214844,
+			"avg_apr": 28.338982582092285,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "SuperRare 1\/1s: erin bee",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/hc%2BnPcLmWxs%2FDW99DlBQ42k40ZoyYV5jCIms5qHjwvvkSw8GhZ3DHSrUbtaZh4yYHjUKdjqRKWc6sbGLbETDZvXoak5iM%2FYy1BqFiV6ChFHVOQCOHoNwimhy1u533VwUUmh%2FLhscs9j0mJKDUT4u3n8dE558lDx7%2BvxJw9vEQLXWxcYiPiEZjMvpzmdUhuot?width=250",
+			"total_usd_value": 1446.9000244140625,
+			"avg_usd_value": 1446.9000244140625,
+			"avg_apr": 34.94000244140625,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "LOVE Tennis Art Project by Martin Grasser",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAD6GoMfdDq2Rth9lroXQkzD9OuStGNwmcfpw9B9HC7q2Pkay9b%2FCmw%2FpG0z5eybIYzi2Ew8ic8HBsL1V642lVE3EHPH1RGO09QS02I29IbhjhpEXZer8yu%2FhbpKlcyKl0EfC3IE6q7bLZ1NfGNtPOqXglCCsElly6u3eLNjB%2BqIJQfI%2FEmeG4wpiyt%2BgQAYCYw%3D%3D?width=250",
+			"total_usd_value": 1409.027099609375,
+			"avg_usd_value": 1409.027099609375,
+			"avg_apr": 34.49980163574219,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Murakami.Flowers Official",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuALWuJ3T98JQuxCo7xtuM4rD4AppzuyaTAUilMjSpSi2yImOhzfoweJp%2Blc0dzH2rcXM968DmEBgRmHv5zoLpJuor6%2FRM2rYnMRpk%2B3m2%2BndnJL85vxk%2BXvYMkhVkNdq%2FMuzdeFsOxDBIMEnxp2vHKU%2B8UTyOueonYxlgmVrKYVXsgJPjUzMEBsZDeiH1%2FB1MRxpQnJYr2sTTGueL%2BGCjkBC9ZbFpqUzwQpF7x66cVfw6Xrpaur0OPb6IJ%2FIG6nC0FWFvownZcXUP%2BatrD82AsCY%3D?width=250",
+			"total_usd_value": 1406.1335754394531,
+			"avg_usd_value": 351.5333938598633,
+			"avg_apr": 44.697649002075195,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Off Script by Emily Xie",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1Hi%2FI8ah1vSS1Gc24ujdmQbRFBOoBtd7ZxB3Pjl%2FeTkB87IE%2Fqa55%2BA0lp7sEvWwNFK7%2B0K162ec9i9GY6O%2F7OKhbU1eVH5MHsaGLSj70fWzbu%2BLiTW%2F%2FoGlh4INU3n0jPKjw%2FQONGSYGwdOJ6rQBJglJhrPHvPjNNGeD11L%2Fx4SA%3D%3D?width=250",
+			"total_usd_value": 1356.2301025390625,
+			"avg_usd_value": 1356.2301025390625,
+			"avg_apr": 18,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "a KID called BEAST",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/%2BF4uAprNqLw%2FUAbX2wIMCEIQxW%2BSHB4vYxZn%2B9OtGAPKBqgmZFoobToXz5TKujzhfqt48t3abgmNBBr1CpQt%2BiviUmalM4Ay41XaguFYThLgC1Dl%2F6t%2FQ3lEytAO62CDFYk6lQpYK80xrptSMw1y9219b6WjeVbJI%2F1jHNdHT2AhmqqVZpW87fdbxMiZ%2Bzlwf5%2FqSG8mpnRTaCOgOUNrKy2sQtN%2FTcjsEdA%2FGxCHP0Y%3D?width=250",
+			"total_usd_value": 1313.9779357910156,
+			"avg_usd_value": 262.79558715820315,
+			"avg_apr": 66.13800048828125,
+			"loan_count": 5
+		},
+		{
+			"nftProjectName": "NimBuds by Bryan Brinkman",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkMmeyYos2GwJQlWDKB5Vs34Liaub602Fi2M%2F9LC4nQbn27By0v7pKYcgQSsHtD34zeHbaiuLDCR2%2BzX1Fk0hx6LHBiyDho%2BXGg7aO9M%2FEazdZzujGCyIDOR04LKEFQCf2g%3D%3D?width=250",
+			"total_usd_value": 1311.096435546875,
+			"avg_usd_value": 1311.096435546875,
+			"avg_apr": 2.0201518535614014,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Singularity by Hideki Tsukamoto",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkAB6Qet0WTjuW7bVrzv0o7SQ5RGI%2F6pTLgIjE88PQhnNnHVuKDZp%2FcbXu7iklCnsEDvcGbFvCRdLVB1e4%2FoYPOmIsncTclZcBHTMD95w0EBz9%2Fk7jn%2Bea6UiP1U7qTtwsQ%3D%3D?width=250",
+			"total_usd_value": 1287.65576171875,
+			"avg_usd_value": 643.827880859375,
+			"avg_apr": 14.994999885559082,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "podGANs by Pindar Van Arman",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANzNDvMH%2F6bsZ%2F7Tq%2B%2B4LKV4ZYoIVfmXAxz9rZy0gL9DxgOvO%2FZWtige8%2FIuNAPo4O%2BNfQNjTIHmspbyeGnYDmSxHL%2BCasdcZMTZ9CN6zCUK9OOO0rbt6NI9piMs0%2BuOPspbh9TZ342lcAhXauwjSMn6Xsy7NMgBzfVUrVifcB1ifwJ74NSkzOimVxl91L%2FNaG49%2B7%2BZKQP3bwZl4zty%2F94pnZ2tipw35KrdVsUGAMNHWJ9CSweR1oMlwth9B1HEoq5aN5gmr7pJ9ZAFHF33sX0%3D?width=250",
+			"total_usd_value": 1271.1458740234375,
+			"avg_usd_value": 1271.1458740234375,
+			"avg_apr": 17.99992561340332,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Phototaxis by Casey REAS",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGYqBHxwEXfm0b7l0sfnP%2B8mamiJVYTyWelY5%2FWoKVusU7LC9XsQJwBeS3guOqSAAFrvzBRXNhH7KCqoxTEZfJjXjdv0ELO3rdnSy3kzH4ylCg7iTYt0DQnf%2FQWhzAZpwrz67ayssko%2BO2poCT4LkbXvdC%2FhsydYpGbrw47V8oJK%2B7gfBhiudeKwgkAu4abiWtF7Asw2LBe3%2B%2Ftq1lsyG5BTeYTKdPq3e1mlX2ilFiiDs5bY3lRqrnBX9yLm2DFBlSh3OlWbFrmljyjheaAVyQo%3D?width=250",
+			"total_usd_value": 1192.0528411865234,
+			"avg_usd_value": 149.00660514831543,
+			"avg_apr": 36.31330406665802,
+			"loan_count": 8
+		},
+		{
+			"nftProjectName": "Moonbirds",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuACY1kzxGDE5QeUXEVsTiFcO8aU%2BfUkRvJdITp%2Bb2DU1yVraPTGb9two4Bi4Wp4Zus8ai1KHmLrO5ltzqpTHAWF8%2FA5TGt3%2FwZ%2BWcAK6jTVkvCnhdBNWoyfiJHyvAsY%2FM84ZRBVUcB1%2BizrFoWMBnUAfjkfLI2MbK5XvOQS8k98O93lFkhUTphdO3ntLjWiRt4g%3D%3D?width=250",
+			"total_usd_value": 1149.1349792480469,
+			"avg_usd_value": 574.5674896240234,
+			"avg_apr": 35.75045394897461,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Mad Dog Jones",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAF2IlSTo9xPmvEpbTSz3qTpGgFFo%2FUo%2F4p9MJqzt92uB1nonLdmzkB55Vxlpq%2FiZF00sEphGMS8zS8hGSjN7vnXDtB2A5q3tXZDQN8GApWp%2FWhS6NAsTeGVacA7rrbw5%2Fsc5EG%2Ffb0sL01UDayobAOOpZplAynwC3Vu%2FzPp0yfiO6VVwVA%2BEH1ZHVV%2FENJZltzAuECUBmfvjpMFscmZZ0K5IvKyV9FvYcDAAuC1nFh4EKpIDlIN8ZqjWfIRmz1pq7Q%3D%3D?width=250",
+			"total_usd_value": 1115.3667907714844,
+			"avg_usd_value": 557.6833953857422,
+			"avg_apr": 19.458081245422363,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "goblintown.wtf",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGd6UI3HBsOSeAKKFSFlydn6k%2Bt3CygngE9OraCtS4q0zbuqQWw2RSI3dfJzQiPyjy2BhWb9X2qey2SnkG0yl%2FDanJZjedXsJEIcjQ8yQStJVHq0y6pXyj%2Bt9FRvmjh1Q5c7K9qYlxBhmNhGWnoyvvnkJAGDK3ejUS7nMRMBJGyXyMMciRKiOLAqDpTQjST1aJw90uUeOFt%2FTTvADR3ucQxS%2B%2F%2FjJaqSMvhaB32oyphHIG9evoiSItsXt30BcI2H0aFvfNPOCba4n%2FMq4hJkHQI%3D?width=250",
+			"total_usd_value": 1092.9858093261719,
+			"avg_usd_value": 273.24645233154297,
+			"avg_apr": 20.748374462127686,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Checks - VV Edition",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuACMu%2F4J%2B0r%2FnHg4ywZV4Q2bTOd8l2cxfP%2FyTB6IQBCvJdW%2Fnph%2FDqgu3PTZn2B%2FpyGLMc9eqD8JUY7ObO%2BHP4YlyJws6kBO4OrbUPrCia%2BE82V3ysMhuPl0VxtRR2re22qKlKzSwhDi%2BoKl5En3oYyK8JvqRcJzqqUYeps6GNUBfrqVE4qFDHxClfNOcGEefNQ%3D%3D?width=250",
+			"total_usd_value": 1091.1064453125,
+			"avg_usd_value": 1091.1064453125,
+			"avg_apr": 9.749585151672363,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "DeGods",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/iP3aWzfOlBvWQx7ZVDDwFZajkAUc5SWvTVabagJ1zmtYHaimdPBbMIN76TSwuBRk%2BlNnKdUv%2Fswa2hEiu9zibNMlrXgNaG2nzf7QUcBFT5CcBL2Hl3RCHpPw%2FQl6%2FGf5ZNUNl4sgZ%2Fis2TAt8I9o0Do4s2Ow9izzUtgPNnLglxou0o9UpyNtvd0DD85%2FN5CHXHzDEMzI1yJq0n6jU7mgdQ%3D%3D?width=250",
+			"total_usd_value": 1030.088134765625,
+			"avg_usd_value": 1030.088134765625,
+			"avg_apr": 40,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Petro National by John Gerrard",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1ED9G9v6RCwXkf708%2FX7Ax2J4Zb%2Fiaj%2BHkUF9WVejzu6cH5CyzF8whvAdzHL9k0LMcN28lZxuYWhxgj5EtdlKM78HVHEDfzou%2BxbK01HSKny53Snb94EDAAsSOkI2UtL1n0JS23AYmOB60sQsK793qBwbthC4MD%2B3mXlm6Wag%2F%2BOA%3D%3D?width=250",
+			"total_usd_value": 1015.274169921875,
+			"avg_usd_value": 1015.274169921875,
+			"avg_apr": 11.80009651184082,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Terraforms by math castle",
+			"nftProjectImageUri": "",
+			"total_usd_value": 1014.1506958007812,
+			"avg_usd_value": 507.0753479003906,
+			"avg_apr": 5,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "CHRONOPHOTOGRAPH by 0xDEAFBEEF",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAMBEQ06r7Ho6rLclFpnDePPSFxGIs9bhvkHySJxMtuW%2FLlgpoKdGjxVOh34wpPHvmO3db9sNyjSR4onYE4tLwMcfmCa%2F%2BYdAXJuIbTHMueQWRJ%2BDCgQcneUUTfuIu4QDRFgQOtY%2BgsHWlTEMHeVqG3rd2JmV3YWpLHRgO%2BWd7GOINDyCfdjv9Zl%2Brc9PHl0CHQ%3D%3D?width=250",
+			"total_usd_value": 1010.8372802734375,
+			"avg_usd_value": 1010.8372802734375,
+			"avg_apr": 17.979999542236328,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Vortex by Jen Stark",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPrCh5qDXU3xjC%2FGj1%2BSlis07Lxan42%2Fzhs9U%2B3X2IMFpVXorciqo4YPJ2pEKMHynLdoNHEBXsLSVn0k8uENyuYutU1tnENRq3e4HX0cb8AuGyQvPjWegPvLbq1%2FUGj0g6NxwhVo5Ubk8zI%2BbatTfFNRXqOlKQoJGazoYmzf2JfyewVVvXomie%2BvyL8Fjco4JCHMSQT2qm08ho4fsTGohXsf32rjvKskSR25pxqoL7NEhkg%2BgtKHsPEn%2BsT3OP1IoAT8RrToa3QDDFPQUsIEFH8%3D?width=250",
+			"total_usd_value": 988.4109039306641,
+			"avg_usd_value": 329.4703013102214,
+			"avg_apr": 38.668281157811485,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Kanpai Pandas",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAM3eNK3xiXW8HXZD5%2FX0yUrcFPuKOsEMLuMN4bZ%2FJuwZqNvbXNy18l%2Bik11riNVAoNDtt2GK7eeFfHrxOLkezOUNgArlxfmkjulws4eiYJ3Sc%2BDE0a04osrkqlJcQQfzaHOnZFVYtPjKP2hKXE6iP3f9dab%2B2%2B3ztA1MPDJmIxfJHrMHHew43cz7J%2FQ5gSht5w%3D%3D?width=250",
+			"total_usd_value": 985.7144165039062,
+			"avg_usd_value": 985.7144165039062,
+			"avg_apr": 62.05000305175781,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Josie",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuADEFYtnTtfQyulpPpeUmBVAcNMcE9XikJPT480aE5eMYWwu1upNtvaLMPu7KXKZLTnCi7oe5WB9Y2dvHt2NWp6rnxdounMzYEnR97qT5AQZVTSajJihOUkor129MuKMoXLq8Q7ip69FSrgn73s4B6lL0tKVhOPHnRzHuzRnGealGgHLLWa7q1YhXtFu7MUwUVIMkkyZsCpp5MKfbgMAHk0qhx21TtR1MXvWiOd0OuVJbmNjAGDacdAVd5GZd1xrb4A%3D%3D?width=250",
+			"total_usd_value": 978.2815551757812,
+			"avg_usd_value": 978.2815551757812,
+			"avg_apr": 71.9992904663086,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "The Sandbox LANDs",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPNqvv8jU7Gmq5f%2FA0zxEYaUMhJvHC4Uy4AY5FVLd5FqFtbzsY%2BY80KddVJ58jKwDUKB6lsXZgHkd27pRm3OOSn0TvnmwsF8TVZsMcw6v4ve27O7iJv2uSpdqAgCOHdcTClEp%2Fm19CsMBwJwXZzltRhOWqnV5d3fiEWuf8pTFZlMLmndM0fQ3vHdB%2FVCU8o9x1DkozQdA4Q9e7jvjQt4LE2LTU4%2F%2FrhzMLY%2BPog72R7f%2FZ7635dDYZwfcah%2BU%2B9enQ%3D%3D?width=250",
+			"total_usd_value": 954.9529876708984,
+			"avg_usd_value": 190.9905975341797,
+			"avg_apr": 30.44662570953369,
+			"loan_count": 5
+		},
+		{
+			"nftProjectName": "Rumble Kong League",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEaPekw4eyhAp5W%2FhuiJBJ%2B9Q2g6poyc5yyJQCx%2BvvRD2Vc9Zh9XMbqZPbZQONClbLsxRHFt3EW8qr2sOPrhLc69rfKDDfp0T8XS6Al5Yo%2BqdwTqEZIN7%2BaFCgP9ZCVMiXaPQy4ly8mBlZryUZwqDqL9mUgKh4IVThTwxqD8fm2Z0Rx25sxZgE%2FoxY3Ri9H90A%3D%3D?width=250",
+			"total_usd_value": 886.2081909179688,
+			"avg_usd_value": 886.2081909179688,
+			"avg_apr": 40,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "CyberBrokers",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuABQX%2Fy6jpujniFAZxCN8GEKp9dYE2AHaMMKHvX1zsuDfre7hWf%2F7RVPja5lTfsHVpVHoqWhscDO1G55oPLcWq95Fh7F7IJy%2BuwzI3imN9ND8Tm4rC2YDBGgn6ZF8MpZPfdjQjvwzPlUr97Pc%2BBKerT6wu163M9%2BylyWngjL%2Bog%2FthOZJ%2BXqRi8d5LrF3j%2BuyOsjcCsoKoAHaMFXbgeAthuUWBymKSMxxQ7f%2FBTzmO5A1OI%2FUB48OzdkvhpZYknTSscTDI647Doq%2FAx3bPKPio%2BI%3D?width=250",
+			"total_usd_value": 842.8378448486328,
+			"avg_usd_value": 280.9459482828776,
+			"avg_apr": 25.437795639038086,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Life In Japan Editions by Grant Yun",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAFfGWXtoI0NeFQes0AYuGc3YKyYUPwt3w6JpO7yOsTF8V8G3rhndznJQEugHFFquXTbFscgaJ1sSaFSib%2FsT2kezhkanwl5gvqfX1sLTpna0Xj5nbCctV%2BUHXgtOMZq%2BkTzOc0J8YIAwvWWaCr8BCd7CwNARZqc8rGXcFosqaqr4ka6D4WkGug8B9duh9Om5%2FfZTtK8ln96Iufm8pY%2Fof5eyJtcEwtVyTqXSN1TPU%2Fii9cB4GzHo0SUy8TQf%2FZcWg4Dul8CGQX1m34VnPePe0PI%3D?width=250",
+			"total_usd_value": 809.5789794921875,
+			"avg_usd_value": 809.5789794921875,
+			"avg_apr": 24.279998779296875,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Fontana by Harvey Rayner | patterndotco",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkD5PhMZaC1frB6cdk088SYh0LD7Hy3sAZT02xJOpWoEk2VpJxxwXHvSbxllc20J0mn6NAmw3I1cmHU3M%2BH6Dz2nxdZ6X0pUIVe8oQfC7mzpdOJtSkAV9k1XTFmuOPzDZKg%3D%3D?width=250",
+			"total_usd_value": 757.1342468261719,
+			"avg_usd_value": 378.56712341308594,
+			"avg_apr": 17.5,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Unigrids by Zeblocks",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkEa5K8sruoE0Yovpgw%2FJRcvBJ6tdC2ZkuvtPAo7b4xm54Cy3psqoPnWO3UW2KFLzsX1cFXpB2ZS7GPuwRVP6SzTVPPCvWBEnWEC8aTwWTqnn4CJnhE9F2WZTET31GPFe3Q%3D%3D?width=250",
+			"total_usd_value": 712.2902221679688,
+			"avg_usd_value": 712.2902221679688,
+			"avg_apr": 20.229999542236328,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "FOLIO by Matt DesLauriers",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1Hi%2FI8ah1vSS1Gc24ujdmQbRFBOoBtd7ZxB3Pjl%2FeTkB3tvsnqKgim9B9yHE1mUUpdQS2TumGoVI91mYaSVlvfwYR%2BAYGcdSM4ZQL3wOHn6pISyNLoKhXRYzXj8nXblkOAlwf3dESR3CM1u%2BoFK9AHX1fwPw8UZWCXZCZI5rhKHPg%3D%3D?width=250",
+			"total_usd_value": 658.8777465820312,
+			"avg_usd_value": 658.8777465820312,
+			"avg_apr": 22.65999984741211,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Bored Ape Kennel Club",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANTsUpYsKl0vF26MURe3GYX6rxKkMKpOi6KpGLsca8FkUWScOso1iSieBtuNbAr1eI3dlZph%2BtyBT8o5UGEnq8vAjldLicFSyk%2BsPn2XCznlkwPZGhXAAoQX8Nj4oKRQTAThKqSbUlqw1z6LQ2EOq9OzFUye2Zt3g1%2BK3jLDUSYumsZieiaBihUMqBQrPWc8yA%3D%3D?width=250",
+			"total_usd_value": 657.901611328125,
+			"avg_usd_value": 657.901611328125,
+			"avg_apr": 43.79999923706055,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Nina's Super Cool World",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAAO7WfCrSAqFX0WznWYIvfAXQpI45Ca4kbhmShDcwogSYmQyW3Rjyktvusl462N6306U%2FHg2A%2BWZKzstv3rQGc5F7C9Yr0MwY3v7AkEJZpCoWfL8TsnDoX5eSwEXVRkYbCTK9WKcRHjH%2B1OtDG6HDs7MqQs212ydCg1Vu43CubE1QC1Iz2E6TnjyIKdmFJTnUQ%3D%3D?width=250",
+			"total_usd_value": 633.4617538452148,
+			"avg_usd_value": 105.57695897420247,
+			"avg_apr": 32.34016998608907,
+			"loan_count": 6
+		},
+		{
+			"nftProjectName": "sail-o-bots by sturec",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAHGIpa6OxgAf5FFeCa22fJ%2F4%2FiANj6u%2Bi5zMP4LNS0EhCKu%2FBrpieCSlr362e0V%2BP2d0FYlpbUonguF%2B44xedQl61%2BMte4dbIJWAuRK1tr19OvzmpNYkDVzK6zedvnWbCYLR2CD%2FTmq5xCdyYIkP0thmbaMto8AVNykOaVqJ34xxMM64cnBdSeyp5HeJK8JX66OEsjKp39AZ4jShFNYNd9FjpqegPstEvrrTFdpgzFWVbquch05mc%2BRCSJT6%2FfMaSkANiYnqOjpZXkJXlEkSby8%3D?width=250",
+			"total_usd_value": 610.4783935546875,
+			"avg_usd_value": 610.4783935546875,
+			"avg_apr": 70.00213623046875,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "CryptoSkulls",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAChq%2BkY4qox3mOar0Y8wPJoQVoQ11WuM5Osf8umV%2BokRdyMNb%2Bkol0ACCfmSprBS1Si9nrdlEy1zLeCuFQXR2QES%2BkiliSmk9VU%2BxCWvqn%2BeqlwUv9%2B0FZBKcfOIa%2BNJZnHvNeLwoOHUyIbicK9rrEYNUd4PhYDWSd%2Fid%2FK9NYkY6KfCdEjj8WN4zcSk5GY8hA%3D%3D?width=250",
+			"total_usd_value": 599.0445556640625,
+			"avg_usd_value": 149.76113891601562,
+			"avg_apr": 16.40268838405609,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "nameless dread by diewiththemostlikes",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAI37ZMpGmBWtUpAQDl1tI6ChybXjQ7DcVRrsx6Ozqm%2FhKWQXMtVecm%2B5Fl%2BIwy3qr2Y%2B0PliueVlo4khFonKElq6vyP3WTXCPOf8gNoN2jVQSJTxHsxGAIcgPk8lcAnSm4odENFbXIJC9w%2Bhz9YgWpBHT6qvHNCB79wtu31IxNfR0B01kbyMnpy5FpZbXLpOvw%3D%3D?width=250",
+			"total_usd_value": 516.9515380859375,
+			"avg_usd_value": 516.9515380859375,
+			"avg_apr": 60.00113296508789,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Polychrome Music by Rafaël Rozendaal & Danny Wolfers (Legowelt)",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkMSQgdLRcZj9wj9ArCLpTZgCT2U1RcvIs2%2F8aFfRLUCTLLpVpWlzKN1BgqqRxDrUJT3Y1DuRkTTXIlSNqmLKvq2oteXp75DnCcMOSLbG7S2lpXX0AxT31haoqTLLVGX2Tg%3D%3D?width=250",
+			"total_usd_value": 515.7312622070312,
+			"avg_usd_value": 257.8656311035156,
+			"avg_apr": 16.732619285583496,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Apostles: Genesis",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAEdCb%2Bxp5ka6hwYIFQW0bt1JMCVQtqDwattJzYzFglGF2KQbDMRxr6yewRUWm3N58nJLqlPvS8WLTmteTchiYmb4fJKhtpKKiPuQblsLRG7zZFjp1n6B%2B67mvQgwlDCYeOrKlCrAzqXX3rDFCFZohgpmGoCUv5x62mWm6U5bgNDpVbFbXNFq2wWKhbvnjBpx934tOAy4B1o3zqacP8CSkK9JZDH1%2FVWWLf5leYLlVDlVOD8j8ZwAREdT9JIslqYgTnMnzJrKVUwdqkQlHjYUvgU%3D?width=250",
+			"total_usd_value": 505.5960693359375,
+			"avg_usd_value": 505.5960693359375,
+			"avg_apr": 77.00039672851562,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "corpo | real by Claire Silver",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKM5v2dthdDNgoFYsopVhfU5dk462VzLpXQ2dmu7G9J8h3F0C4dTkaGMLf7saPn31H4XcuHzTMS5pWN3aPzNdky%2FtQY3AXZPvGMtAbZnAU4zibcpl4avilKSAqdb7gPKJKTSQuw532MrBl2HobjKYDpunIqOUv8XS%2Fst2Hw7PGU1r6IiMK3PLV5u6LfYafG1vg%3D%3D?width=250",
+			"total_usd_value": 470.8246765136719,
+			"avg_usd_value": 470.8246765136719,
+			"avg_apr": 65.0047607421875,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Valhalla",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAMRSaTwhlm01AoNLR7bHyb8KtZNAWgfHPPCbnKynLBhIrQ8BwvJCij%2BQkXrgn7fK5kMtaWsV%2FmMa4woAn4iQwDWGrksWoWMBkS2r%2B2mbgsoQo%2FwU6mo4uDjo1z5oTSPdyzy%2FcHT2XxAxqp%2BmVaa0GsM6bEQiHXzDCqYvT87T%2BejGKWOtVvViQd8zCPir%2BTz3%2FA%3D%3D?width=250",
+			"total_usd_value": 467.19525146484375,
+			"avg_usd_value": 155.73175048828125,
+			"avg_apr": 42.00054931640625,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Skulptuur by Piter Pasma",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAH12afl7F8W7IcHxIkFJK5QIZIPyOctc%2FploiMkt6oHExfjg7E096U%2Buo3QSaG4INjIyQQHTMOCbQbdzfVTeV%2FjDYuARpe5W%2FJqFj0%2B4lbFt0rU%2BYl%2B8ZHy1go5D8ec0pemDw8Wf7%2FZIUjMjKZpxapimCncmbYWBRr7Z9QiakWDg4SCEAb2mYAX29yx0a%2BclPSgKaJ8gpsfEYbmdKGQks6ze9w%2BID8LoyWb3jwvioXDDo6Cs%2Fl35W%2BD0n7tORwtyA0oXIUsTkKM3FZEVrfoBXgw%3D?width=250",
+			"total_usd_value": 466.3970947265625,
+			"avg_usd_value": 466.3970947265625,
+			"avg_apr": 8.999669075012207,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "World of Women",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuABGktlH0goPLIQ4NS1dVFwzh8jC%2BKF%2B7VFG%2FmpusinUsh0Ngep6XQsR%2FmtDu3k1MhVhPYcZ8pgTZmq6en%2BiVdb%2FkTvyMX3n744HwzH6CA%2Fes37YCKJd1u34E0FJJlAtMbhEHsjj3cAYuburgLnUJDVkbzHVAs9KOyxdm%2FD0KLWFTZN%2BJtv3bi5xm8Hu3tYc4xg%3D%3D?width=250",
+			"total_usd_value": 448.9981689453125,
+			"avg_usd_value": 448.9981689453125,
+			"avg_apr": 29.33333396911621,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Colorspace by Tabor Robak",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAK6pMt0QmPSNpRHWhpjizgy9JJ43kyQ1NLvImicik%2Fv3VMGNKZIsvUqmsRsDM5%2FGbp6pF5JOlIthoiQzRLCxh7%2BZ9m%2FY3LUBSO3gwwNmh46fvjWpfpt2MCZTCIFqRfw5jbHNtcP2OxMUjjTKLINeQR%2BZkCXEFcbYtjkAxNt8MZ7qYBoxCC%2FWCPUQ01oCcxSo2V6eyHfiQToBHGYmf9PPzNt2KMu6nnzUVPpBszPnKHuGsdUsjkDnwdGFC9YRBrQrwpv42s36MIBywL25YyfrVH8%3D?width=250",
+			"total_usd_value": 418.3833312988281,
+			"avg_usd_value": 418.3833312988281,
+			"avg_apr": 12.500080108642578,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Glass by Eric De Giuli",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAP9otCJqD4TKQrXaL2NTZkZTVaZRDvEe4Lk%2Bm5RS8wAB6bVDLdc6QPbwhY%2BPk5wWzLeZAALQ98rU%2FCMgJ5ztXNk4gg1%2FHpeyxsGHiqvXPr0O?width=250",
+			"total_usd_value": 397.0976982116699,
+			"avg_usd_value": 99.27442455291748,
+			"avg_apr": 30.16169285774231,
+			"loan_count": 4
+		},
+		{
+			"nftProjectName": "Admit One",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/NyqHXaXLVWt2tcd8gefKXip9HXW6ILek9xa7ypOmGBGnnj%2FfaWtGp%2FgaOdbbKfMROp5chb6TT04CF0rRLiU%2FvrjSJ0%2FngnFpV6Ox0WXkSaq86VN3YCzbbIX7IgpfTh4aAEaDXM2D45%2F6Cd5NLo0KGg%3D%3D?width=250",
+			"total_usd_value": 396.0158996582031,
+			"avg_usd_value": 396.0158996582031,
+			"avg_apr": 50.00019836425781,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Signature by Jack Butcher",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvMO7kjukxbtDRkYBbw7ptbI%2BLZrJ6qTIkyKwBHTw7tPE4DoyXODn2itZPWnA9n1LgUAn3M8CrY8aX0rMZ35n%2BBSeoIhLW21VhdM3i4bFte3%2B74IE%2FF8dGHZMYHVunzjWIqLG%2FqY67blYcQeLWsUSbvmUUc0K22Gg3WS5LEUsxFA%3D%3D?width=250",
+			"total_usd_value": 395.6095886230469,
+			"avg_usd_value": 395.6095886230469,
+			"avg_apr": 15.000000953674316,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Good, Computer by Dean Blacc",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1EHCzFwfyjoY3K%2FOBVIyKg1J7XvI8QJbN%2F8%2BT9WbW4oxK%2B6vUhoObC93xXud7g%2FCL5%2Fo60rh4MUvrmS5FXKZ2sFwdoU6S4ffUFb4YeAngEvPwELdqTner2wdqn%2FbBNrlyloyua6Mf59uAH089tHSvT%2FJKvh0zGLTQMjzsfi%2Bea5qA%3D%3D?width=250",
+			"total_usd_value": 359.0081787109375,
+			"avg_usd_value": 179.50408935546875,
+			"avg_apr": 72.4948959350586,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "glitch crystal monsters by Alida Sun",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuALSf9X4U0UejC1Tanv9wXUO5HGDErGmrn15sALbTIFQhSVxv5lA5zA2pLwsF9xliLXaT1dpDeDmtJ9HCOniL7q1MTP%2FDL3gFFxNOIjHpCc%2FgQbykriaU8SyTSeUfm03OGPK9LjQKd6d9MSpGS8Miv%2Fw8zwar2td%2FohMYVOtPnbVu5ZxSpCE61r9EnXkEm%2FKJjUcKHGf9TTFbbmYZ%2BkXddnhlDN4R2yv5a9yVw3JX6Xeu%2FM%2BHma6hJbKD3tDL3izFWhNI%2FTTM%2FTPTFHIg3uyjphc%3D?width=250",
+			"total_usd_value": 354.5351257324219,
+			"avg_usd_value": 118.17837524414062,
+			"avg_apr": 22.998322168986004,
+			"loan_count": 3
+		},
+		{
+			"nftProjectName": "Photon's Dream by Harvey Rayner | patterndotco",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuADhUrGOBSLufTyzGgO0oNcDmOT7EXTGiHrf9cFgBt2%2FiX3%2BI%2FjaYmoc6GaDc3h8ltVDvFUmBuxllpeHl4pzulDyK0Rfkh4S3ORA6mWfANipT?width=250",
+			"total_usd_value": 319.72601318359375,
+			"avg_usd_value": 319.72601318359375,
+			"avg_apr": 40,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Sudfah by Melissa Wiederrecht",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAHhKreNJe00wuWvhZLgC7e3oCqXy1mrtCYvol5UtWaKbbV8GSoPWUzMlF0RGNeOrh78lHpwhYslGcGm1YtZWXmDYoRcfeIndkPQ7H1scn5zbSstJrI8sdaAwXDvTNxYAb6sqYv7QSlU%2FQDhPaFWKK57f3xzCsnbmw%2BLHi0mOOS%2B0Zw1m0B%2FicAWJpQHBfkyiOQ%3D%3D?width=250",
+			"total_usd_value": 317.2602844238281,
+			"avg_usd_value": 317.2602844238281,
+			"avg_apr": 35,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Primitives by Aranda\\Lasch",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAJ0l6CbuvBoGaWJX8elplb3cW%2BSprBLHTdTNwKLGRwclxPD38z3P7pxRuf%2FVwsdhzshiRxaYothWTNwhlCJsPixz0FBYaT6VdFGrO0mbXjMEO4LFdqxkvG5zX%2FoACFQ6kIKofxCY6DmHmsvr0V2CT7uMUc1lZvOjED1EzJ%2Fuowb995aLzVJNPAD8Yo0D0Acj54pfDevK8eRSZ%2BwYI57ANaEeEVFm5HYUnVESh0i6Da5VIj6EKqtTMGh4gj4QsEs7xQ1%2BOcPDBBBvM2gRQo%2B8l18%3D?width=250",
+			"total_usd_value": 317.2602844238281,
+			"avg_usd_value": 317.2602844238281,
+			"avg_apr": 35,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "My Pet Hooligan",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPvJtRx68Cu6NBB7kamJMyXKevirQqvGkKel0NXmlIpOapRUaGQa5atAuwOgI5pcQ0CKJ28rlPy8JWEMNiyf6Zp9q9vd7j1ubkGOZyO5scZ%2B9jW0YhMB6GVp0sh3rIL%2F3mK7Tw8LlAv7tCcSSZFqco53ZcABzujGbpA4WkIqS5U8P2gF0HjNuZiIfaS%2FTkQFfvW9EBXBtypsIRJjLBY6F40PTmX7wEpiEPxF0InXurh24A19lZwvCqtPhttv%2F9BYLXwE4hUJ8pe9BsfqXwfvl0w%3D?width=250",
+			"total_usd_value": 268.0539855957031,
+			"avg_usd_value": 268.0539855957031,
+			"avg_apr": 39,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "PixelChain",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAMEAuEY%2BOnKJt8bU3gYLaeZWxayaguORVkB4LuGGpV5usycK6s4Yr8YScBbGd%2BkdSlVeFbqzkXjTCZBDTwVqxJ4kNMZyK0z886FeafIWSOn61V3PTafnAjUGSXgg3F7lcLsX2GLrOYVQEp7cHfxnGQe2ChHqQPHP%2BHiajs7fuzseJOBTfB50E22vN%2Fcx01GbVk42tSom5xOU1BjNxTEVv%2BN9fZJJy64Cuf390oN4zPP04BYAtbrNPZdfJ4hyTXXj9A%3D%3D?width=250",
+			"total_usd_value": 244.17921447753906,
+			"avg_usd_value": 122.08960723876953,
+			"avg_apr": 49.99688720703125,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "Dreams by Joshua Bagley",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuANaJtxpDdo%2FR9p3Iq6zIXw%2FWR941lxp1dnlKrXVyQo4lIGGfnz%2B9HuQ4hi8zA8OIs4ao9bWIFIIZezZmyE0Krmq9IUa0qd%2F3p6i5EUGvSLWQJws9GscJs2bpwUBGSZRAH7maTakvIfT%2BZzKNUr6v0%2BJqa5PyBCQE9mYVsxKsp883YfL7uLneYrspx4D9QAbECoYs7UDm9r%2Bp7Qthn0p9Vf1MMVUHbId99E7BMfkuAtCEXfsNchOHX2m02%2Bz%2BClfZ8QSd1W4fQS7VLXshDc6F1xk%3D?width=250",
+			"total_usd_value": 225.46067810058594,
+			"avg_usd_value": 225.46067810058594,
+			"avg_apr": 13.601617813110352,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "FVCK_CRYSTAL\/\/",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAPxRBl8XDh%2BcQDvED2reVPZSk%2ByYL6k5kCIpHeCk%2BdA4X%2BdQqeuopSvjhwKToYlBPE4Yope27ONEWWf7K3S%2BYf69k1c3PG6BSql3mKomJYTuGhIt%2Bsny5ubSBHcKeCUcy1fH7VXxu4rXdfDPiyaxkS4uiKGtieBr%2FmAVxDfn5VYYfAvSdpUYVNjT%2B89sagyNpdvllFmVRDkJfAQJtc0s5AK2SvdzIswmqC6Fno1M0tNz%2FitRzQhMHGfHd9u%2FmqbAqKXBXOyuNKjD6w9YTbGaa%2Fk%3D?width=250",
+			"total_usd_value": 190.50189971923828,
+			"avg_usd_value": 95.25094985961914,
+			"avg_apr": 16.14396858215332,
+			"loan_count": 2
+		},
+		{
+			"nftProjectName": "goblintown",
+			"nftProjectImageUri": "",
+			"total_usd_value": 186.3361053466797,
+			"avg_usd_value": 186.3361053466797,
+			"avg_apr": 64.99354553222656,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Cytographia by Golan Levin",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/tr8ilqdUg6KYpSWhuBj6WP2GBSmO7ZFe%2BIyC90gQhaBfwR7qfaUL9YPvImFiaGsXa1LpofdD3mlhdlUtcQ7gtojUjcUA6j19qEa4VS9VwT4W2C%2BMNhoTTe7Rnqn6ElIcBoBmjiFeB2%2BL2PQAO2%2FPZQ%3D%3D?width=250",
+			"total_usd_value": 183.34091186523438,
+			"avg_usd_value": 183.34091186523438,
+			"avg_apr": 12.166666984558105,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Gutter Pigeons",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKH9l%2FUmpFN7WS79PaA7WNENHD1%2FZ3bmITNmPZx3%2FTalVJ5ND%2Fn%2B6GoP8f2rLuiQ4wrJZKOm5AZ1KP%2B43xcDFS5eocUXvqgfi66epEr6SFhfs9y0YpAM2bvPtgHUkHeItqIdNrzB%2Bqaf%2Bwh5nucz2mawxEKgNGDj4Q6oL0N7p9IXb9E6h68Xj0s5VyavUZt1kZYsjo%2Bu0eUFM7IbcLO5CPvWhx%2B6nI5TxNDIplEBEq4LRRtuitncWISf3sYgv%2FFYNkhzsDu38KZEMYJ0QVT%2FHFA%3D?width=250",
+			"total_usd_value": 181.29270935058594,
+			"avg_usd_value": 181.29270935058594,
+			"avg_apr": 3.0001373291015625,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "y00ts (Fuzzy DeGods)",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAGWMlxciEQCESPKStAj21DqgM0ThfVprM6D69nPHEbH7xvuCMqL9dSWIVyFkRWHN51fzcj1Thja2qTtL6r%2FiIdB4biPPwk6Ou2FGjg6VzfjiSwjc813g8lC0LGLuHSSEbJzYOJ8ufeBh5i%2BV3BFeGf9kOlQcfDVaVi0YVm%2FITIm5vmNrq7M0owaf5khXuR832g%3D%3D?width=250",
+			"total_usd_value": 167.3330078125,
+			"avg_usd_value": 167.3330078125,
+			"avg_apr": 66.79499816894531,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Neural Sediments by Eko33",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1EHCzFwfyjoY3K%2FOBVIyKg1J7XvI8QJbN%2F8%2BT9WbW4oxLo%2F2mpllta8aZY4CflTina8PTIbjl0qijg%2BpSWQ%2BzasHZBBEWIMvX1J7BomfFFyURBKhoYoplGoQLbiKKDQtOwAf0%2FjusN4MvTGiKX9SQe6SdsaTVdWGsgXabKcEkM16A%3D%3D?width=250",
+			"total_usd_value": 148.72560119628906,
+			"avg_usd_value": 148.72560119628906,
+			"avg_apr": 19.33287811279297,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Apparitions by Aaron Penne",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkDl9jGrcxuTscSethnmNG7%2B72THh%2Bd9ZvajNTNDJXt0h3%2FAA2lHkoKN9fqSiM2%2FlRoPZ8VZnkPw4JpS9B9xwo9EIuII6OlNvTsxPWxP70uERFEzxdYp5%2FCuc7nCcH0JWIg%3D%3D?width=250",
+			"total_usd_value": 148.189453125,
+			"avg_usd_value": 148.189453125,
+			"avg_apr": 69.99309539794922,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Trossets by Anna Carreras",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAI8ipNM7MJ1GQZfU57rB7lKlBgv3CtN8ZW%2B1OqJM4gw5aa%2BToPtMTQWwPF20Yle2pMcrikmp3LQtHqntlnqlPrzTT4loUR0p9aTPJjJ7YhX%2BWZ1CAuHwc5UsaJfePikxGupkvrD2JGyv%2FAtU0TXHr9JxJadDNcJfxlmYwxJOLQ1z690iy4jECceuBt5fgTq2%2Bg%3D%3D?width=250",
+			"total_usd_value": 145.6338348388672,
+			"avg_usd_value": 145.6338348388672,
+			"avg_apr": 24.995874404907227,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Paper Armada by Kjetil Golid",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAC1kUzULrC2kJ%2BnjGW2Tm74ljrxUqLDJrLYEIxV%2FPR0bpydOe1MpFwereVplMqZIiPmEp9SOxv7xMwlU2UIELdSNdsbLAbi72whwQd1UwHWZXuqe2A0mbyvSrdc2UdO%2BG4sn9r5j9N2lb8Rg6nVVmgBL%2BdFXLxxfdsiLqVgD%2FkA%2BTTjBh6aWkMo7UTXh8zJD0KBPohpwrCHBfqKR8MBlTzdvluhse%2B3D3gq3S896%2FSuCNKxbxQcURDsoRi0kN%2FT7iRi7fg26TjF6n7dep0qkyUY%3D?width=250",
+			"total_usd_value": 140.626953125,
+			"avg_usd_value": 140.626953125,
+			"avg_apr": 8.163833618164062,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Psychedelics Anonymous Genesis",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAHeYPw9Vh7yMvtiguoX%2FHT1lqqVDDmJ9ZWflsfFW%2Ftrkp%2BjU2NhltxPrkWhUfNYoTKErgqRkhMEv5iIKANPQYI18GU%2Bq0U0w657mSagKtq75gAHAqZn9GBvK3jpopMRXu3DSOGi%2FC4KM7VO4Z%2FTcJmGQGIUgBBgqxjmYWAeGrxgnP8ad3ahQ8no4q20%2FM66GmbEhggmRxZkp4wP1u9LuQrhpmqMPuAFiM5ya2UzMLaRv5TVJVV57GCuuDgXUITk6kHh%2Fp%2Fys41Vpy6fbMXwbQkc%3D?width=250",
+			"total_usd_value": 130.29083251953125,
+			"avg_usd_value": 130.29083251953125,
+			"avg_apr": 34.49906921386719,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Hashmasks",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAOGHyZLiFQtB0ndq0NPcCS0QjLRWijLW9hZClDIJG5ttg7o2QJQVZ8t%2FQilLYg%2FU8N1aJDdwM%2BNcYRG7b5iXcsKA54kfkxthL1Xwwgn8Vn%2F0kWRrl2cW9TJHGPCFxRrVAfN0TsguYrQVgm%2FbqP%2BGGrtnLeFTE3glUTIPtBS6Y4A8NJCg2ijQKoQUrp8HyiuzqpGaz6%2FU1JRZFBbod3UXbCmNISEiMec5ButzhtxvtujKPiC2sP00H3Vj8YN3vfMOSnEBFjmTlK4%2BSoq8kjCSyks%3D?width=250",
+			"total_usd_value": 130.2386932373047,
+			"avg_usd_value": 130.2386932373047,
+			"avg_apr": 69.00566101074219,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Endless Nameless by Rafaël Rozendaal",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkEa5K8sruoE0Yovpgw%2FJRctxLQ1SCft%2FH25ogBPwYA3T6Sq8TQyuWVRY6KjoFtW4k6jCcBQxICVDpMIPn8YEuB4s7tzmD6B7q0z6zZYT9oqGUxuHrdX%2B%2B%2FDwAfHOtBl0Ww%3D%3D?width=250",
+			"total_usd_value": 120.76765441894531,
+			"avg_usd_value": 120.76765441894531,
+			"avg_apr": 69.00527954101562,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Gucci Grail - 10KTF",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuALkPeY3uzQdDnTKR5gbs7BwHfkOV362xY5HqwKGCZfB7gV96c3CXHHEw%2Bv7CRmBUazxux566E%2Bs5DegkSY3sqeM3x%2BQakfhgwtYz1ZsUiLTFGDVOiNdq96JEZT06CR3NknlUTfzzv%2Bow297CCRCyuxYQSKRzHX5d%2FoWrhvCSt%2FYpPLaV3%2Ft9KdysiqnR8y4oQdzkJ6bfrldZzF9UdOiSOWvvB71LmBipg%2FDWQFP4edevQ4B7S77yUkfA72wmksM8Q%2B40KDU3wvU0%2F5bMwj8uUck%3D?width=250",
+			"total_usd_value": 112.62075805664062,
+			"avg_usd_value": 112.62075805664062,
+			"avg_apr": 14.800285339355469,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Moonbirds Oddities",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAKNC8Ift4wKUnrGbpyNJh9agi21yyO74tHhSlvIr7seFhTPY6LkGfP7naIBs7VNWD0sClRA5JNLxK2oR88FHvDJF%2FmHsMNATUDoTMWdYoHWORPsuvt531xzSr1yEw69fExb7SUxNN4F0cMdNKPLdTDlfujQYsvB%2Blw6EPuNZDBAbY4XNtNYRmA5eTWppmqukvSHOJ3pvvtmsX6hNfavcSopwI1nah5yjFJrXowlyjhSo6m%2FYKboKQGzdC2SYVHraRPHIwZwGaBvsbrxdIFycf2s%3D?width=250",
+			"total_usd_value": 105.94356536865234,
+			"avg_usd_value": 105.94356536865234,
+			"avg_apr": 35.00126647949219,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Algobots by Stina Jones",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuACW1jyAIdILJwl%2BByr1vTbMUikyCi0s7%2BIdNXtOkp66Y2c9jxNOC0Sj0HAi9TUdQQs95PsKWwJ8dWtcQZRsTLc9QLtt7GM1c5FuV4RdHgS70lxZn58yJc4f7JAK5k6yrVoxL90FZot4P2cCAMBIhJBXBy545bYXDqXsDi%2BEvQlOUUw3jV5MYpA%2BmnM67T8pT1AtDCeS89KRP5x82cp9WQUjZkTtf36bz16StoSAJdPRwhHlf084jEBTqvcuCQPpf6sIAx%2Bg6uMgXNfidfidoNG0%3D?width=250",
+			"total_usd_value": 88.99497985839844,
+			"avg_usd_value": 88.99497985839844,
+			"avg_apr": 59.00833511352539,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Color Study by Jeff Davis",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/m8Rol%2FE80oMmjzi7K7IQ0u6HzXVyHUh6MaSEPbYQy1FvTDVDGRrX3DozErGUn2Zo2akRZabpbxYUoLySYYmEkB7tMJKO0JTjI2TP6%2FPiCa5G%2Fk0EitYnMPe%2Ft5qa%2FcxB0tgyHWNk11oll4Jukyo%2F5vPQQTYqUIYvbqTpSWv3sAi3QM%2BJNOrMZQdAeHWB%2BDLsbr6y%2BUJFOwN0PENeFUUv9w%3D%3D?width=250",
+			"total_usd_value": 87.11067962646484,
+			"avg_usd_value": 87.11067962646484,
+			"avg_apr": 64.015380859375,
+			"loan_count": 1
+		},
+		{
+			"nftProjectName": "Flux by Owen Moore",
+			"nftProjectImageUri": "https:\/\/img.reservoir.tools\/images\/v2\/mainnet\/z9JRSpLYGu7%2BCZoKWtAuAE%2FhMAIW9nvEtHEuriRSTsF%2FZ7qMGH1KfqtmVwsGG4OVsPKFFGyrcycXQaaMQDrHLKOCdPiv6slheTjcBZQNMYGLiaKe6AeMhsuIuprkOogHYTdo1h%2FvgI7iJl%2F64c4UWu6lLJVeNEd3T0KaTuyP5dg1JOY0LrLSCx1O17V%2BByC%2FmDrFjCGZSqzTkzLSOkpJ8Q%3D%3D?width=250",
+			"total_usd_value": 85.43603515625,
+			"avg_usd_value": 85.43603515625,
+			"avg_apr": 32.991943359375,
+			"loan_count": 1
+		}
+	],
+
+	"rows": 217,
+
+	"statistics":
+	{
+		"elapsed": 0.396511478,
+		"rows_read": 115478,
+		"bytes_read": 33163677
+	}
+}

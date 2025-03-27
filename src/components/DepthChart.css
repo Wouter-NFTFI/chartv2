@@ -128,28 +128,18 @@
 }
 
 .depth-chart-demo-table .table-header {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .depth-chart-demo-table .table-header h2 {
-  margin: 0 0 8px 0;
+  margin: 0;
   font-size: 18px;
   color: #212B36;
-}
-
-.depth-chart-demo-table .table-header p {
-  margin: 0 0 4px 0;
-  font-size: 14px;
-  color: #637381;
-}
-
-.depth-chart-demo-table .table-header p.mt-1 {
-  margin-top: 4px;
-  font-size: 12px;
+  font-weight: 600;
 }
 
 .depth-chart-demo-table .loan-table-container {
-  height: calc(100% - 70px); /* Account for header */
+  height: calc(100% - 40px); /* Reduced from 70px since header is now smaller */
   overflow-y: auto;
   border-radius: 8px;
   box-shadow: none;

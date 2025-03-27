@@ -1,4 +1,3 @@
-import React from 'react';
 import Select, { StylesConfig, GroupBase, components, DropdownIndicatorProps } from 'react-select';
 import type { NFTfiCollection } from '../api/nftfiApi';
 import './CollectionDropdown.css';
@@ -16,7 +15,10 @@ interface OptionType {
 }
 
 export function CollectionDropdown({ collections, selectedCollectionId, onSelect }: Props) {
-  const options: OptionType[] = collections
+  // Filter out any collections with null names that might have slipped through
+  const validCollections = collections.filter(collection => !!collection.nftProjectName);
+  
+  const options: OptionType[] = validCollections
     .sort((a, b) => (b.volumePercentage || 0) - (a.volumePercentage || 0))
     .map((collection) => ({
       value: collection.nftProjectName,
