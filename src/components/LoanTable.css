@@ -1,9 +1,10 @@
 .loan-table-container {
   width: 100%;
-  overflow-x: auto;
+  height: 100%;
+  overflow: auto;
   background: #FFFFFF;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .loan-table {
@@ -11,6 +12,13 @@
   border-collapse: collapse;
   font-size: 14px;
   color: #212B36;
+  table-layout: fixed;
+}
+
+.loan-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .loan-table th {

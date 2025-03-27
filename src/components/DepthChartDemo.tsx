@@ -87,10 +87,13 @@ export function DepthChartDemo({
             />
           </div>
         </section>
+        
+        {/* Add spacing at the bottom to account for fixed table */}
+        <div style={{ height: '33.33vh' }}></div>
       </div>
       
       <div className="depth-chart-demo-table">
-        <div className="mb-4">
+        <div className="table-header">
           <h2 className="text-xl font-semibold">Loan Data</h2>
           <p className="text-sm text-gray-600">
             {loans.length} loan{loans.length !== 1 ? 's' : ''} displayed
